@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence } from "framer-motion";
-import { Play } from "lucide-react";
+import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence, useMotionValue } from "framer-motion";
+import { Play, X } from "lucide-react";
 
 // --- Utility: Specialized Counter ---
 function Counter({ target, label, suffix = "" }: { target: number; label: string; suffix?: string }) {
@@ -224,16 +224,18 @@ export function FeedTimeline({
   );
 }
 
-// --- Section 3.5: Live Art Gallery (Asymmetrical) ---
+// --- Section 3.5: Live Art Gallery (Interactive 3-Image) ---
 export function LiveArtGallery({ 
   sections 
 }: { 
   sections: { 
     title: string; 
-    images: string[]; 
+    image: string; 
     layout: 'top' | 'bottom';
   }[] 
 }) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   return (
     <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48">
       <div className="site-container">
@@ -242,43 +244,27 @@ export function LiveArtGallery({
             <div key={idx} className="flex flex-col">
               {section.layout === 'top' && (
                 <motion.h3 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mb-12 max-w-[240px] leading-[0.9]"
+                  className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] mb-8 text-secondary"
                 >
                   {section.title}
                 </motion.h3>
               )}
               
-              <div className="grid grid-cols-3 gap-1.5 md:gap-2">
-                {section.images.map((img, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: i * 0.02 + idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className="aspect-square bg-muted overflow-hidden border border-border/5"
-                  >
-                    <img 
-                      src={img} 
-                      alt="" 
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://placehold.co/400x400/252422/FFFFFF?text=Post+${i+1}`;
-                      }}
-                    />
-                  </motion.div>
-                ))}
-              </div>
+              <InteractiveImage 
+                src={section.image} 
+                onClick={() => setExpandedIndex(idx)} 
+                index={idx}
+              />
 
               {section.layout === 'bottom' && (
                 <motion.h3 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mt-12 max-w-[240px] leading-[0.9]"
+                  className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] mt-8 text-secondary"
                 >
                   {section.title}
                 </motion.h3>
@@ -287,7 +273,84 @@ export function LiveArtGallery({
           ))}
         </div>
       </div>
+
+      <AnimatePresence mode="wait">
+        {expandedIndex !== null && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+            onClick={() => setExpandedIndex(null)}
+          >
+            <button 
+              className="absolute top-8 right-8 p-4 bg-foreground text-background transition-transform hover:scale-110 z-[101] cursor-pointer"
+              onClick={(e) => { e.stopPropagation(); setExpandedIndex(null); }}
+            >
+              <X size={24} />
+            </button>
+            <motion.img 
+              layoutId={`gallery-img-${expandedIndex}`}
+              src={sections[expandedIndex].image}
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://placehold.co/1200x1600/252422/FFFFFF?text=Imagem+${expandedIndex + 1}`;
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
+  );
+}
+
+function InteractiveImage({ src, onClick, index }: { src: string; onClick: () => void; index: number }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div 
+      className="relative cursor-pointer"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      style={{ rotateX, rotateY, perspective: 1000 }}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+    >
+      <motion.img 
+        layoutId={`gallery-img-${index}`}
+        src={src} 
+        alt="" 
+        className="w-full h-auto shadow-xl border border-border/10 grayscale hover:grayscale-0 transition-all duration-700" 
+        onError={(e) => {
+          (e.target as HTMLImageElement).src = `https://placehold.co/800x1200/252422/FFFFFF?text=Imagem+${index + 1}`;
+        }}
+      />
+    </motion.div>
   );
 }
 

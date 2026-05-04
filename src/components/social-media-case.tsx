@@ -224,6 +224,73 @@ export function FeedTimeline({
   );
 }
 
+// --- Section 3.5: Live Art Gallery (Asymmetrical) ---
+export function LiveArtGallery({ 
+  sections 
+}: { 
+  sections: { 
+    title: string; 
+    images: string[]; 
+    layout: 'top' | 'bottom';
+  }[] 
+}) {
+  return (
+    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48">
+      <div className="site-container">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 items-start">
+          {sections.map((section, idx) => (
+            <div key={idx} className="flex flex-col">
+              {section.layout === 'top' && (
+                <motion.h3 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mb-12 max-w-[240px] leading-[0.9]"
+                >
+                  {section.title}
+                </motion.h3>
+              )}
+              
+              <div className="grid grid-cols-3 gap-1.5 md:gap-2">
+                {section.images.map((img, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: i * 0.02 + idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="aspect-square bg-muted overflow-hidden border border-border/5"
+                  >
+                    <img 
+                      src={img} 
+                      alt="" 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://placehold.co/400x400/252422/FFFFFF?text=Post+${i+1}`;
+                      }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+
+              {section.layout === 'bottom' && (
+                <motion.h3 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mt-12 max-w-[240px] leading-[0.9]"
+                >
+                  {section.title}
+                </motion.h3>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // --- Section 4: Video Gallery ---
 export function VideoGallery({ 
   videos 

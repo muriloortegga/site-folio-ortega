@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { 
   PerformanceHero, 
   CopyFeature, 
-  FeedTimeline, 
+  LiveArtGallery, 
   VideoGallery 
 } from "@/components/social-media-case";
 import { 
@@ -79,29 +79,38 @@ function ProjetoNaTrave() {
             mockupImg="/assets/projects/natrave/social/mockups/copy-showcase.png"
           />
 
-          <FeedTimeline 
-            states={[
-              { 
-                label: "Mês 1", 
-                posts: [
+          <LiveArtGallery 
+            sections={[
+              {
+                title: "Jornalismo esportivo nas mídias sociais",
+                layout: 'top',
+                images: [
                   "/assets/projects/natrave/social/posts/feed-01.jpg", "/assets/projects/natrave/social/posts/feed-02.jpg", "/assets/projects/natrave/social/posts/feed-03.jpg",
-                  "/assets/projects/natrave/social/posts/feed-04.jpg", "/assets/projects/natrave/social/posts/feed-05.jpg", "/assets/projects/natrave/social/posts/feed-06.jpg"
-                ] 
-              },
-              { 
-                label: "Mês 3", 
-                posts: [
+                  "/assets/projects/natrave/social/posts/feed-04.jpg", "/assets/projects/natrave/social/posts/feed-05.jpg", "/assets/projects/natrave/social/posts/feed-06.jpg",
                   "/assets/projects/natrave/social/posts/feed-07.jpg", "/assets/projects/natrave/social/posts/feed-08.jpg", "/assets/projects/natrave/social/posts/feed-09.jpg",
-                  "/assets/projects/natrave/social/posts/feed-10.jpg", "/assets/projects/natrave/social/posts/feed-11.jpg", "/assets/projects/natrave/social/posts/feed-12.jpg"
-                ] 
-              },
-              { 
-                label: "Mês 6", 
-                posts: [
+                  "/assets/projects/natrave/social/posts/feed-10.jpg", "/assets/projects/natrave/social/posts/feed-11.jpg", "/assets/projects/natrave/social/posts/feed-12.jpg",
                   "/assets/projects/natrave/social/posts/feed-13.jpg", "/assets/projects/natrave/social/posts/feed-14.jpg", "/assets/projects/natrave/social/posts/feed-15.jpg",
-                  "/assets/projects/natrave/social/posts/feed-16.jpg", "/assets/projects/natrave/social/posts/feed-17.jpg", "/assets/projects/natrave/social/posts/feed-18.jpg"
-                ] 
+                ]
               },
+              {
+                title: "Conteúdo que gera identificação com o público alvo",
+                layout: 'bottom',
+                images: [
+                  "/assets/projects/natrave/social/posts/feed-16.jpg", "/assets/projects/natrave/social/posts/feed-17.jpg", "/assets/projects/natrave/social/posts/feed-18.jpg",
+                  "/assets/projects/natrave/social/posts/feed-19.jpg", "/assets/projects/natrave/social/posts/feed-20.jpg", "/assets/projects/natrave/social/posts/feed-21.jpg",
+                  "/assets/projects/natrave/social/posts/feed-22.jpg", "/assets/projects/natrave/social/posts/feed-23.jpg", "/assets/projects/natrave/social/posts/feed-24.jpg",
+                ]
+              },
+              {
+                title: "Design alinhado á identidade visual da marca",
+                layout: 'top',
+                images: [
+                  "/assets/projects/natrave/social/posts/feed-25.jpg", "/assets/projects/natrave/social/posts/feed-26.jpg", "/assets/projects/natrave/social/posts/feed-27.jpg",
+                  "/assets/projects/natrave/social/posts/feed-28.jpg", "/assets/projects/natrave/social/posts/feed-29.jpg", "/assets/projects/natrave/social/posts/feed-30.jpg",
+                  "/assets/projects/natrave/social/posts/feed-31.jpg", "/assets/projects/natrave/social/posts/feed-32.jpg", "/assets/projects/natrave/social/posts/feed-33.jpg",
+                  "/assets/projects/natrave/social/posts/feed-34.jpg", "/assets/projects/natrave/social/posts/feed-35.jpg", "/assets/projects/natrave/social/posts/feed-36.jpg",
+                ]
+              }
             ]}
           />
 

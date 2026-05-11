@@ -237,11 +237,15 @@ export function LiveArtGallery({
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48">
-      <div className="site-container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 items-start">
+    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48 md:pb-64">
+      <div className="max-w-[1700px] mx-auto px-0 md:px-12">
+        {/* Mobile: Horizontal Carousel (snap) | Desktop: 3-Col Grid */}
+        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-3 gap-8 md:gap-20 items-start">
           {sections.map((section, idx) => (
-            <div key={idx} className="flex flex-col">
+            <div 
+              key={idx} 
+              className={`flex-none w-[85vw] md:w-auto snap-center flex flex-col px-6 md:px-0 ${idx === 1 ? 'md:mt-32' : ''}`}
+            >
               {section.layout === 'top' && (
                 <motion.h3 
                   initial={{ opacity: 0 }}

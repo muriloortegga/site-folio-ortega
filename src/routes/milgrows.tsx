@@ -3,7 +3,7 @@ import { useState } from "react";
 import { 
   PerformanceHero, 
   CopyFeature, 
-  LiveArtGallery 
+  SingleImageShowcase 
 } from "@/components/social-media-case";
 import { 
   TestimonialCTA 
@@ -68,24 +68,8 @@ function ProjetoMilgrows() {
             mockupImg="/assets/projects/milgrows/social/mockups/copy-showcase.png"
           />
 
-          <LiveArtGallery 
-            sections={[
-              {
-                title: "Educação e Cannabis Medicinal",
-                layout: 'top',
-                image: "/assets/projects/milgrows/social/gallery/art-01.jpg"
-              },
-              {
-                title: "Conteúdo acolhedor e autoridade humana",
-                layout: 'bottom',
-                image: "/assets/projects/milgrows/social/gallery/art-02.jpg"
-              },
-              {
-                title: "Design estratégico para democratizar o acesso",
-                layout: 'top',
-                image: "/assets/projects/milgrows/social/gallery/art-03.jpg"
-              }
-            ]}
+          <SingleImageShowcase 
+            src="/assets/projects/milgrows/social/gallery/art-01.png"
           />
 
           <TestimonialCTA 

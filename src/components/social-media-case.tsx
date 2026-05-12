@@ -518,3 +518,59 @@ function VideoCard({
     </motion.div>
   );
 }
+
+// --- Section 3.6: Single Image Showcase (Immersive) ---
+export function SingleImageShowcase({ src }: { src: string }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  return (
+    <section 
+      ref={containerRef}
+      className="site-section bg-background overflow-hidden border-none py-0 md:h-screen flex items-center justify-center relative cursor-zoom-in"
+      onClick={() => setIsExpanded(true)}
+    >
+      <div className="w-full h-[60vh] md:h-full relative overflow-hidden">
+        <motion.img 
+          src={src} 
+          alt="Showcase"
+          style={{ y: useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]) }}
+          className="absolute inset-0 w-full h-[130%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = `https://placehold.co/1920x1080/252422/FFFFFF?text=Showcase+Image`;
+          }}
+        />
+      </div>
+
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+            onClick={(e) => { e.stopPropagation(); setIsExpanded(false); }}
+          >
+            <button 
+              className="absolute top-8 right-8 p-4 bg-foreground text-background transition-transform hover:scale-110 z-[101] cursor-pointer"
+              onClick={() => setIsExpanded(false)}
+            >
+              <X size={24} />
+            </button>
+            <motion.img 
+              src={src}
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}

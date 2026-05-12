@@ -18,7 +18,7 @@ export const Route = createFileRoute("/trabalho")({
 
 const projects = [
   // Social Media
-  { name: "NaTrave", category: "Social Media", year: "2024", image: "/natrave-preview.gif", to: "/natrave" },
+  { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
   { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy" },
   { name: "Evidive", category: "Social Media", year: "2024", image: "/hero-brandding.jpg", to: "/evidive" },
   { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi" },
@@ -26,10 +26,10 @@ const projects = [
   { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi" },
   
   // Id Visual
-  { name: "NaTrave", category: "Id Visual", year: "2024", image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800", to: "/natrave" },
-  { name: "Symplice", category: "Id Visual", year: "2024", image: "/hero-brandding.jpg", to: "/symplice" },
-  { name: "Kmillion", category: "Id Visual", year: "2024", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/kmillion" },
-  { name: "Solid+", category: "Id Visual", year: "2024", image: "/solid-full.png", to: "/solid" },
+  { name: "NaTrave", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
+  { name: "Symplice", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/symplice.jpg", to: "/symplice" },
+  { name: "Kmillion", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
+  { name: "Solid+", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/solid.jpg", to: "/solid" },
   
   // Mídia Impressa
   { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "https://images.unsplash.com/photo-1544640808-32ca72ac7f37?q=80&w=800", to: "/marco-boni" },
@@ -39,9 +39,9 @@ const projects = [
   { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi" },
 
   // Websites
-  { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave" },
+  { name: "NaTrave", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
   { name: "Talk2Buy", category: "Websites", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy" },
-  { name: "Kmillion", category: "Websites", year: "2024", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/kmillion" },
+  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
 
   // Marketing de Influência
   { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/hero-brandding.jpg", to: "/evidive" },

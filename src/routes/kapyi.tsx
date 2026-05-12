@@ -6,12 +6,20 @@ import {
   TopCopies, 
   GridEvolution, 
   VerticalGallery, 
-  TestimonialCTA 
+  TestimonialCTA,
+  EditorialSocialCase
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 
+import { z } from "zod";
+
+const projectSearchSchema = z.object({
+  service: z.string().optional().catch("social"),
+});
+
 export const Route = createFileRoute("/kapyi")({
+  validateSearch: (search) => projectSearchSchema.parse(search),
   head: () => ({
     meta: [
       { title: "Kapyi — Case Study — Murilo Ortega" },
@@ -22,7 +30,8 @@ export const Route = createFileRoute("/kapyi")({
 });
 
 function ProjetoKapyi() {
-  const [activeService, setActiveService] = useState("social");
+  const { service } = Route.useSearch();
+  const [activeService, setActiveService] = useState(service || "social");
 
   const services = [
     { id: "social", label: "Social Media" }
@@ -52,54 +61,17 @@ function ProjetoKapyi() {
       />
 
       {activeService === "social" && (
-        <div className="anim-fade-in">
-          <BeforeAfter 
-            targetFollowers={4300}
-            beforeImg="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800"
-            afterImg="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
-          />
-
-          <TopPosts 
-            posts={[
-              { img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", context: "Visual Impact", stats: "15k reach" },
-              { img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800", context: "Menu Preview", stats: "2.5k likes" },
-              { img: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=800", context: "Community", stats: "900 shares" },
-              { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800", context: "Behind the Scenes", stats: "High Story Views" },
-            ]}
-          />
-
-          <TopCopies 
-            copies={[
-              { text: "A experiência Kapyi vai além do prato, é o encontro entre tradição e o novo lifestyle urbano.", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800" },
-              { text: "Onde o sabor encontra a sua melhor companhia. Reserve seu momento Kapyi.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" },
-              { text: "Mais do que um café, um ponto de conexão. O digital reflete o que vivemos no presencial.", img: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=800" },
-            ]}
-          />
-
-          <GridEvolution 
-            grids={[
-              { month: "Inauguração", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" },
-              { month: "Fase 02", img: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=800" },
-              { month: "Atualidade", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800" },
-            ]}
-          />
-
-          <VerticalGallery 
-            items={[
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" },
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800" },
-            ]}
-          />
-
-          <TestimonialCTA 
-            clientName="Proprietário Kapyi"
-            clientRole="Founder"
-            testimonial="O Murilo conseguiu capturar a essência do nosso espaço e traduzir isso em desejo digital. O movimento na casa aumentou visivelmente."
-            clientImage="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400"
-          />
-        </div>
+        <EditorialSocialCase 
+          mainImg="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
+          designTitle="Identidade Gastronômica"
+          designText="O design para Kapyi traduz a experiência sensorial do menu em desejo digital. Criamos um sistema visual que une a tradição da culinária com a sofisticação urbana."
+          copyTitle="O Sabor da Conexão"
+          copyText="A experiência Kapyi vai além do prato, é o encontro entre tradição e o novo lifestyle urbano.\n\nConstruímos narrativas que convidam o público a viver o momento Kapyi, transformando o digital em um ponto de encontro real."
+          stats={[
+            { label: "Engajamento", value: "High" },
+            { label: "Alcance", value: "15k+" }
+          ]}
+        />
       )}
 
       <section className="site-section border-t border-border mt-32">

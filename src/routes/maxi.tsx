@@ -2,9 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
-import { MaxiSocialCase } from "@/components/maxi-social-case";
+import { EditorialSocialCase } from "@/components/social-case-layout";
+
+import { z } from "zod";
+
+const projectSearchSchema = z.object({
+  service: z.string().optional().catch("social"),
+});
 
 export const Route = createFileRoute("/maxi")({
+  validateSearch: (search) => projectSearchSchema.parse(search),
   head: () => ({
     meta: [
       { title: "Colégio Maxi — Social Media · Murilo Ortega" },
@@ -19,7 +26,8 @@ export const Route = createFileRoute("/maxi")({
 });
 
 function ProjetoMaxi() {
-  const [activeService, setActiveService] = useState("social");
+  const { service } = Route.useSearch();
+  const [activeService, setActiveService] = useState(service || "social");
 
   const services = [
     { id: "social", label: "Social Media" },
@@ -50,7 +58,17 @@ function ProjetoMaxi() {
       />
 
       {activeService === "social" ? (
-        <MaxiSocialCase />
+        <EditorialSocialCase 
+          mainImg="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1200"
+          designTitle="Tradição que Evolui"
+          designText="O desafio do Colégio Maxi era traduzir autoridade e tradição acadêmica em uma comunicação contemporânea. O design foca na solidez institucional com um ritmo visual dinâmico."
+          copyTitle="Autoridade Acadêmica"
+          copyText="Design chama atenção. Copy constrói percepção.\n\nConstruímos uma narrativa que alinha os valores da instituição ao desejo dos novos alunos e pais, transformando credibilidade em desejo real."
+          stats={[
+            { label: "Posicionamento", value: "Premium" },
+            { label: "Impacto", value: "Estratégico" }
+          ]}
+        />
       ) : (
         <div className="anim-fade-in site-container pb-32">
           <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-2xl mb-12">

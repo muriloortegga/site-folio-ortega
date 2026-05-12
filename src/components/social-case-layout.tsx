@@ -285,3 +285,79 @@ export function TestimonialCTA({
     </section>
   );
 }
+
+export function EditorialSocialCase({ 
+  mainImg, 
+  designTitle, 
+  designText, 
+  copyTitle, 
+  copyText,
+  stats
+}: {
+  mainImg: string;
+  designTitle: string;
+  designText: string;
+  copyTitle: string;
+  copyText: string;
+  stats?: { label: string; value: string }[];
+}) {
+  return (
+    <div className="anim-fade-in space-y-32 pb-32">
+      <section className="site-section py-0 border-none overflow-hidden h-[70vh] md:h-screen">
+        <motion.img 
+          initial={{ scale: 1.1, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          src={mainImg}
+          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1920";
+          }}
+        />
+      </section>
+
+      <section className="site-section">
+        <div className="site-container grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div className="md:sticky md:top-32">
+            <span className="site-label mb-8">Social Media Design</span>
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.85]">
+              {designTitle}
+            </h2>
+          </div>
+          <div className="pt-4 md:pt-32">
+            <p className="text-xl md:text-2xl text-secondary uppercase font-medium leading-tight max-w-xl">
+              {designText}
+            </p>
+            {stats && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-16">
+                {stats.map((s, i) => (
+                  <div key={i} className="border-t border-border pt-6">
+                    <div className="text-4xl font-bold tracking-tighter mb-2">{s.value}</div>
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-secondary">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section bg-foreground text-background">
+        <div className="site-container grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div className="order-2 md:order-1 pt-4 md:pt-32">
+            <p className="text-xl md:text-2xl text-background/60 uppercase font-medium leading-tight max-w-xl whitespace-pre-line">
+              {copyText}
+            </p>
+          </div>
+          <div className="order-1 md:order-2 md:sticky md:top-32 text-left">
+            <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-background/40 mb-8 block">Copywriting Estratégico</span>
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.85] text-background">
+              {copyTitle}
+            </h2>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

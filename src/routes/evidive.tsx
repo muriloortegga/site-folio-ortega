@@ -8,7 +8,8 @@ import {
   TopCopies, 
   GridEvolution, 
   VerticalGallery, 
-  TestimonialCTA 
+  TestimonialCTA,
+  EditorialSocialCase
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
@@ -63,54 +64,17 @@ function ProjetoEviDive() {
       />
 
       {activeService === "social" && (
-        <div className="anim-fade-in">
-          <BeforeAfter 
-            targetFollowers={5200}
-            beforeImg="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800"
-            afterImg="/hero-brandding.jpg"
-          />
-
-          <TopPosts 
-            posts={[
-              { img: "/hero-brandding.jpg", context: "Imersão: Emotion Dive", stats: "18k alcance" },
-              { img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800", context: "Bem-estar & Natureza", stats: "2.1k likes" },
-              { img: "https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=800", context: "Educação: Mentoria", stats: "1.5k salvos" },
-              { img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800", context: "Comunidade: Estilo de Vida", stats: "High Engagement" },
-            ]}
-          />
-
-          <TopCopies 
-            copies={[
-              { text: "Mergulhar não é sobre prender a respiração, é sobre libertar a mente.", img: "/hero-brandding.jpg" },
-              { text: "A EviDive é o único Concept Dive Center do mundo focado na sua transformação.", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800" },
-              { text: "Redescubra o tempo, o corpo e a natureza. O mergulho é a porta de entrada.", img: "https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=800" },
-            ]}
-          />
-
-          <GridEvolution 
-            grids={[
-              { month: "Início: Descoberta", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800" },
-              { month: "Fase 02: Imersão & Comunidade", img: "https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=800" },
-              { month: "Atual: Autoridade em Experiências", img: "/hero-brandding.jpg" },
-            ]}
-          />
-
-          <VerticalGallery 
-            items={[
-              { type: 'Reel', img: "/hero-brandding.jpg" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800" },
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800" },
-            ]}
-          />
-
-          <TestimonialCTA 
-            clientName="Diretoria Evidive"
-            clientRole="Fundador"
-            testimonial="O Murilo não criou apenas posts, ele criou um destino digital. Hoje a EviDive é percebida como uma marca premium de lifestyle."
-            clientImage="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400"
-          />
-        </div>
+        <EditorialSocialCase 
+          mainImg="/hero-brandding.jpg"
+          designTitle="Estética Subaquática & Autoridade"
+          designText="Transformamos a identidade visual da Evidive em um destino digital premium. O design foca na clareza técnica e na imersão emocional, quebrando a percepção de complexidade do mergulho."
+          copyTitle="Narrativas que Libertam a Mente"
+          copyText="Mergulhar não é sobre prender a respiração, é sobre libertar a mente.\n\nConstruímos uma linha editorial que posiciona a Evidive como o único Concept Dive Center do mundo focado na transformação pessoal."
+          stats={[
+            { label: "Engajamento", value: "High" },
+            { label: "Alcance", value: "18k+" }
+          ]}
+        />
       )}
 
       {activeService === "influencia" && (

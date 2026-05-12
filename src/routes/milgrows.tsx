@@ -11,7 +11,14 @@ import {
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 
+import { z } from "zod";
+
+const projectSearchSchema = z.object({
+  service: z.string().optional().catch("social"),
+});
+
 export const Route = createFileRoute("/milgrows")({
+  validateSearch: (search) => projectSearchSchema.parse(search),
   head: () => ({
     meta: [
       { title: "Milgrows — Murilo Ortega" },
@@ -22,7 +29,8 @@ export const Route = createFileRoute("/milgrows")({
 });
 
 function ProjetoMilgrows() {
-  const [activeService, setActiveService] = useState("social");
+  const { service } = Route.useSearch();
+  const [activeService, setActiveService] = useState(service || "social");
 
   const services = [
     { id: "social", label: "Social Media" }

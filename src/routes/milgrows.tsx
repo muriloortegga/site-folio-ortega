@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { 
-  BeforeAfter, 
-  TopPosts, 
-  TopCopies, 
-  GridEvolution, 
-  VerticalGallery, 
+  PerformanceHero, 
+  CopyFeature, 
+  FeedTimeline 
+} from "@/components/social-media-case";
+import { 
   TestimonialCTA 
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
@@ -22,8 +22,7 @@ export const Route = createFileRoute("/milgrows")({
 });
 
 function ProjetoMilgrows() {
-  const [activeService, setActiveService] = useState("social"); // For new ones, maybe social is fine as default if it's the only one? 
-  // Actually, the user wants the "old" dynamic. For Milgrows, let's keep Social as an option.
+  const [activeService, setActiveService] = useState("social");
 
   const services = [
     { id: "social", label: "Social Media" }
@@ -54,43 +53,33 @@ function ProjetoMilgrows() {
 
       {activeService === "social" && (
         <div className="anim-fade-in">
-          <BeforeAfter 
-            targetFollowers={1200}
-            beforeImg="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800"
-            afterImg="https://images.unsplash.com/photo-1556922453-8691f99ffcd1?q=80&w=800"
+          <PerformanceHero 
+            followers={11000}
+            followersLabel="Novos Seguidores"
+            anchorText="Identidade e base consolidada"
+            mockupImg="/assets/projects/milgrows/social/mockups/performance.png" 
           />
 
-          <TopPosts 
-            posts={[
-              { img: "https://images.unsplash.com/photo-1556922453-8691f99ffcd1?q=80&w=800", context: "Educativo: Regulamentação", stats: "12k alcance" },
-              { img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800", context: "Humanização: Apoio ao Paciente", stats: "1.2k salvos" },
-              { img: "https://images.unsplash.com/photo-1523348830342-d01f9fc56440?q=80&w=800", context: "Inovação: Cultivo Legal", stats: "800+ comentários" },
-              { img: "https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?q=80&w=800", context: "Comunidade: Quebrando Estigmas", stats: "High Impact" },
-            ]}
+          <CopyFeature 
+            headline="COPYWRITING, REDAÇÃO E DESIGN QUE IA NENHUMA CONSEGUE CRIAR."
+            contentCount={100}
+            contentLabel="Conteúdos Criados"
+            bgImage="/assets/projects/milgrows/social/backgrounds/texture.jpg"
+            mockupImg="/assets/projects/milgrows/social/mockups/copy-showcase.png"
           />
 
-          <TopCopies 
-            copies={[
-              { text: "A cannabis medicinal não é sobre o que você planta, é sobre a saúde que você colhe.", img: "https://images.unsplash.com/photo-1556922453-8691f99ffcd1?q=80&w=800" },
-              { text: "Democratizar o conhecimento é o primeiro passo para o acesso seguro e legal.", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800" },
-              { text: "Trabalhamos para que a ciência supere o estigma, e a saúde seja prioridade.", img: "https://images.unsplash.com/photo-1523348830342-d01f9fc56440?q=80&w=800" },
-            ]}
-          />
-
-          <GridEvolution 
-            grids={[
-              { month: "Início: Identidade & Causa", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800" },
-              { month: "Fase 02: Autoridade Educativa", img: "https://images.unsplash.com/photo-1523348830342-d01f9fc56440?q=80&w=800" },
-              { month: "Atual: Movimento & Apoio", img: "https://images.unsplash.com/photo-1556922453-8691f99ffcd1?q=80&w=800" },
-            ]}
-          />
-
-          <VerticalGallery 
-            items={[
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1556922453-8691f99ffcd1?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800" },
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1523348830342-d01f9fc56440?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?q=80&w=800" },
+          <FeedTimeline 
+            title="Destaques do Feed"
+            states={[
+              { 
+                label: "Vitrines", 
+                posts: [
+                  "/assets/projects/milgrows/social/posts/feed-01.jpg", "/assets/projects/milgrows/social/posts/feed-02.jpg", "/assets/projects/milgrows/social/posts/feed-03.jpg",
+                  "/assets/projects/milgrows/social/posts/feed-04.jpg", "/assets/projects/milgrows/social/posts/feed-05.jpg", "/assets/projects/milgrows/social/posts/feed-06.jpg",
+                  "/assets/projects/milgrows/social/posts/feed-07.jpg", "/assets/projects/milgrows/social/posts/feed-08.jpg", "/assets/projects/milgrows/social/posts/feed-09.jpg",
+                  "/assets/projects/milgrows/social/posts/feed-10.jpg", "/assets/projects/milgrows/social/posts/feed-11.jpg", "/assets/projects/milgrows/social/posts/feed-12.jpg"
+                ] 
+              }
             ]}
           />
 

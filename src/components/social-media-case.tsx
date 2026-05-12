@@ -30,21 +30,27 @@ export function PerformanceHero({
   followers, 
   contentCount, 
   mockupImg,
-  anchorText = "Identidade e base consolidada"
+  anchorText = "Identidade e base consolidada",
+  followersLabel = "Seguidores",
+  contentLabel = "Conteúdos Criados"
 }: { 
   followers: number; 
-  contentCount: number; 
+  contentCount?: number; 
   mockupImg: string;
   anchorText?: string;
+  followersLabel?: string;
+  contentLabel?: string;
 }) {
   return (
     <section className="min-h-screen w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-24 md:py-0">
       <div className="site-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-4 z-10 order-2 lg:order-1">
-          <Counter target={followers} label="Seguidores" />
-          <div className="mt-[-2rem] md:mt-[-4rem]">
-            <Counter target={contentCount} label="Conteúdos Criados" suffix="+" />
-          </div>
+          <Counter target={followers} label={followersLabel} />
+          {contentCount !== undefined && (
+            <div className="mt-[-2rem] md:mt-[-4rem]">
+              <Counter target={contentCount} label={contentLabel} suffix="+" />
+            </div>
+          )}
           <p className="site-label mt-12 before:bg-foreground">{anchorText}</p>
         </div>
         
@@ -70,12 +76,16 @@ export function CopyFeature({
   headline, 
   mockupImg, 
   bgImage,
-  accentColor = "#FF6B00"
+  accentColor = "#FF6B00",
+  contentCount,
+  contentLabel = "Conteúdos Criados"
 }: { 
   headline: string; 
   mockupImg: string;
   bgImage?: string;
   accentColor?: string;
+  contentCount?: number;
+  contentLabel?: string;
 }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -108,14 +118,20 @@ export function CopyFeature({
           {headline}
         </motion.h2>
 
-        <div className="relative flex items-center justify-center h-auto md:min-h-[600px]">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 h-auto md:min-h-[600px]">
           <motion.div 
             style={{ y }}
             whileHover={{ scale: 1.02 }}
-            className="w-full md:w-[90%] lg:w-[80%] relative cursor-pointer"
+            className="w-full md:w-[60%] relative cursor-pointer"
           >
             <img src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl" />
           </motion.div>
+
+          {contentCount !== undefined && (
+            <div className="flex-shrink-0">
+               <Counter target={contentCount} label={contentLabel} suffix="+" />
+            </div>
+          )}
         </div>
 
         <div className="mt-40 border-t border-white/20 pt-8">

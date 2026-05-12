@@ -82,7 +82,7 @@ const serviceInsights = {
     title: "Marketing de Influência",
     copy: "Vozes reais gerando impacto real.",
     preview: "Conectamos sua marca com vozes que geram confiança e expandem seu alcance de forma autêntica e estratégica.",
-    to: "/servicos/marketing-de-influencia"
+    to: "/evidive"
   }
 };
 

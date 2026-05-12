@@ -3,7 +3,7 @@ import { useState } from "react";
 import { 
   PerformanceHero, 
   CopyFeature, 
-  FeedTimeline 
+  LiveArtGallery 
 } from "@/components/social-media-case";
 import { 
   TestimonialCTA 
@@ -68,17 +68,22 @@ function ProjetoMilgrows() {
             mockupImg="/assets/projects/milgrows/social/mockups/copy-showcase.png"
           />
 
-          <FeedTimeline 
-            title="Destaques do Feed"
-            states={[
-              { 
-                label: "Vitrines", 
-                posts: [
-                  "/assets/projects/milgrows/social/posts/feed-01.jpg", "/assets/projects/milgrows/social/posts/feed-02.jpg", "/assets/projects/milgrows/social/posts/feed-03.jpg",
-                  "/assets/projects/milgrows/social/posts/feed-04.jpg", "/assets/projects/milgrows/social/posts/feed-05.jpg", "/assets/projects/milgrows/social/posts/feed-06.jpg",
-                  "/assets/projects/milgrows/social/posts/feed-07.jpg", "/assets/projects/milgrows/social/posts/feed-08.jpg", "/assets/projects/milgrows/social/posts/feed-09.jpg",
-                  "/assets/projects/milgrows/social/posts/feed-10.jpg", "/assets/projects/milgrows/social/posts/feed-11.jpg", "/assets/projects/milgrows/social/posts/feed-12.jpg"
-                ] 
+          <LiveArtGallery 
+            sections={[
+              {
+                title: "Educação e Cannabis Medicinal",
+                layout: 'top',
+                image: "/assets/projects/milgrows/social/gallery/art-01.jpg"
+              },
+              {
+                title: "Conteúdo acolhedor e autoridade humana",
+                layout: 'bottom',
+                image: "/assets/projects/milgrows/social/gallery/art-02.jpg"
+              },
+              {
+                title: "Design estratégico para democratizar o acesso",
+                layout: 'top',
+                image: "/assets/projects/milgrows/social/gallery/art-03.jpg"
               }
             ]}
           />

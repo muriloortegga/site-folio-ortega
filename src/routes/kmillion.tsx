@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
+import { Maximize2, X } from "lucide-react";
 
 export const Route = createFileRoute("/kmillion")({
   head: () => ({
@@ -15,6 +16,16 @@ export const Route = createFileRoute("/kmillion")({
 
 function ProjetoKmillion() {
   const [activeService, setActiveService] = useState("marca");
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  useEffect(() => {
+    if (isFullScreen) {
+      document.body.classList.add("has-fullscreen");
+    } else {
+      document.body.classList.remove("has-fullscreen");
+    }
+    return () => document.body.classList.remove("has-fullscreen");
+  }, [isFullScreen]);
 
   const services = [
     { id: "marca", label: "Id Visual" },
@@ -46,14 +57,16 @@ function ProjetoKmillion() {
 
       {activeService === "marca" && (
         <div className="anim-fade-in site-container pb-32">
-           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Kmillion Branding" className="w-full h-auto border border-border shadow-2xl mb-12" />
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Kmillion Data" className="w-full h-auto border border-border" />
-              <div className="flex flex-col justify-center">
-                 <p className="text-sm text-secondary leading-relaxed uppercase font-medium">
-                    Mais do que uma ferramenta, um ecossistema de inteligência promocional. Cada elemento visual foi pensado para reforçar a percepção de uma marca ágil e confiável.
-                 </p>
-              </div>
+           <div className="relative w-full h-[700px] overflow-hidden border border-border group cursor-ns-resize" onClick={() => setIsFullScreen(true)}>
+             <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center pointer-events-none">
+                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border opacity-0 group-hover:opacity-100 transition-all">
+                   <Maximize2 size={18} className="inline-block" />
+                   <span className="ml-2 text-[10px] font-mono uppercase tracking-widest">Ver Case Completo</span>
+                </div>
+             </div>
+             <div className="w-full h-full overflow-y-auto no-scrollbar scroll-smooth">
+                <img src="/assets/projects/kmillion/kmillion-marca.png" alt="Kmillion Branding Showcase" className="w-full h-auto" />
+             </div>
            </div>
         </div>
       )}
@@ -64,6 +77,28 @@ function ProjetoKmillion() {
             Landing page de alta conversão focada em resultados e autoridade. Design limpo que direciona a atenção do usuário para o que importa.
           </p>
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Kmillion Website" className="w-full h-auto border border-border shadow-2xl" />
+        </div>
+      )}
+
+      {/* Full Screen Overlay */}
+      {isFullScreen && (
+        <div className="fixed inset-0 z-[100] bg-background overflow-y-auto no-scrollbar anim-fade-in">
+          <div className="sticky top-0 right-0 left-0 h-24 flex items-center justify-between site-container z-[101] bg-background/50 backdrop-blur-sm border-b border-border/10 pointer-events-auto">
+            <span className="text-xs font-mono uppercase tracking-widest">Kmillion Case — Branding</span>
+            <button 
+              onClick={() => setIsFullScreen(false)}
+              className="p-4 bg-foreground text-background transition-transform hover:scale-110"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <div>
+            <img 
+              src="/assets/projects/kmillion/kmillion-marca.png" 
+              alt="Kmillion Full Presentation" 
+              className="w-full h-auto shadow-2xl"
+            />
+          </div>
         </div>
       )}
 

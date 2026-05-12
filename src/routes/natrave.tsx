@@ -103,7 +103,7 @@ function ProjetoNaTrave() {
             headline="CONTEÚDO EM MOVIMENTO"
             subheadline="Desenvolvimento de Stories e Reels estratégicos para fortalecer a presença digital e o engajamento da marca."
             videos={[
-              { url: "/assets/projects/natrave/social/videos/video-01.mp4", category: "Reels", poster: "/assets/projects/natrave/social/posts/feed-01.jpg" },
+              { url: "/assets/projects/natrave/social/videos/video-01.mp4", category: "Reels" },
               { url: "/assets/projects/natrave/social/videos/video-02.mp4", category: "Stories" },
               { url: "/assets/projects/natrave/social/videos/video-03.mp4", category: "Institucional" },
               { url: "/assets/projects/natrave/social/videos/video-04.mp4", category: "Cobertura" },

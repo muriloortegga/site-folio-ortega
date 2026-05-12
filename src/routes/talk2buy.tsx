@@ -11,6 +11,7 @@ import {
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
+import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 
 const projectSearchSchema = z.object({
   service: z.string().optional().catch("social"),
@@ -32,7 +33,8 @@ function ProjetoTalk2Buy() {
   const [activeService, setActiveService] = useState(service || "social");
 
   const services = [
-    { id: "social", label: "Social Media" }
+    { id: "social", label: "Social Media" },
+    { id: "websites", label: "Websites" }
   ];
 
   const metaData = [
@@ -90,6 +92,16 @@ function ProjetoTalk2Buy() {
             clientRole="Founder"
             testimonial="O Murilo trouxe uma nova visão sobre como nos comunicar com o mercado. Traduziu a complexidade da nossa plataforma em desejo para o lojista."
             clientImage="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=400"
+          />
+        </div>
+      )}
+
+      {activeService === "websites" && (
+        <div className="anim-fade-in">
+          <WebsiteScrollShowcase 
+            title="A Plataforma"
+            description="Desenvolvimento de plataforma focada em conversão, traduzindo a complexidade de vendas autônomas em uma experiência fluida e moderna."
+            videoSrc="/assets/projects/talk2buy/website-scroll.mp4"
           />
         </div>
       )}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X } from "lucide-react";
+import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 
 export const Route = createFileRoute("/kmillion")({
   head: () => ({
@@ -72,11 +73,12 @@ function ProjetoKmillion() {
       )}
 
       {activeService === "websites" && (
-        <div className="anim-fade-in site-container pb-32">
-          <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-2xl mb-12">
-            Landing page de alta conversão focada em resultados e autoridade. Design limpo que direciona a atenção do usuário para o que importa.
-          </p>
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Kmillion Website" className="w-full h-auto border border-border shadow-2xl" />
+        <div className="anim-fade-in">
+          <WebsiteScrollShowcase 
+            title="Website Kmillion"
+            description="Landing page de alta conversão focada em resultados e autoridade. Design limpo que direciona a atenção do usuário para o ecossistema de inteligência promocional."
+            videoSrc="/assets/projects/kmillion/website-scroll.mp4"
+          />
         </div>
       )}
 

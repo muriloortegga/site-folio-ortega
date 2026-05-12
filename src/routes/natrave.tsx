@@ -12,6 +12,7 @@ import {
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X } from "lucide-react";
+import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 
 export const Route = createFileRoute("/natrave")({
   head: () => ({
@@ -136,14 +137,12 @@ function ProjetoNaTrave() {
       )}
 
       {activeService === "websites" && (
-        <div className="anim-fade-in site-container pb-32">
-           <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-2xl mb-12">
-            Desenvolvimento de plataforma focada em performance e comunidade para o futebol amador. Interfaces limpas e foco total na experiência do atleta.
-           </p>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <img src="/natrave-preview.gif" alt="NaTrave Website" className="w-full h-auto border border-border" />
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800" alt="NaTrave Website" className="w-full h-auto border border-border grayscale" />
-           </div>
+        <div className="anim-fade-in">
+          <WebsiteScrollShowcase 
+            title="A Plataforma"
+            description="Desenvolvimento de plataforma focada em performance e comunidade para o futebol amador. Interfaces limpas e foco total na experiência do atleta."
+            videoSrc="/assets/projects/natrave/website-scroll.mp4"
+          />
         </div>
       )}
 

@@ -1,48 +1,54 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { z } from "zod";
 import { 
-  BeforeAfter, 
-  TopPosts, 
-  TopCopies, 
-  GridEvolution, 
-  VerticalGallery, 
+  PerformanceHero, 
+  CopyFeature, 
+  ScrollHorizontalGallery
+} from "@/components/social-media-case";
+import { 
   TestimonialCTA 
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 
+const projectSearchSchema = z.object({
+  service: z.string().optional().catch("social"),
+});
+
 export const Route = createFileRoute("/talk2buy")({
+  validateSearch: (search) => projectSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Talk2Buy — Murilo Ortega" },
-      { name: "description", content: "Estratégia de Social Media e Automação de Vendas via WhatsApp para Talk2Buy." },
+      { title: "Talk2Buy — Social Media · Murilo Ortega" },
+      { name: "description", content: "Estratégia de Social Media e Posicionamento para a plataforma Talk2Buy." },
     ],
   }),
   component: ProjetoTalk2Buy,
 });
 
 function ProjetoTalk2Buy() {
-  const [activeService, setActiveService] = useState("social");
+  const { service } = Route.useSearch();
+  const [activeService, setActiveService] = useState(service || "social");
 
   const services = [
-    { id: "social", label: "Social Media" },
-    { id: "websites", label: "Websites" }
+    { id: "social", label: "Social Media" }
   ];
 
   const metaData = [
     { label: "Cliente", value: "Talk2Buy" },
     { label: "Ano", value: "2024" },
-    { label: "Segmento", value: "SaaS / Vendas" },
-    { label: "Skills", value: "Social Media, Growth" }
+    { label: "Nicho", value: "Tecnologia / Vendas" },
+    { label: "Skills", value: "Social Media, Copywriting" }
   ];
 
   return (
     <div className="bg-background">
       <BrandHeader 
         client="Talk2Buy"
-        phrase="Seu Vendedor 24/7"
-        description="Simplificando e escalando o processo de vendas via WhatsApp. Automação inteligente que transforma conversas em faturamento constante para PMEs."
-        niche="Sales Automation & Tech"
+        phrase="Automação com Autoridade"
+        description="A Talk2Buy transforma o WhatsApp em uma loja autônoma. Nossa estratégia digital alinhou o posicionamento da marca com o desejo do público por vendas automáticas e sem atrito."
+        niche="Tecnologia B2B/B2C"
         meta={metaData}
       />
 
@@ -54,68 +60,44 @@ function ProjetoTalk2Buy() {
 
       {activeService === "social" && (
         <div className="anim-fade-in">
-          <BeforeAfter 
-            targetFollowers={3800}
-            beforeImg="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800"
-            afterImg="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800"
+          {/* Mockup 1: Antes e depois de seguidores */}
+          <PerformanceHero 
+            followers={2250}
+            followersLabel="Seguidores"
+            anchorText="Identidade e base consolidada"
+            mockupImg="/assets/projects/talk2buy/social/mockups/perofmance.png" 
           />
 
-          <TopPosts 
-            posts={[
-              { img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", context: "Automação: Venda Passiva", stats: "12k views" },
-              { img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", context: "Didática: Como Escalar", stats: "800+ saves" },
-              { img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", context: "Social Proof: Resultados", stats: "450 comments" },
-              { img: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800", context: "Institucional: Inovação", stats: "High Conversion" },
-            ]}
+          {/* Mockup 2: Grid de posts para copy */}
+          <CopyFeature 
+            headline="COPYWRITING, REDAÇÃO E DESIGN QUE IA NENHUMA CONSEGUE CRIAR."
+            contentCount={100}
+            contentLabel="conteúdos criados em prol da expansão da marca"
+            bgImage="/assets/projects/milgrows/social/backgrounds/texture.jpg" // Fallback texture
+            mockupImg="/assets/projects/talk2buy/social/mockups/grid-copy.png"
           />
 
-          <TopCopies 
-            copies={[
-              { text: "Vender não é sobre empurrar produtos, é sobre puxar conversas que escalam seu negócio.", img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800" },
-              { text: "Seu cliente está a um direct de distância da próxima compra. O Talk2Buy fecha o carrinho por você.", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" },
-              { text: "A tecnologia facilita, mas a humanização do fluxo é o que gera previsibilidade.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" },
-            ]}
-          />
-
-          <GridEvolution 
-            grids={[
-              { month: "Início: Setup de Autoridade", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" },
-              { month: "Fase 02: Engajamento & Prova", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" },
-              { month: "Atual: Conversão em Escala", img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800" },
-            ]}
-          />
-
-          <VerticalGallery 
-            items={[
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" },
-              { type: 'Reel', img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" },
-              { type: 'Story', img: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" },
+          {/* Duas imagens horizontais passando em tela cheia com scroll */}
+          <ScrollHorizontalGallery 
+            images={[
+              "/assets/projects/talk2buy/social/mockups/horizontal-1.png",
+              "/assets/projects/talk2buy/social/mockups/horizontal-2.png"
             ]}
           />
 
           <TestimonialCTA 
-            clientName="CEO Talk2Buy"
-            clientRole="Fundador"
-            testimonial="O Murilo transformou nossa presença digital em um motor de vendas. Ele não vende apenas posts, ele entrega escala e previsibilidade."
-            clientImage="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400"
+            clientName="Diretoria Talk2Buy"
+            clientRole="Founder"
+            testimonial="O Murilo trouxe uma nova visão sobre como nos comunicar com o mercado. Traduziu a complexidade da nossa plataforma em desejo para o lojista."
+            clientImage="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=400"
           />
-        </div>
-      )}
-
-      {activeService === "websites" && (
-        <div className="anim-fade-in site-container pb-32">
-          <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-2xl mb-12">
-            E-commerce de alto impacto focado em conversão e experiência do usuário. Transformando cliques em clientes fiéis através de design estratégico.
-          </p>
-          <img src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200" alt="Talk2Buy Website" className="w-full h-auto border border-border grayscale" />
         </div>
       )}
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
           <Link to="/trabalho" className="btn btn-arrow">← Voltar Projetos</Link>
-          <Link to="/evidive" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
+          <Link to="/maxi" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
         </div>
       </section>
     </div>

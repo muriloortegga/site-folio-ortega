@@ -574,3 +574,29 @@ export function SingleImageShowcase({ src }: { src: string }) {
     </section>
   );
 }
+
+// --- Section 5: Scroll Horizontal Gallery ---
+export function ScrollHorizontalGallery({ images }: { images: string[] }) {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  return (
+    <section ref={containerRef} className="site-section bg-background overflow-hidden border-none py-12 md:py-24 flex flex-col gap-8 md:gap-16">
+      {images.map((src, idx) => {
+        const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-30%"] : ["-30%", "0%"]);
+        return (
+          <div key={idx} className="relative w-[200vw] lg:w-[150vw] h-[40vh] md:h-[70vh] flex">
+            <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-8">
+              {[...Array(4)].map((_, i) => (
+                <img key={i} src={src} className="w-[90vw] md:w-[60vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" alt="Gallery item" />
+              ))}
+            </motion.div>
+          </div>
+        );
+      })}
+    </section>
+  );
+}

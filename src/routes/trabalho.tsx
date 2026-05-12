@@ -16,7 +16,27 @@ export const Route = createFileRoute("/trabalho")({
   component: PortfólioPage,
 });
 
-const projects = [
+const categories = ["Social Media", "Id Visual", "Mídia Impressa", "Mídia OOH", "Websites", "Marketing de Influência"] as const;
+type Category = typeof categories[number];
+
+interface Project {
+  name: string;
+  category: Category;
+  year: string;
+  image: string;
+  to: string;
+  search?: Record<string, string>;
+}
+
+interface Insight {
+  title: string;
+  copy: string;
+  preview: string;
+  to: string;
+  search?: Record<string, string>;
+}
+
+const projects: Project[] = [
   // Social Media
   { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
   { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy" },
@@ -44,50 +64,48 @@ const projects = [
   { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
 
   // Marketing de Influência
-  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/hero-brandding.jpg", to: "/evidive" },
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/hero-brandding.jpg", to: "/evidive", search: { service: "influencia" } },
 ];
 
-const serviceInsights = {
+const serviceInsights: Record<Category, Insight> = {
   "Social Media": {
-    title: "Sistema de Conteúdo",
-    copy: "Social Media como um sistema integrado de autoridade.",
-    preview: "Esqueça postagens isoladas. Criamos um ecossistema de conteúdo que sustenta sua marca e converte audiência em clientes reais.",
+    title: "Social Media",
+    copy: "Criamos destinos digitais que convertem atenção em desejo.",
+    preview: "Não fazemos apenas posts. Construímos ecossistemas de marca que lideram mercados e dominam o imaginário do público.",
     to: "/servicos/sistema-de-conteudo"
   },
   "Id Visual": {
-    title: "Estruturação de Marca",
-    copy: "A base de tudo o que você entrega.",
-    preview: "Do diagnóstico ao brandbook completo. Construímos identidades que confrontam o comum e elevam o valor percebido do seu negócio.",
+    title: "Id Visual",
+    copy: "Design que carrega a alma e a ambição do seu negócio.",
+    preview: "Identidades visuais que não apenas decoram, mas posicionam sua marca como a escolha premium em qualquer categoria.",
     to: "/servicos/estruturacao-de-marca"
   },
   "Mídia Impressa": {
     title: "Mídia Impressa",
-    copy: "Tangibilizando autoridade no mundo físico.",
-    preview: "Catálogos físicos e digitais, diagramação e materiais institucionais. Entregamos qualidade gráfica que tangibiliza a autoridade da sua marca.",
+    copy: "A tangibilidade do luxo e da precisão técnica.",
+    preview: "Materiais físicos que comunicam autoridade através de acabamentos impecáveis e design editorial de alto nível.",
     to: "/servicos/midia-impressa"
   },
   "Mídia OOH": {
     title: "Mídia OOH",
-    copy: "Visibilidade massiva e autoridade local.",
-    preview: "Do planejamento ao gerenciamento de budget. Criamos campanhas externas que garantem que sua marca seja vista em todos os lugares.",
+    copy: "Sua marca dominando o cenário urbano.",
+    preview: "Campanhas de Out-of-Home projetadas para impacto máximo e memorabilidade imediata em pontos estratégicos.",
     to: "/servicos/midia-ooh"
   },
   "Websites": {
-    title: "Presença Digital",
-    copy: "Interfaces que convertem e posicionam.",
-    preview: "Sites e landing pages que organizam sua comunicação, melhoram a percepção de valor e facilitam a conversão do lead.",
+    title: "Websites",
+    copy: "Plataformas digitais que funcionam como sua sede global.",
+    preview: "Experiências web imersivas, rápidas e focadas em conversão, desenhadas para refletir a excelência da sua marca.",
     to: "/servicos/presenca-digital"
   },
   "Marketing de Influência": {
     title: "Marketing de Influência",
     copy: "Vozes reais gerando impacto real.",
     preview: "Conectamos sua marca com vozes que geram confiança e expandem seu alcance de forma autêntica e estratégica.",
-    to: "/evidive"
+    to: "/evidive",
+    search: { service: "influencia" }
   }
 };
-
-const categories = ["Social Media", "Id Visual", "Mídia Impressa", "Mídia OOH", "Websites", "Marketing de Influência"] as const;
-type Category = typeof categories[number];
 
 function PortfólioPage() {
   const revealRef = useScrollReveal<HTMLDivElement>();
@@ -187,6 +205,7 @@ function PortfólioPage() {
                       <Link 
                         key={project.name + i} 
                         to={project.to}
+                        search={project.search}
                         className="group"
                       >
                         <figure className="relative aspect-[4/5] bg-off-white overflow-hidden border border-border/10">
@@ -235,7 +254,7 @@ function PortfólioPage() {
                     {currentInsight ? currentInsight.preview : "Combinamos estratégia, design e tecnologia para criar ecossistemas de marca que lideram mercados."}
                   </p>
                   {currentInsight && (
-                    <Link to={currentInsight.to} className="btn-primary whitespace-nowrap">
+                    <Link to={currentInsight.to} search={currentInsight.search} className="btn-primary whitespace-nowrap">
                       Ver serviço <Plus size={18} className="ml-2" />
                     </Link>
                   )}

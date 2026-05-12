@@ -4,7 +4,7 @@ import {
   PerformanceHero, 
   CopyFeature, 
   LiveArtGallery, 
-  VideoGallery 
+  ReelsShowcase 
 } from "@/components/social-media-case";
 import { 
   TestimonialCTA 
@@ -99,7 +99,9 @@ function ProjetoNaTrave() {
             ]}
           />
 
-          <VideoGallery 
+          <ReelsShowcase 
+            headline="CONTEÚDO EM MOVIMENTO"
+            subheadline="Desenvolvimento de Stories e Reels estratégicos para fortalecer a presença digital e o engajamento da marca."
             videos={[
               { url: "/assets/projects/natrave/social/videos/video-01.mp4", category: "Reels", poster: "/assets/projects/natrave/social/posts/feed-01.jpg" },
               { url: "/assets/projects/natrave/social/videos/video-02.mp4", category: "Stories" },

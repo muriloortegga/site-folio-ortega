@@ -393,6 +393,56 @@ export function VideoGallery({
   );
 }
 
+// --- Section 4.5: Reels Showcase (4-Column / Carousel) ---
+export function ReelsShowcase({ 
+  videos,
+  headline,
+  subheadline
+}: { 
+  videos: { url: string; category: string; poster?: string }[];
+  headline: string;
+  subheadline: string;
+}) {
+  return (
+    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48">
+      <div className="site-container">
+        <div className="max-w-4xl mb-24">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-[0.85] mb-8"
+          >
+            {headline}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg md:text-xl text-secondary uppercase font-medium leading-tight max-w-2xl"
+          >
+            {subheadline}
+          </motion.p>
+        </div>
+
+        {/* Mobile: Horizontal Carousel (snap) | Desktop: 4-Col Grid */}
+        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-4 gap-6 md:gap-8 items-start px-0">
+          {videos.map((video, i) => (
+            <div key={i} className="flex-none w-[75vw] md:w-auto snap-center">
+              <VideoCard 
+                video={video} 
+                className="w-full" 
+                delay={i * 0.1}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function VideoCard({ 
   video, 
   className, 

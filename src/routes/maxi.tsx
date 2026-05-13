@@ -70,15 +70,21 @@ function ProjetoMaxi() {
           ]}
         />
       ) : (
-        <div className="anim-fade-in site-container pb-32">
-          <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-2xl mb-12">
-            Campanhas externas, outdoors e sinalização que dominam a paisagem urbana com impacto visual. Estratégia de OOH integrada à jornada do aluno.
-          </p>
-          <img
-            src="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200"
-            alt="Maxi OOH"
-            className="w-full h-auto border border-border"
-          />
+        <div className="anim-fade-in w-full pb-32">
+          {/* Header Minimalista para OOH */}
+          <div className="site-container pt-12 pb-16 text-center flex flex-col items-center">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight uppercase mb-4">Campanha OOH</h2>
+            <p className="text-lg md:text-xl text-secondary max-w-2xl">
+              Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.
+            </p>
+          </div>
+
+          {/* Galeria Full Screen (Edge to Edge) */}
+          <div className="w-full flex flex-col items-center">
+            <img src="/assets/projects/maxi/ooh/1.jpg" alt="Maxi OOH 1" className="w-full h-auto block" />
+            <img src="/assets/projects/maxi/ooh/2.jpg" alt="Maxi OOH 2" className="w-full h-auto block" />
+            <img src="/assets/projects/maxi/ooh/3.jpg" alt="Maxi OOH 3" className="w-full h-auto block" />
+          </div>
         </div>
       )}
 

@@ -41,10 +41,10 @@ interface Insight {
 const projects: Project[] = [
   // Social Media
   { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
-  { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy", search: { service: "social" } },
+  { name: "Talk2Buy", category: "Social Media", year: "2024", image: "/assets/projects/talk2buy/social/mockups/performance.png", to: "/talk2buy", search: { service: "social" } },
   { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/evidive/thumbs/social.jpg", to: "/evidive", search: { service: "social" } },
   { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi", search: { service: "social" } },
-  { name: "Milgrows", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/milgrows", search: { service: "social" } },
+  { name: "Milgrows", category: "Social Media", year: "2023", image: "/assets/projects/milgrows/social/mockups/performance.png", to: "/milgrows", search: { service: "social" } },
   { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi", search: { service: "social" } },
   
   // Id Visual
@@ -58,7 +58,7 @@ const projects: Project[] = [
   { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/livin/print/1.jpg", to: "/livin" },
   
   // Mídia OOH
-  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi", search: { service: "ooh" } },
+  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/maxi/ooh/1.jpg", to: "/maxi", search: { service: "ooh" } },
 
   // Websites
   { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave", search: { service: "websites" } },

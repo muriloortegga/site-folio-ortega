@@ -14,7 +14,14 @@ import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 
+import { z } from "zod";
+
+const projectSearchSchema = z.object({
+  service: z.string().optional().catch("marca"),
+});
+
 export const Route = createFileRoute("/natrave")({
+  validateSearch: (search) => projectSearchSchema.parse(search),
   head: () => ({
     meta: [
       { title: "NaTrave App — Murilo Ortega" },
@@ -25,7 +32,8 @@ export const Route = createFileRoute("/natrave")({
 });
 
 function ProjetoNaTrave() {
-  const [activeService, setActiveService] = useState("marca");
+  const { service } = Route.useSearch();
+  const [activeService, setActiveService] = useState(service || "marca");
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   useEffect(() => {

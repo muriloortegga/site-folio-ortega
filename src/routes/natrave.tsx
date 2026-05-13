@@ -58,12 +58,14 @@ function ProjetoNaTrave() {
         description="O futebol amador elevado ao nível de elite. Uma plataforma para conectar jogadores, organizadores e a paixão pelo esporte sem burocracia."
         niche="Projeto Autoral — Esporte & Tech"
         meta={metaData}
+        accentColor="#FF6B00"
       />
 
       <ServiceSelector 
         options={services} 
         activeId={activeService} 
         onChange={setActiveService} 
+        accentColor="#FF6B00"
       />
 
       {activeService === "social" && (
@@ -72,11 +74,14 @@ function ProjetoNaTrave() {
             followers={2250}
             contentCount={100}
             mockupImg="/assets/projects/natrave/social/mockups/performance-overview.png" 
+            accentColor="#FF6B00"
           />
 
           <CopyFeature 
             headline="COPYWRITING, REDAÇÃO E DESIGN QUE IA NENHUMA CONSEGUE CRIAR."
-            bgImage="/assets/projects/natrave/social/backgrounds/dirt-field.jpg"
+            contentCount={100}
+            contentLabel="Conteúdos Criados"
+            accentColor="#111111"
             mockupImg="/assets/projects/natrave/social/mockups/copy-showcase.png"
           />
 

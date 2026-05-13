@@ -2,11 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, TrendingUp, Users, Eye, Zap, Target, Award } from "lucide-react";
-import { 
+import {
   EditorialSocialCase
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
+import { ProjectMedia } from "@/components/project-media";
 
 import { z } from "zod";
 
@@ -43,7 +44,7 @@ function ProjetoEviDive() {
 
   return (
     <div className="bg-background">
-      <BrandHeader 
+      <BrandHeader
         client="EviDive"
         phrase="Um Novo Universo"
         description="O único Concept Dive Center do mundo. Mergulho como ferramenta de bem-estar, superação e reconexão. Uma jornada completa da descoberta à vida em comunidade."
@@ -51,15 +52,15 @@ function ProjetoEviDive() {
         meta={metaData}
       />
 
-      <ServiceSelector 
-        options={services} 
-        activeId={activeService} 
-        onChange={setActiveService} 
+      <ServiceSelector
+        options={services}
+        activeId={activeService}
+        onChange={setActiveService}
       />
 
       {activeService === "social" && (
-        <EditorialSocialCase 
-          mainImg="/hero-brandding.jpg"
+        <EditorialSocialCase
+          mainImg="/assets/projects/evidive/thumbs/social.jpg"
           designTitle="Estética Subaquática & Autoridade"
           designText="Transformamos a identidade visual da Evidive em um destino digital premium. O design foca na clareza técnica e na imersão emocional, quebrando a percepção de complexidade do mergulho."
           copyTitle="Narrativas que Libertam a Mente"

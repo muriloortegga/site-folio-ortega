@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useEffect } from "react";
 import { DraggableMarquee } from "@/components/draggable-marquee";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { ProjectMedia } from "@/components/project-media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,7 +73,7 @@ const services = [
     num: "05",
     title: "Marketing de Influência",
     body: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica.",
-    image: "/hero-brandding.jpg",
+    image: "/assets/projects/evidive/thumbs/influencia.jpg",
   },
   {
     id: "ooh",
@@ -84,12 +85,12 @@ const services = [
 ];
 
 const galleryImages = [
-  "/hero-brandding.jpg",
+  "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",
   "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
-  "/hero-brandding.jpg",
+  "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",
@@ -155,10 +156,11 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         style={{ transitionDelay: `${index * 100}ms` }}
       >
         <div className="media-wrap aspect-[4/3] rounded-2xl overflow-hidden border border-border/5">
-          <img 
+          <ProjectMedia 
             src={isVisible && project.gif ? project.gif : project.image} 
             alt={project.name} 
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+            isVisible={isVisible}
+            className="grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
           />
         </div>
         <figcaption className="mt-6 flex justify-between items-start">

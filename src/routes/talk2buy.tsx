@@ -53,12 +53,14 @@ function ProjetoTalk2Buy() {
         description="A Talk2Buy transforma o WhatsApp em uma loja autônoma. Nossa estratégia digital alinhou o posicionamento da marca com o desejo do público por vendas automáticas e sem atrito."
         niche="Tecnologia B2B/B2C"
         meta={metaData}
+        accentColor="#2563EB"
       />
 
       <ServiceSelector 
         options={services} 
         activeId={activeService} 
         onChange={setActiveService} 
+        accentColor="#2563EB"
       />
 
       {activeService === "social" && (
@@ -69,14 +71,15 @@ function ProjetoTalk2Buy() {
             followersLabel="Seguidores"
             anchorText="Identidade e base consolidada"
             mockupImg="/assets/projects/talk2buy/social/mockups/perofmance.png" 
+            accentColor="#2563EB"
           />
 
           {/* Mockup 2: Grid de posts para copy */}
           <CopyFeature 
             headline="COPYWRITING, REDAÇÃO E DESIGN QUE IA NENHUMA CONSEGUE CRIAR."
             contentCount={100}
-            contentLabel="conteúdos criados em prol da expansão da marca"
-            bgImage="/assets/projects/milgrows/social/backgrounds/texture.jpg" // Fallback texture
+            contentLabel="Conteúdos Criados"
+            accentColor="#0A0F1E"
             mockupImg="/assets/projects/talk2buy/social/mockups/grid-copy.png"
           />
 

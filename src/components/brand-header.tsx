@@ -16,6 +16,7 @@ export function BrandHeader({
   description: string;
   niche: string;
   meta: MetaItem[];
+  accentColor?: string;
 }) {
   const revealRef = useScrollReveal<HTMLDivElement>();
 
@@ -28,7 +29,12 @@ export function BrandHeader({
             <div className="lg:col-span-8 anim-fade-in">
               <h1 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.95]">
                 {client} — <br />
-                <span className="text-secondary font-medium italic">{phrase}</span>
+                <span 
+                  className="text-secondary font-medium italic"
+                  style={accentColor ? { color: accentColor } : {}}
+                >
+                  {phrase}
+                </span>
               </h1>
             </div>
             <div className="lg:col-span-4 flex items-end anim-fade-in delay-250">

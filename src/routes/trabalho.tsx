@@ -3,6 +3,14 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+<<<<<<< HEAD
+<<<<<<< HEAD
+import { ProjectMedia } from "@/components/project-media";
+=======
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
+=======
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
 
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
@@ -40,7 +48,7 @@ const projects: Project[] = [
   // Social Media
   { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
   { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy", search: { service: "social" } },
-  { name: "Evidive", category: "Social Media", year: "2024", image: "/hero-brandding.jpg", to: "/evidive", search: { service: "social" } },
+  { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/evidive/thumbs/main.jpg", to: "/evidive", search: { service: "social" } },
   { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi", search: { service: "social" } },
   { name: "Milgrows", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/milgrows", search: { service: "social" } },
   { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi", search: { service: "social" } },
@@ -59,12 +67,12 @@ const projects: Project[] = [
   { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi" },
 
   // Websites
-  { name: "NaTrave", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
-  { name: "Talk2Buy", category: "Websites", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy" },
-  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
+  { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave" },
+  { name: "Talk2Buy", category: "Websites", year: "2024", image: "/assets/projects/talk2buy/website-scroll.gif", to: "/talk2buy" },
+  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion" },
 
   // Marketing de Influência
-  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/hero-brandding.jpg", to: "/evidive", search: { service: "influencia" } },
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
 ];
 
 const serviceInsights: Record<Category, Insight> = {
@@ -207,12 +215,35 @@ function PortifólioPage() {
                         search={project.search}
                         className="group"
                       >
-                        <figure className="relative aspect-[3/2] bg-off-white overflow-hidden border border-border/10 rounded-xl">
+                        <figure className={cn(
+                          "relative overflow-hidden transition-all duration-700",
+                          activeCategory === "Websites" 
+                            ? "aspect-square bg-transparent border-none" 
+                            : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
+                        )}>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                          <ProjectMedia
+=======
+=======
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                           <img
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                             src={project.image}
                             alt={project.name}
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                            className={cn(
+                              "w-full h-full transition-all duration-700 group-hover:scale-105",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                              activeCategory === "Websites" ? "" : "grayscale group-hover:grayscale-0"
+                            )}
+=======
+=======
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
+                              activeCategory === "Websites" ? "" : "object-cover grayscale group-hover:grayscale-0"
+                            )}
                             loading="lazy"
+>>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                           />
                         </figure>
                         <div className="mt-5 flex justify-between items-end">

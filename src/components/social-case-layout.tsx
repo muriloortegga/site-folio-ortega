@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { Plus, X, ChevronRight, MessageCircle, Play } from "lucide-react";
+import { ProjectMedia } from "./project-media";
 
 // --- Components ---
 
@@ -295,15 +296,20 @@ export function EditorialSocialCase({
 }) {
   return (
     <div className="anim-fade-in space-y-24 md:space-y-32 pb-32">
-      <section className="site-section py-0 border-none overflow-hidden h-[60vh] md:h-[90vh]">
-        <motion.img 
+      <section className="site-section py-0 border-none overflow-hidden h-[60vh] md:h-[90vh] relative">
+        <motion.div
           initial={{ scale: 1.05, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          src={mainImg}
-          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-        />
+          className="w-full h-full"
+        >
+          <ProjectMedia 
+            src={mainImg}
+            alt={designTitle}
+            className="grayscale hover:grayscale-0 transition-all duration-1000"
+          />
+        </motion.div>
       </section>
 
       <section className="site-section py-24">

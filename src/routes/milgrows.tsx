@@ -52,12 +52,14 @@ function ProjetoMilgrows() {
         description="Uma organização voltada à promoção do acesso seguro, legal e informado à cannabis medicinal. Suporte a pacientes e conexão com respaldo jurídico especializado."
         niche="Saúde & Movimento Social"
         meta={metaData}
+        accentColor="#2ECC71"
       />
 
       <ServiceSelector 
         options={services} 
         activeId={activeService} 
         onChange={setActiveService} 
+        accentColor="#2ECC71"
       />
 
       {activeService === "social" && (
@@ -67,13 +69,14 @@ function ProjetoMilgrows() {
             followersLabel="Novos Seguidores"
             anchorText="Identidade e base consolidada"
             mockupImg="/assets/projects/milgrows/social/mockups/performance.png" 
+            accentColor="#2ECC71"
           />
 
           <CopyFeature 
             headline="COPYWRITING, REDAÇÃO E DESIGN QUE IA NENHUMA CONSEGUE CRIAR."
             contentCount={100}
             contentLabel="Conteúdos Criados"
-            bgImage="/assets/projects/milgrows/social/backgrounds/texture.jpg"
+            accentColor="#0C2D1C"
             mockupImg="/assets/projects/milgrows/social/mockups/copy-showcase.png"
           />
 

@@ -9,11 +9,13 @@ interface ServiceOption {
 export function ServiceSelector({ 
   options, 
   activeId, 
-  onChange 
+  onChange,
+  accentColor
 }: { 
   options: ServiceOption[], 
   activeId: string, 
-  onChange: (id: string) => void 
+  onChange: (id: string) => void,
+  accentColor?: string
 }) {
   return (
     <section className="site-container mb-12">
@@ -25,9 +27,14 @@ export function ServiceSelector({
             className={cn(
               "px-5 py-2 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-full",
               activeId === option.id 
-                ? "bg-foreground text-background border-foreground shadow-sm" 
+                ? "shadow-sm" 
                 : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
             )}
+            style={activeId === option.id ? { 
+              backgroundColor: accentColor || "var(--foreground)", 
+              color: "var(--background)",
+              borderColor: accentColor || "var(--foreground)" 
+            } : {}}
           >
             {option.label}
           </button>

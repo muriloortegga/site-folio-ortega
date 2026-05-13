@@ -17,7 +17,7 @@ function Counter({ target, label, suffix = "" }: { target: number; label: string
 
   return (
     <div ref={ref} className="text-left py-6 md:py-8">
-      <motion.span className="text-[15vw] md:text-[8vw] font-bold tracking-tighter block leading-none text-foreground">
+      <motion.span className="text-[15vw] md:text-[8vw] font-bold tracking-tighter block leading-none text-current">
         <motion.span>{display}</motion.span>{suffix}
       </motion.span>
       <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary mt-1 block">{label}</span>
@@ -39,12 +39,15 @@ export function PerformanceHero({
   anchorText?: string;
   followersLabel?: string;
   contentLabel?: string;
+  accentColor?: string;
 }) {
   return (
     <section className="min-h-[80vh] w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-16 md:py-24">
       <div className="site-container grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
         <div className="lg:col-span-4 z-10 order-2 lg:order-1">
-          <Counter target={followers} label={followersLabel} />
+          <div style={accentColor ? { color: accentColor } : {}}>
+            <Counter target={followers} label={followersLabel} />
+          </div>
           {contentCount !== undefined && (
             <div className="mt-[-1rem] md:mt-[-2rem]">
               <Counter target={contentCount} label={contentLabel} suffix="+" />
@@ -73,6 +76,7 @@ export function CopyFeature({
   headline, 
   mockupImg, 
   bgImage,
+  accentColor = "rgba(0,0,0,0.95)",
   contentCount,
   contentLabel = "Conteúdos Criados"
 }: { 
@@ -95,10 +99,11 @@ export function CopyFeature({
     <section 
       ref={containerRef}
       className="site-section min-h-[90vh] flex flex-col justify-center overflow-hidden relative py-24"
+      style={{ backgroundColor: !bgImage ? accentColor : 'transparent' }}
     >
       {bgImage && (
         <div className="absolute inset-0 z-0">
-          <img src={bgImage} alt="Background Texture" className="w-full h-full object-cover" />
+          <img src={bgImage} alt="Background Texture" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
@@ -123,7 +128,11 @@ export function CopyFeature({
 
           {contentCount !== undefined && (
             <div className="flex-shrink-0">
-               <Counter target={contentCount} label={contentLabel} suffix="+" />
+               <div className="p-px rounded-3xl bg-white/10 backdrop-blur-sm border border-white/10">
+                 <div className="bg-black/20 p-8 md:p-12 rounded-[22px]">
+                   <Counter target={contentCount} label={contentLabel} suffix="+" />
+                 </div>
+               </div>
             </div>
           )}
         </div>

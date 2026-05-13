@@ -59,11 +59,7 @@ function ProjetoEviDive() {
       />
 
       {activeService === "social" && (
-<<<<<<< HEAD
         <EditorialSocialCase
-=======
-        <EditorialSocialCase 
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
           mainImg="/assets/projects/evidive/thumbs/social.jpg"
           designTitle="Estética Subaquática & Autoridade"
           designText="Transformamos a identidade visual da Evidive em um destino digital premium. O design foca na clareza técnica e na imersão emocional, quebrando a percepção de complexidade do mergulho."

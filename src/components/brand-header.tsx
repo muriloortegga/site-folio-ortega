@@ -10,6 +10,7 @@ export function BrandHeader({
   phrase,
   description,
   meta,
+  accentColor,
 }: {
   client: string;
   phrase: string;

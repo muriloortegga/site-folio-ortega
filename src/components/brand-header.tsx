@@ -9,7 +9,6 @@ export function BrandHeader({
   client,
   phrase,
   description,
-  niche,
   meta,
 }: {
   client: string;
@@ -21,22 +20,19 @@ export function BrandHeader({
   const revealRef = useScrollReveal<HTMLDivElement>();
 
   return (
-    <div ref={revealRef} className="pt-32">
+    <div ref={revealRef} className="pt-24 md:pt-32">
       {/* Title Section */}
       <section className="site-section pb-12 border-t-0">
         <div className="site-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
             <div className="lg:col-span-8 anim-fade-in">
-              <span className="text-secondary font-mono text-[10px] uppercase tracking-[0.2em] mb-4 block">
-                {niche}
-              </span>
-              <h1 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.85]">
+              <h1 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.95]">
                 {client} — <br />
                 <span className="text-secondary font-medium italic">{phrase}</span>
               </h1>
             </div>
             <div className="lg:col-span-4 flex items-end anim-fade-in delay-250">
-               <p className="text-sm text-secondary leading-relaxed">
+               <p className="text-sm md:text-base text-secondary leading-relaxed max-w-sm">
                  {description}
                </p>
             </div>

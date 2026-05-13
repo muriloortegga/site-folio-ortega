@@ -16,11 +16,11 @@ function Counter({ target, label, suffix = "" }: { target: number; label: string
   }, [isInView, spring, target]);
 
   return (
-    <div ref={ref} className="text-left py-8 md:py-12">
-      <motion.span className="text-[18vw] md:text-[10vw] font-bold tracking-tighter block leading-none text-foreground">
+    <div ref={ref} className="text-left py-6 md:py-8">
+      <motion.span className="text-[15vw] md:text-[8vw] font-bold tracking-tighter block leading-none text-foreground">
         <motion.span>{display}</motion.span>{suffix}
       </motion.span>
-      <span className="text-xs font-mono uppercase tracking-[0.3em] text-secondary mt-2 block">{label}</span>
+      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary mt-1 block">{label}</span>
     </div>
   );
 }
@@ -30,7 +30,6 @@ export function PerformanceHero({
   followers, 
   contentCount, 
   mockupImg,
-  anchorText = "Identidade e base consolidada",
   followersLabel = "Seguidores",
   contentLabel = "Conteúdos Criados"
 }: { 
@@ -42,28 +41,26 @@ export function PerformanceHero({
   contentLabel?: string;
 }) {
   return (
-    <section className="min-h-screen w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-24 md:py-0">
-      <div className="site-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="min-h-[80vh] w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-16 md:py-24">
+      <div className="site-container grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
         <div className="lg:col-span-4 z-10 order-2 lg:order-1">
           <Counter target={followers} label={followersLabel} />
           {contentCount !== undefined && (
-            <div className="mt-[-2rem] md:mt-[-4rem]">
+            <div className="mt-[-1rem] md:mt-[-2rem]">
               <Counter target={contentCount} label={contentLabel} suffix="+" />
             </div>
           )}
-          <p className="site-label mt-12 before:bg-foreground">{anchorText}</p>
         </div>
         
         <div className="lg:col-span-8 relative h-auto flex items-center justify-center lg:justify-end order-1 lg:order-2">
-          {/* Single Consolidated Mockup Entry Animation - Increased Scale */}
           <motion.div 
-            initial={{ x: 50, opacity: 0, scale: 0.9 }}
+            initial={{ x: 30, opacity: 0, scale: 0.95 }}
             whileInView={{ x: 0, opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="w-[110%] md:w-[120%] lg:w-[130%] relative lg:-right-[10%]"
+            className="w-full md:w-[110%] relative lg:-right-[5%]"
           >
-             <img src={mockupImg} alt="Performance Mockup" className="w-full h-auto drop-shadow-2xl" />
+             <img src={mockupImg} alt="Performance Mockup" className="w-full h-auto drop-shadow-xl rounded-xl" />
           </motion.div>
         </div>
       </div>
@@ -76,7 +73,6 @@ export function CopyFeature({
   headline, 
   mockupImg, 
   bgImage,
-  accentColor = "#FF6B00",
   contentCount,
   contentLabel = "Conteúdos Criados"
 }: { 
@@ -93,38 +89,36 @@ export function CopyFeature({
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
     <section 
       ref={containerRef}
-      className="site-section min-h-screen flex flex-col justify-center overflow-hidden relative"
+      className="site-section min-h-[90vh] flex flex-col justify-center overflow-hidden relative py-24"
     >
-      {/* Background Texture */}
       {bgImage && (
         <div className="absolute inset-0 z-0">
           <img src={bgImage} alt="Background Texture" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/40" /> {/* Subtle overlay for legibility */}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
 
       <div className="site-container relative z-10">
         <motion.h2 
-          className="text-white text-5xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter mb-24 max-w-5xl"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          className="text-white text-4xl md:text-7xl font-bold uppercase leading-[0.95] tracking-tighter mb-16 max-w-4xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           {headline}
         </motion.h2>
 
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 h-auto md:min-h-[600px]">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12">
           <motion.div 
             style={{ y }}
-            whileHover={{ scale: 1.02 }}
-            className="w-full md:w-[60%] relative cursor-pointer"
+            className="w-full md:w-[65%] relative"
           >
-            <img src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl" />
+            <img src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl rounded-2xl" />
           </motion.div>
 
           {contentCount !== undefined && (
@@ -134,8 +128,8 @@ export function CopyFeature({
           )}
         </div>
 
-        <div className="mt-40 border-t border-white/20 pt-8">
-          <p className="text-white/60 font-mono text-[10px] uppercase tracking-widest">
+        <div className="mt-32 border-t border-white/10 pt-8">
+          <p className="text-white/40 font-mono text-[10px] uppercase tracking-widest">
             Conteúdo denso, humano e focado em conversão.
           </p>
         </div>
@@ -170,7 +164,7 @@ export function FeedTimeline({
   return (
     <section 
       ref={sectionRef}
-      className="site-section bg-background overflow-hidden relative"
+      className="site-section bg-background overflow-hidden relative py-24"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -180,8 +174,8 @@ export function FeedTimeline({
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="fixed w-24 h-24 rounded-full border border-foreground flex items-center justify-center z-50 pointer-events-none mix-blend-difference"
-            style={{ left: cursorPos.x - 48, top: cursorPos.y - 48 }}
+            className="fixed w-20 h-20 rounded-full border border-foreground flex items-center justify-center z-50 pointer-events-none mix-blend-difference"
+            style={{ left: cursorPos.x - 40, top: cursorPos.y - 40 }}
           >
             <span className="text-[10px] font-mono text-white uppercase font-bold">Ver</span>
           </motion.div>
@@ -191,8 +185,7 @@ export function FeedTimeline({
       <div className="site-container">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>
-            <span className="site-label mb-4">{title}</span>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">Galeria de Arte Viva</h2>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter">{title}</h2>
           </div>
           
           <div className="flex border-b border-border w-full md:w-auto">
@@ -200,7 +193,7 @@ export function FeedTimeline({
               <button 
                 key={i}
                 onClick={() => setActiveState(i)}
-                className={`px-6 py-4 text-[10px] font-mono uppercase tracking-widest transition-all relative ${activeState === i ? 'text-foreground' : 'text-secondary hover:text-foreground'}`}
+                className={`px-5 py-3 text-[10px] font-mono uppercase tracking-widest transition-all relative ${activeState === i ? 'text-foreground font-bold' : 'text-secondary hover:text-foreground'}`}
               >
                 {state.label}
                 {activeState === i && (
@@ -213,20 +206,20 @@ export function FeedTimeline({
 
         <motion.div 
           layout
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {states[activeState].posts.map((post, i) => (
               <motion.div 
                 key={`${activeState}-${i}`}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="relative group"
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="relative group rounded-xl overflow-hidden"
               >
-                <img src={post} alt="Feed Post" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center bg-background/10 backdrop-blur-sm">
+                <img src={post} alt="Feed Post" className="w-full h-auto drop-shadow-md" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center bg-background/20 backdrop-blur-sm">
                    <p className="text-foreground text-[10px] font-mono uppercase tracking-tighter leading-tight font-bold">
                      {states[activeState].label}
                    </p>
@@ -253,21 +246,20 @@ export function LiveArtGallery({
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48 md:pb-64">
-      <div className="max-w-[1700px] mx-auto px-0 md:px-12">
-        {/* Mobile: Horizontal Carousel (snap) | Desktop: 3-Col Grid */}
-        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-3 gap-8 md:gap-20 items-start">
+    <section className="site-section bg-background overflow-hidden border-none pt-24 pb-32 md:pb-48">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-12">
+        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 md:gap-16 items-start">
           {sections.map((section, idx) => (
             <div 
               key={idx} 
-              className={`flex-none w-[85vw] md:w-auto snap-center flex flex-col px-6 md:px-0 ${idx === 1 ? 'md:mt-32' : ''}`}
+              className={`flex-none w-[80vw] md:w-auto snap-center flex flex-col ${idx === 1 ? 'md:mt-24' : ''}`}
             >
               {section.layout === 'top' && (
                 <motion.h3 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] mb-8 text-secondary"
+                  className="text-[10px] font-mono uppercase tracking-widest mb-6 text-secondary"
                 >
                   {section.title}
                 </motion.h3>
@@ -284,7 +276,7 @@ export function LiveArtGallery({
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] mt-8 text-secondary"
+                  className="text-[10px] font-mono uppercase tracking-widest mt-6 text-secondary"
                 >
                   {section.title}
                 </motion.h3>
@@ -312,11 +304,8 @@ export function LiveArtGallery({
             <motion.img 
               layoutId={`gallery-img-${expandedIndex}`}
               src={sections[expandedIndex].image}
-              className="max-w-full max-h-full object-contain shadow-2xl"
+              className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://placehold.co/1200x1600/252422/FFFFFF?text=Imagem+${expandedIndex + 1}`;
-              }}
             />
           </motion.div>
         )}
@@ -331,8 +320,8 @@ function InteractiveImage({ src, onClick, index }: { src: string; onClick: () =>
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -358,17 +347,14 @@ function InteractiveImage({ src, onClick, index }: { src: string; onClick: () =>
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       style={{ rotateX, rotateY, perspective: 1000 }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
     >
       <motion.img 
         layoutId={`gallery-img-${index}`}
         src={src} 
         alt="" 
-        className="w-full h-auto shadow-xl border border-border/10 grayscale hover:grayscale-0 transition-all duration-700" 
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = `https://placehold.co/800x1200/252422/FFFFFF?text=Imagem+${index + 1}`;
-        }}
+        className="w-full h-auto shadow-lg border border-border/10 rounded-xl grayscale hover:grayscale-0 transition-all duration-700" 
       />
     </motion.div>
   );
@@ -381,16 +367,14 @@ export function VideoGallery({
   videos: { url: string; category: string; poster?: string }[] 
 }) {
   return (
-    <section className="site-section bg-background overflow-hidden">
+    <section className="site-section bg-background overflow-hidden py-24">
       <div className="site-container">
         <div className="mb-16">
-          <span className="site-label mb-4">Galeria de Vídeos</span>
-          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">Conteúdo em Movimento</h2>
+          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter">Conteúdo em Movimento</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[700px]">
           {videos.map((video, i) => {
-            // Create a "Bento" style grid
             const colSpan = i === 0 ? "md:col-span-8" : i === 1 ? "md:col-span-4" : i === 2 ? "md:col-span-4" : "md:col-span-8";
             const rowSpan = i === 0 ? "md:row-span-2" : "";
 
@@ -420,32 +404,31 @@ export function ReelsShowcase({
   subheadline: string;
 }) {
   return (
-    <section className="site-section bg-background overflow-hidden border-none pt-32 pb-48">
+    <section className="site-section bg-background overflow-hidden border-none pt-24 pb-32">
       <div className="site-container">
-        <div className="max-w-4xl mb-24">
+        <div className="max-w-4xl mb-20">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-[0.85] mb-8"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-6"
           >
             {headline}
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-secondary uppercase font-medium leading-tight max-w-2xl"
+            className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-2xl"
           >
             {subheadline}
           </motion.p>
         </div>
 
-        {/* Mobile: Horizontal Carousel (snap) | Desktop: 4-Col Grid */}
-        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-4 gap-6 md:gap-8 items-start px-0">
+        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-4 gap-6 items-start px-0">
           {videos.map((video, i) => (
-            <div key={i} className="flex-none w-[75vw] md:w-auto snap-center">
+            <div key={i} className="flex-none w-[70vw] md:w-auto snap-center">
               <VideoCard 
                 video={video} 
                 className="w-full" 
@@ -483,11 +466,11 @@ function VideoCard({
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className={`relative group ${className}`}
+      className={`relative group rounded-xl overflow-hidden ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -498,20 +481,20 @@ function VideoCard({
         muted
         loop
         playsInline
-        className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 drop-shadow-2xl"
+        className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 drop-shadow-lg"
       />
       
-      <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
-        <div className="bg-white/20 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full bg-[#FF6B00] ${isHovered ? 'animate-pulse' : ''}`} />
-          <span className="text-[8px] font-mono text-white uppercase tracking-widest">{video.category}</span>
+      <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
+        <div className="bg-white/10 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2">
+          <div className={`w-1.5 h-1.5 rounded-full bg-[#FF6B00] ${isHovered ? 'animate-pulse' : ''}`} />
+          <span className="text-[7px] font-mono text-white uppercase tracking-widest">{video.category}</span>
         </div>
       </div>
 
       {!isHovered && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur flex items-center justify-center border border-white/20">
-             <Play size={20} className="text-white fill-white ml-1" />
+          <div className="w-12 h-12 rounded-full bg-white/5 backdrop-blur flex items-center justify-center border border-white/10">
+             <Play size={16} className="text-white fill-white ml-0.5" />
           </div>
         </div>
       )}
@@ -531,18 +514,15 @@ export function SingleImageShowcase({ src }: { src: string }) {
   return (
     <section 
       ref={containerRef}
-      className="site-section bg-background overflow-hidden border-none py-0 md:h-screen flex items-center justify-center relative cursor-zoom-in"
+      className="site-section bg-background overflow-hidden border-none py-0 md:h-[90vh] flex items-center justify-center relative cursor-zoom-in"
       onClick={() => setIsExpanded(true)}
     >
-      <div className="w-full h-[60vh] md:h-full relative overflow-hidden">
+      <div className="w-full h-[50vh] md:h-full relative overflow-hidden">
         <motion.img 
           src={src} 
           alt="Showcase"
-          style={{ y: useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]) }}
-          className="absolute inset-0 w-full h-[130%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://placehold.co/1920x1080/252422/FFFFFF?text=Showcase+Image`;
-          }}
+          style={{ y: useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]) }}
+          className="absolute inset-0 w-full h-[120%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
         />
       </div>
 
@@ -563,8 +543,8 @@ export function SingleImageShowcase({ src }: { src: string }) {
             </button>
             <motion.img 
               src={src}
-              className="max-w-full max-h-full object-contain shadow-2xl"
-              initial={{ scale: 0.9 }}
+              className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+              initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             />
@@ -584,14 +564,14 @@ export function ScrollHorizontalGallery({ images }: { images: string[] }) {
   });
 
   return (
-    <section ref={containerRef} className="site-section bg-background overflow-hidden border-none py-12 md:py-24 flex flex-col gap-8 md:gap-16">
+    <section ref={containerRef} className="site-section bg-background overflow-hidden border-none py-16 md:py-32 flex flex-col gap-8 md:gap-12">
       {images.map((src, idx) => {
-        const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-30%"] : ["-30%", "0%"]);
+        const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-20%"] : ["-20%", "0%"]);
         return (
-          <div key={idx} className="relative w-[200vw] lg:w-[150vw] h-[40vh] md:h-[70vh] flex">
-            <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-8">
+          <div key={idx} className="relative w-[180vw] lg:w-[140vw] h-[35vh] md:h-[65vh] flex">
+            <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-6">
               {[...Array(4)].map((_, i) => (
-                <img key={i} src={src} className="w-[90vw] md:w-[60vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" alt="Gallery item" />
+                <img key={i} src={src} className="w-[85vw] md:w-[55vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-xl rounded-xl" alt="Gallery item" />
               ))}
             </motion.div>
           </div>

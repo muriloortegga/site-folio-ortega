@@ -12,6 +12,7 @@ import {
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const projectSearchSchema = z.object({
   service: z.string().optional().catch("social"),
@@ -108,8 +109,12 @@ function ProjetoTalk2Buy() {
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
-          <Link to="/trabalho" className="btn btn-arrow">← Voltar Projetos</Link>
-          <Link to="/maxi" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
+          <Link to="/trabalho" className="btn btn-primary gap-2">
+            <ArrowLeft size={16} /> Voltar Projetos
+          </Link>
+          <Link to="/maxi" className="btn btn-primary gap-2">
+            Próximo Projeto <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </div>

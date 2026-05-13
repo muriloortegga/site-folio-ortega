@@ -132,31 +132,31 @@
   }
 
   h1 { 
-    font-size: clamp(2.5rem, 4vw, 4.5rem); 
-    line-height: 0.95; 
-    letter-spacing: -0.05em;
+    font-size: clamp(2rem, 3.5vw, 4rem); 
+    line-height: 1.0; 
+    letter-spacing: -0.04em;
   }
 
   h2 { 
-    font-size: clamp(2rem, 3vw, 3.2rem); 
+    font-size: clamp(1.8rem, 2.8vw, 2.8rem); 
     line-height: 1.0; 
     letter-spacing: -0.03em;
   }
 
   h3 { 
-    font-size: clamp(1.6rem, 2.2vw, 2.5rem); 
+    font-size: clamp(1.5rem, 2.2vw, 2.2rem); 
     line-height: 1.1; 
     letter-spacing: -0.02em;
   }
 
   h4 { 
-    font-size: clamp(1.2rem, 1.5vw, 1.6rem); 
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem); 
     line-height: 1.2; 
     font-weight: 500;
   }
 
   h5 { 
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     font-weight: 500; 
     letter-spacing: -0.02em;
   }
@@ -188,22 +188,22 @@
   }
 
   .site-title {
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 300;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1.0;
     text-transform: uppercase;
   }
 
   .site-body {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--secondary);
   }
 
   @media (min-width: 768px) {
     .site-body {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.7;
     }
     .site-title {
@@ -278,16 +278,18 @@
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
+    gap: 0.5rem;
     font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
+    white-space: nowrap;
     transition: 
       all var(--bd-time-transition-250) var(--ease-out);
   }
@@ -295,12 +297,12 @@
   .btn-primary {
     background-color: var(--foreground);
     color: var(--background);
-    padding: 1rem 2rem;
+    padding: 0.875rem 1.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border-radius: 6px;
+    border-radius: 4px;
   }
   .btn-primary:hover { 
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     opacity: 0.95;
   }
@@ -308,9 +310,9 @@
   .btn-secondary {
     background-color: transparent;
     color: var(--foreground);
-    padding: 1rem 2rem;
-    border: 0.15rem solid currentColor;
-    border-radius: 6px;
+    padding: 0.875rem 1.75rem;
+    border: 1px solid var(--foreground);
+    border-radius: 4px;
   }
   .btn-secondary:hover { 
     background-color: var(--foreground);
@@ -536,46 +538,46 @@
   .btn-hero-primary {
     background-color: var(--foreground);
     color: var(--background);
-    padding: 1rem 2rem;
+    padding: 1.125rem 2.25rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-size: 0.8125rem;
     transition: all 0.3s var(--ease-out);
     border: 1px solid var(--foreground);
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
   }
 
   .btn-hero-primary:hover {
     background-color: transparent;
     color: var(--foreground);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
   }
 
   .btn-hero-secondary {
     background-color: transparent;
     color: var(--foreground);
-    padding: 1rem 2rem;
+    padding: 1.125rem 2.25rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-size: 0.8125rem;
     border: 1px solid var(--foreground);
     transition: all 0.3s var(--ease-out);
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
   }
 
   .btn-hero-secondary:hover {
     background-color: var(--foreground);
     color: var(--background);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
   }
 }

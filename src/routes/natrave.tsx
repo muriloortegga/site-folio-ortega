@@ -11,7 +11,7 @@ import {
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
-import { Maximize2, X } from "lucide-react";
+import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 
 export const Route = createFileRoute("/natrave")({
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/natrave")({
 });
 
 function ProjetoNaTrave() {
-  const [activeService, setActiveService] = useState("marca"); // Marca is default
+  const [activeService, setActiveService] = useState("marca");
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   useEffect(() => {
@@ -122,10 +122,10 @@ function ProjetoNaTrave() {
 
       {activeService === "marca" && (
         <div className="anim-fade-in site-container pb-32">
-           <div className="relative w-full h-[700px] overflow-hidden border border-border group cursor-ns-resize" onClick={() => setIsFullScreen(true)}>
+           <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden border border-border group cursor-ns-resize rounded-2xl" onClick={() => setIsFullScreen(true)}>
              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center pointer-events-none">
-                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border opacity-0 group-hover:opacity-100 transition-all">
-                   <Maximize2 size={18} className="inline-block" />
+                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border rounded-full opacity-0 group-hover:opacity-100 transition-all">
+                   <Maximize2 size={16} className="inline-block" />
                    <span className="ml-2 text-[10px] font-mono uppercase tracking-widest">Ver Case Completo</span>
                 </div>
              </div>
@@ -170,8 +170,12 @@ function ProjetoNaTrave() {
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
-          <Link to="/trabalho" className="btn btn-arrow">← Voltar Projetos</Link>
-          <Link to="/solid" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
+          <Link to="/trabalho" className="btn btn-primary gap-2">
+            <ArrowLeft size={16} /> Voltar Projetos
+          </Link>
+          <Link to="/solid" className="btn btn-primary gap-2">
+            Próximo Projeto <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </div>

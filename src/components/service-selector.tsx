@@ -17,16 +17,16 @@ export function ServiceSelector({
 }) {
   return (
     <section className="site-container mb-12">
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2">
         {options.map((option) => (
           <button
             key={option.id}
             onClick={() => onChange(option.id)}
             className={cn(
-              "px-6 py-3 text-[10px] font-mono uppercase tracking-[0.2em] transition-all border",
+              "px-5 py-2 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-full",
               activeId === option.id 
-                ? "bg-foreground text-background border-foreground" 
-                : "bg-transparent text-secondary border-border hover:border-foreground/40"
+                ? "bg-foreground text-background border-foreground shadow-sm" 
+                : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
             )}
           >
             {option.label}

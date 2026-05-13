@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useEffect } from "react";
 import { DraggableMarquee } from "@/components/draggable-marquee";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,10 +31,10 @@ const projects = [
     to: "/solid",
   },
   {
-    name: "Site + posicionamento — Consultoria",
-    category: "Id Visual · 2023",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    to: "/trabalho",
+    name: "Kmillion — Inteligência Promocional",
+    category: "Websites · 2024",
+    image: "/assets/projects/thumbnails/kmillion.jpg",
+    to: "/kmillion",
   },
 ];
 
@@ -100,13 +101,13 @@ function HeroGallery() {
       <div className="hero-gallery-track">
         {galleryImages.map((img, i) => (
           <div key={i} className="hero-gallery-item">
-            <img src={img} alt={`Gallery ${i}`} className="rounded-xl" />
+            <img src={img} alt={`Gallery ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
         {/* Duplicate for seamless loop */}
         {galleryImages.map((img, i) => (
           <div key={`dup-${i}`} className="hero-gallery-item">
-            <img src={img} alt={`Gallery Dup ${i}`} className="rounded-xl" />
+            <img src={img} alt={`Gallery Dup ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
       </div>
@@ -150,19 +151,22 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
     <Link to={project.to} className="group">
       <figure 
         ref={cardRef}
-        className="scroll-reveal project-card relative cursor-none" 
+        className="scroll-reveal project-card relative" 
         style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <div className="media-wrap aspect-[4/3] rounded-xl overflow-hidden">
+        <div className="media-wrap aspect-[4/3] rounded-2xl overflow-hidden border border-border/5">
           <img 
             src={isVisible && project.gif ? project.gif : project.image} 
             alt={project.name} 
-            className="w-full h-full object-cover transition-opacity duration-500"
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
           />
         </div>
-        <figcaption className="mt-6">
-          <span className="site-card-label">{project.category}</span>
-          <span className="font-medium text-lg leading-tight block">{project.name}</span>
+        <figcaption className="mt-6 flex justify-between items-start">
+          <div>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-secondary mb-1 block">{project.category}</span>
+            <span className="font-bold text-lg leading-tight block uppercase tracking-tight">{project.name}</span>
+          </div>
+          <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
         </figcaption>
       </figure>
     </Link>
@@ -197,11 +201,11 @@ function HomePage() {
                   transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease-out'
                 }}
               >
-                <h1 className="anim-fade-in text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tighter uppercase">
+                <h1 className="anim-fade-in text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter uppercase">
                   TRANSFORMO MARCAS COMUNS EM MARCAS COM <br />
-                  <span className="text-secondary font-medium">IMPACTO REAL</span>
+                  <span className="text-secondary font-medium italic">IMPACTO REAL</span>
                 </h1>
-                <p className="mt-8 text-lg lg:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250 uppercase font-medium">
+                <p className="mt-8 text-base md:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250 uppercase font-medium">
                   Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um sistema de alto nível.
                 </p>
               </div>
@@ -232,7 +236,8 @@ function HomePage() {
       {/* Brand Marquee */}
       <section className="py-24 overflow-hidden border-t border-border/5">
         <div className="site-container mb-12">
-          <h3 className="text-xl font-bold uppercase scroll-reveal">Marcas que já trabalhei</h3>
+          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-secondary/40 mb-4 block">Parcerias</span>
+          <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tighter scroll-reveal">Marcas que já trabalhei</h3>
         </div>
         
         <DraggableMarquee 
@@ -242,12 +247,12 @@ function HomePage() {
       </section>
 
       {/* Positioning */}
-      <section className="site-section border-t border-border">
+      <section className="site-section border-t border-border bg-foreground text-background">
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-12">
-              <p className="scroll-reveal text-2xl lg:text-3xl font-bold line-height-tight tracking-tight uppercase">
-                O problema não é falta de ação. É falta de estrutura. Empresas que cresceram pela qualidade do serviço, mas cuja marca ainda não sustenta o nível que entregam.
+            <div className="lg:col-span-10">
+              <p className="scroll-reveal text-2xl md:text-3xl lg:text-4xl font-bold line-height-tight tracking-tighter uppercase leading-[0.95]">
+                O problema não é falta de ação. <span className="text-background/40">É falta de estrutura.</span> Empresas que cresceram pela qualidade do serviço, mas cuja marca ainda não sustenta o nível que entregam.
               </p>
             </div>
           </div>
@@ -257,11 +262,13 @@ function HomePage() {
       {/* Work Preview */}
       <section className="site-section border-t border-border">
         <div className="site-container">
-          <div className="flex items-center justify-between mb-12">
-            <h3 className="text-xl font-bold uppercase">Projetos Selecionados</h3>
-            <Link to="/trabalho" className="text-link">Ver todos</Link>
+          <div className="flex items-center justify-between mb-16">
+            <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Projetos Selecionados</h3>
+            <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-widest flex items-center gap-2 hover:text-secondary transition-colors">
+              Ver todos <ChevronRight size={14} />
+            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {projects.map((project, i) => (
               <ProjectCard key={i} project={project} index={i} />
             ))}
@@ -274,7 +281,7 @@ function HomePage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Serviços Estratégicos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter">Serviços Estratégicos</h2>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -290,7 +297,7 @@ function HomePage() {
                 className="scroll-reveal group block"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="relative overflow-hidden aspect-[4/5] mb-8 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500 rounded-xl">
+                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500 rounded-2xl">
                   <img 
                     src={s.image} 
                     alt={s.title} 
@@ -299,10 +306,10 @@ function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                   <div className="absolute bottom-8 left-8 right-8">
                     <span className="text-[10px] font-mono uppercase tracking-tight text-secondary mb-2 block">{s.num}</span>
-                    <h4 className="text-xl md:text-2xl font-bold uppercase leading-tight">{s.title}</h4>
+                    <h4 className="text-xl md:text-2xl font-bold uppercase leading-tight tracking-tighter">{s.title}</h4>
                   </div>
                 </div>
-                <p className="text-sm text-secondary leading-relaxed max-w-[300px] opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <p className="text-[11px] font-mono uppercase tracking-tight text-secondary leading-tight opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 max-w-[240px]">
                   {s.body}
                 </p>
               </Link>

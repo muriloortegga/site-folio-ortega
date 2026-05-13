@@ -1,16 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { 
-  BeforeAfter, 
-  TopPosts, 
-  TopCopies, 
-  GridEvolution, 
-  VerticalGallery, 
-  TestimonialCTA,
   EditorialSocialCase
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { z } from "zod";
 
@@ -61,23 +56,29 @@ function ProjetoKapyi() {
       />
 
       {activeService === "social" && (
-        <EditorialSocialCase 
-          mainImg="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
-          designTitle="Identidade Gastronômica"
-          designText="O design para Kapyi traduz a experiência sensorial do menu em desejo digital. Criamos um sistema visual que une a tradição da culinária com a sofisticação urbana."
-          copyTitle="O Sabor da Conexão"
-          copyText="A experiência Kapyi vai além do prato, é o encontro entre tradição e o novo lifestyle urbano.\n\nConstruímos narrativas que convidam o público a viver o momento Kapyi, transformando o digital em um ponto de encontro real."
-          stats={[
-            { label: "Engajamento", value: "High" },
-            { label: "Alcance", value: "15k+" }
-          ]}
-        />
+        <div className="anim-fade-in">
+          <EditorialSocialCase 
+            mainImg="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
+            designTitle="Identidade Gastronômica"
+            designText="O design para Kapyi traduz a experiência sensorial do menu em desejo digital. Criamos um sistema visual que une a tradição da culinária com a sofisticação urbana."
+            copyTitle="O Sabor da Conexão"
+            copyText="A experiência Kapyi vai além do prato, é o encontro entre tradição e o novo lifestyle urbano.\n\nConstruímos narrativas que convidam o público a viver o momento Kapyi, transformando o digital em um ponto de encontro real."
+            stats={[
+              { label: "Engajamento", value: "High" },
+              { label: "Alcance", value: "15k+" }
+            ]}
+          />
+        </div>
       )}
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
-          <Link to="/trabalho" className="btn btn-arrow">← Voltar Projetos</Link>
-          <Link to="/" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
+          <Link to="/trabalho" className="btn btn-primary gap-2">
+            <ArrowLeft size={16} /> Voltar Projetos
+          </Link>
+          <Link to="/evidive" className="btn btn-primary gap-2">
+            Próximo Projeto <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/solid")({
   head: () => ({
@@ -43,15 +44,19 @@ function ProjetoSolid() {
         onChange={setActiveService} 
       />
 
-      <div className="anim-fade-in site-container pb-32">
-         <img src="/solid-full.png" alt="Solid+ Branding" className="w-full h-auto border border-border shadow-2xl mb-12" />
-         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Solid+ Office" className="w-full h-auto border border-border grayscale" />
+      <div className="anim-fade-in site-container pb-32 space-y-8 md:space-y-12">
+         <img src="/solid-full.png" alt="Solid+ Branding" className="w-full h-auto border border-border shadow-2xl rounded-2xl" />
+         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Solid+ Office" className="w-full h-auto border border-border grayscale rounded-2xl" />
       </div>
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
-          <Link to="/trabalho" className="btn btn-arrow">← Voltar Projetos</Link>
-          <Link to="/symplice" className="btn btn-arrow">Próximo Projeto <span className="arrow" /></Link>
+          <Link to="/trabalho" className="btn btn-primary gap-2">
+            <ArrowLeft size={16} /> Voltar Projetos
+          </Link>
+          <Link to="/symplice" className="btn btn-primary gap-2">
+            Próximo Projeto <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </div>

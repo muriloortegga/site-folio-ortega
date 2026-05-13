@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { EditorialSocialCase } from "@/components/social-case-layout";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { z } from "zod";
 
@@ -73,8 +74,8 @@ function ProjetoMaxi() {
         <div className="anim-fade-in w-full pb-32">
           {/* Header Minimalista para OOH */}
           <div className="site-container pt-12 pb-16 text-center flex flex-col items-center">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight uppercase mb-4">Campanha OOH</h2>
-            <p className="text-lg md:text-xl text-secondary max-w-2xl">
+            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-4">Campanha OOH</h2>
+            <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-2xl">
               Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.
             </p>
           </div>
@@ -90,11 +91,11 @@ function ProjetoMaxi() {
 
       <section className="site-section border-t border-border mt-32">
         <div className="site-container flex justify-between items-center">
-          <Link to="/trabalho" className="btn btn-arrow">
-            ← Voltar Projetos
+          <Link to="/trabalho" className="btn btn-primary gap-2">
+            <ArrowLeft size={16} /> Voltar Projetos
           </Link>
-          <Link to="/natrave" className="btn btn-arrow">
-            Próximo Projeto <span className="arrow" />
+          <Link to="/natrave" className="btn btn-primary gap-2">
+            Próximo Projeto <ArrowRight size={16} />
           </Link>
         </div>
       </section>

@@ -4,13 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { ProjectMedia } from "@/components/project-media";
-=======
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
-=======
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
 
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
@@ -221,29 +215,14 @@ function PortifólioPage() {
                             ? "aspect-square bg-transparent border-none" 
                             : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
                         )}>
-<<<<<<< HEAD
-<<<<<<< HEAD
                           <ProjectMedia
-=======
-=======
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
-                          <img
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                             src={project.image}
                             alt={project.name}
                             className={cn(
                               "w-full h-full transition-all duration-700 group-hover:scale-105",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                              activeCategory === "Websites" ? "" : "grayscale group-hover:grayscale-0"
-                            )}
-=======
-=======
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                               activeCategory === "Websites" ? "" : "object-cover grayscale group-hover:grayscale-0"
                             )}
                             loading="lazy"
->>>>>>> 1410093e86492278b2285205e24b4142d9ba4a06
                           />
                         </figure>
                         <div className="mt-5 flex justify-between items-end">

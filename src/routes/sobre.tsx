@@ -312,7 +312,7 @@ function SobrePage() {
               Iniciar conversa <Plus size={18} className="ml-2" />
             </a>
             <Link to="/trabalho" className="text-background border-b border-background/30 pb-2 uppercase font-mono text-xs md:text-sm tracking-widest hover:opacity-60 transition-opacity">
-              Explorar Portfolio
+              Explorar Portifolio
             </Link>
           </div>
         </div>

@@ -7,13 +7,13 @@ import { Plus, ArrowRight, ChevronDown } from "lucide-react";
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
     meta: [
-      { title: "Portfólio — Murilo Ortega" },
+      { title: "Portifólio — Murilo Ortega" },
       { name: "description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
-      { property: "og:title", content: "Portfólio — Murilo Ortega" },
+      { property: "og:title", content: "Portifólio — Murilo Ortega" },
       { property: "og:description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
     ],
   }),
-  component: PortfólioPage,
+  component: PortifólioPage,
 });
 
 const categories = ["Social Media", "Id Visual", "Mídia Impressa", "Mídia OOH", "Websites", "Marketing de Influência"] as const;
@@ -107,7 +107,7 @@ const serviceInsights: Record<Category, Insight> = {
   }
 };
 
-function PortfólioPage() {
+function PortifólioPage() {
   const revealRef = useScrollReveal<HTMLDivElement>();
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -273,4 +273,4 @@ function PortfólioPage() {
   );
 }
 
-export default PortfólioPage;
+export default PortifólioPage;

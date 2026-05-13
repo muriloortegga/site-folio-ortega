@@ -18,7 +18,7 @@ export function Footer() {
                 Fale comigo <span className="arrow" />
               </a>
               <Link to="/trabalho" className="btn btn-arrow">
-                Ver portfólio <span className="arrow" />
+                Ver portifólio <span className="arrow" />
               </Link>
             </div>
           </div>

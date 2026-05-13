@@ -42,45 +42,77 @@ const services = [
     id: "branding",
     num: "01",
     title: "Estruturação de Marca",
-    body: "Para marcas que cresceram sem base. Posicionamento, identidade visual e brandbook que dão coerência ao que já existe.",
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop",
+    body: "Construção de identidades visuais e estratégias que elevam o valor percebido do seu negócio.",
+    image: "/solid-full.png",
   },
   {
     id: "conteudo",
     num: "02",
     title: "Sistema de Conteúdo",
-    body: "Para marcas que existem mas não têm consistência. Uma linha editorial que transforma presença digital em algo previsível e alinhado.",
-    image: "https://images.unsplash.com/photo-1557264305-7e2764da873b?q=80&w=800&auto=format&fit=crop",
+    body: "Linha editorial e narrativa que transforma sua presença digital em autoridade contínua.",
+    image: "/natrave-preview.gif",
   },
   {
     id: "digital",
     num: "03",
     title: "Presença Digital",
-    body: "Para marcas que não são bem apresentadas online. Site que organiza a comunicação, melhora percepção de valor e facilita a conversão.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    body: "Sites e interfaces que organizam a comunicação e facilitam a conversão, elevando o digital.",
+    image: "/assets/projects/kmillion/website-scroll.gif",
   },
   {
     id: "impressa",
     num: "04",
     title: "Mídia Impressa",
-    body: "Papelaria, catálogos e materiais físicos que tangibilizam a qualidade da sua marca no mundo real.",
+    body: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real.",
     image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop",
   },
   {
-    id: "ooh",
+    id: "influencia",
     num: "05",
-    title: "Mídia OOH",
-    body: "Campanhas externas, outdoors e sinalização que dominam a paisagem urbana com impacto visual.",
-    image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=800&auto=format&fit=crop",
+    title: "Marketing de Influência",
+    body: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica.",
+    image: "/hero-brandding.jpg",
   },
   {
-    id: "influencia",
+    id: "ooh",
     num: "06",
-    title: "Marketing de Influência",
-    body: "Conectando sua marca com vozes que geram confiança e expandem seu alcance de forma autêntica.",
-    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop",
+    title: "Mídia OOH",
+    body: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.",
+    image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=800&auto=format&fit=crop",
   },
 ];
+
+const galleryImages = [
+  "/hero-brandding.jpg",
+  "/solid-full.png",
+  "/assets/projects/kmillion/kmillion-marca.png",
+  "/natrave-preview.gif",
+  "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
+  "/hero-brandding.jpg",
+  "/solid-full.png",
+  "/assets/projects/kmillion/kmillion-marca.png",
+  "/natrave-preview.gif",
+];
+
+function HeroGallery() {
+  return (
+    <div className="hero-gallery">
+      <div className="hero-gallery-track">
+        {galleryImages.map((img, i) => (
+          <div key={i} className="hero-gallery-item">
+            <img src={img} alt={`Gallery ${i}`} />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {galleryImages.map((img, i) => (
+          <div key={`dup-${i}`} className="hero-gallery-item">
+            <img src={img} alt={`Gallery Dup ${i}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const logoFiles = import.meta.glob("/src/assets/logos/*.{png,jpg,jpeg,svg,webp}", { eager: true, as: "url" });
 const dynamicLogos = Object.entries(logoFiles).map(([path, url]) => {
@@ -152,55 +184,47 @@ function HomePage() {
   return (
     <div ref={revealRef}>
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
-        <div className="site-container w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <div
+      <section className="min-h-screen flex items-center pt-24 pb-0 lg:pb-0 overflow-hidden relative">
+        <div className="site-container w-full h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center min-h-[80vh]">
+            {/* Left side: Copy */}
+            <div className="lg:pr-20 py-12 lg:py-0 relative z-10">
+              <div
+                style={{ 
+                  transform: `translateY(${scrollY * 0.1}px)`,
+                  opacity: Math.max(1 - scrollY * 0.003, 0),
+                  filter: `blur(${scrollY > 20 ? Math.min((scrollY - 20) * 0.04, 12) : 0}px)`,
+                  transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease-out'
+                }}
+              >
+                <h1 className="anim-fade-in text-4xl lg:text-7xl font-bold leading-[0.95] tracking-tighter uppercase">
+                  TRANSFORMO MARCAS COMUNS EM MARCAS COM <br />
+                  <span className="text-secondary font-medium">IMPACTO REAL</span>
+                </h1>
+                <p className="mt-10 text-lg lg:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250 uppercase font-medium">
+                  Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um sistema de alto nível.
+                </p>
+              </div>
+              <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+                <Link to="/trabalho" className="btn btn-hero-primary">
+                  Meu Portifólio
+                </Link>
+                <Link to="/sobre" className="btn btn-hero-secondary">
+                  Sobre Mim
+                </Link>
+              </div>
+            </div>
+
+            {/* Right side: Gallery */}
+            <div 
+              className="relative h-[60vh] lg:h-screen w-full lg:w-[120%] lg:-ml-[10%] overflow-hidden anim-fade-in delay-250 border-l border-border/10"
               style={{ 
-                transform: `translateY(${scrollY * 0.1}px)`,
-                opacity: Math.max(1 - scrollY * 0.003, 0),
-                filter: `blur(${scrollY > 20 ? Math.min((scrollY - 20) * 0.04, 12) : 0}px)`,
-                transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease-out'
+                transform: `translateY(${scrollY * -0.05}px)`,
+                transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
-              <h1 className="anim-fade-in">
-                TRANSFORMO MARCAS COMUNS EM MARCAS COM <span className="text-secondary font-medium">IMPACTO REAL</span>
-              </h1>
-              <p className="mt-10 text-lg lg:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250">
-                Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um sistema de alto nível.
-              </p>
+              <HeroGallery />
             </div>
-            <div className="mt-12 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
-              <Link to="/trabalho" className="btn btn-arrow">
-                Ver portfólio <span className="arrow" />
-              </Link>
-            </div>
-          </div>
-          <div 
-            className="lg:col-span-5 block mt-12 lg:mt-0 anim-fade-in delay-250"
-            style={{ 
-              transform: `translateY(${scrollY * -0.1}px)`,
-              transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
-          >
-            <Link to="/symplice" className="block group">
-              <figure className="project-card relative cursor-none">
-                <div className="media-wrap aspect-[3/4]">
-                  <img
-                    src="/hero-brandding.jpg"
-                    alt="Symplice project showcase"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-                <figcaption className="mt-6 flex items-center justify-between">
-                  <div>
-                    <span className="site-card-label">Branding · 2024</span>
-                    <span className="font-medium text-lg uppercase leading-tight block">Symplice — Identidade de<br />Marca para Startup</span>
-                  </div>
-                </figcaption>
-              </figure>
-            </Link>
           </div>
         </div>
       </section>

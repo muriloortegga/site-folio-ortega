@@ -30,8 +30,8 @@ export function WebsiteScrollShowcase({ title, description, mediaSrc }: WebsiteS
 
       {/* 2. Área Longa para o Efeito de Tela (Sticky) */}
       <div className="relative h-[200vh] w-full">
-        {/* 3. A imagem que fica colada na tela depois que o texto passa */}
-        <div className="sticky top-24 md:top-32 w-full flex justify-center px-4 md:px-0">
+        {/* 3. A imagem que fica colada na tela perfeitamente centralizada */}
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center px-4 md:px-0">
           <motion.img 
             style={{ y }}
             src={mediaSrc}

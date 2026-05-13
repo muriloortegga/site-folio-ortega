@@ -222,7 +222,7 @@ function PortifólioPage() {
                               "w-full h-full transition-all duration-700 group-hover:scale-105",
                               activeCategory === "Websites" ? "" : "object-cover grayscale group-hover:grayscale-0"
                             )}
-                            loading="lazy"
+                            />
                           />
                         </figure>
                         <div className="mt-5 flex justify-between items-end">

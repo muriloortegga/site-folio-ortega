@@ -32,7 +32,8 @@ export function PerformanceHero({
   contentCount, 
   mockupImg,
   followersLabel = "Seguidores",
-  contentLabel = "Conteúdos Criados"
+  contentLabel = "Conteúdos Criados",
+  accentColor,
 }: { 
   followers: number; 
   contentCount?: number; 

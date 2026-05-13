@@ -1,15 +1,14 @@
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface WebsiteScrollShowcaseProps {
   title: string;
   description: string;
-  videoSrc: string;
+  imageSrc: string;
 }
 
-export function WebsiteScrollShowcase({ title, description, videoSrc }: WebsiteScrollShowcaseProps) {
+export function WebsiteScrollShowcase({ title, description, imageSrc }: WebsiteScrollShowcaseProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -18,35 +17,6 @@ export function WebsiteScrollShowcase({ title, description, videoSrc }: WebsiteS
 
   // Parallax effect for the laptop (floats up slightly as you scroll down)
   const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
-
-  // Scrub the video based on scroll position
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (videoRef.current && videoRef.current.duration) {
-      // We want the video to start scrubbing after the laptop comes into view
-      // and finish before it leaves.
-      // Adjust these mapping values if you want the video to scrub faster or slower
-      let progress = (latest - 0.2) / 0.6;
-      if (progress < 0) progress = 0;
-      if (progress > 1) progress = 1;
-
-      // Wrap in requestAnimationFrame for smoother scrubbing
-      requestAnimationFrame(() => {
-        if (videoRef.current) {
-          videoRef.current.currentTime = progress * videoRef.current.duration;
-        }
-      });
-    }
-  });
-
-  // Ensure video metadata is loaded so we have the duration
-  useEffect(() => {
-    if (videoRef.current) {
-      // Pause it immediately so it doesn't auto-play (it's controlled by scroll)
-      videoRef.current.pause();
-      // Preload metadata to know the duration
-      videoRef.current.load();
-    }
-  }, [videoSrc]);
 
   return (
     <div 
@@ -66,13 +36,10 @@ export function WebsiteScrollShowcase({ title, description, videoSrc }: WebsiteS
         <div className="absolute inset-0 bg-neutral-900 rounded-[1.5rem] md:rounded-[2rem] border-[6px] md:border-[12px] border-neutral-800 shadow-2xl flex items-center justify-center overflow-hidden">
           {/* Inner bezel */}
           <div className="w-full h-full bg-black relative">
-            <video 
-              ref={videoRef}
-              src={videoSrc}
+            <img 
+              src={imageSrc}
+              alt="Website preview"
               className="w-full h-full object-cover"
-              muted
-              playsInline
-              preload="auto"
             />
             {/* Webcam notch */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 md:w-16 h-2 md:h-4 bg-neutral-900 rounded-b-md md:rounded-b-lg"></div>

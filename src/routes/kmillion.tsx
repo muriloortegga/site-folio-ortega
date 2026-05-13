@@ -77,7 +77,7 @@ function ProjetoKmillion() {
           <WebsiteScrollShowcase 
             title="Website Kmillion"
             description="Landing page de alta conversão focada em resultados e autoridade. Design limpo que direciona a atenção do usuário para o ecossistema de inteligência promocional."
-            videoSrc="/assets/projects/kmillion/website-scroll.mp4"
+            imageSrc="/assets/projects/kmillion/website-scroll.gif"
           />
         </div>
       )}

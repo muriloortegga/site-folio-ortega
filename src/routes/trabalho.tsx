@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
@@ -59,9 +60,9 @@ const projects: Project[] = [
   { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi" },
 
   // Websites
-  { name: "NaTrave", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave" },
-  { name: "Talk2Buy", category: "Websites", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy" },
-  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
+  { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave" },
+  { name: "Talk2Buy", category: "Websites", year: "2024", image: "/assets/projects/talk2buy/website-scroll.gif", to: "/talk2buy" },
+  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion" },
 
   // Marketing de Influência
   { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
@@ -207,11 +208,19 @@ function PortifólioPage() {
                         search={project.search}
                         className="group"
                       >
-                        <figure className="relative aspect-[3/2] bg-off-white overflow-hidden border border-border/10 rounded-xl">
+                        <figure className={cn(
+                          "relative overflow-hidden transition-all duration-700",
+                          activeCategory === "Websites" 
+                            ? "aspect-square bg-transparent border-none" 
+                            : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
+                        )}>
                           <img
                             src={project.image}
                             alt={project.name}
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                            className={cn(
+                              "w-full h-full transition-all duration-700 group-hover:scale-105",
+                              activeCategory === "Websites" ? "" : "object-cover grayscale group-hover:grayscale-0"
+                            )}
                             loading="lazy"
                           />
                         </figure>

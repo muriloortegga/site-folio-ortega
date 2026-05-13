@@ -52,8 +52,8 @@ const projects: Project[] = [
   { name: "Solid+", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/solid.jpg", to: "/solid" },
   
   // Mídia Impressa
-  { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "https://images.unsplash.com/photo-1544640808-32ca72ac7f37?q=80&w=800", to: "/marco-boni" },
-  { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80", to: "/livin" },
+  { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "/assets/projects/marco-boni/print/1.jpg", to: "/marco-boni" },
+  { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/livin/print/1.jpg", to: "/livin" },
   
   // Mídia OOH
   { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi" },

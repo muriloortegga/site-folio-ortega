@@ -68,7 +68,7 @@ function MidiaImpressaPage() {
              <div className="lg:col-span-6">
                 <Link to="/marco-boni" className="block shadow-2xl overflow-hidden group">
                    <img 
-                     src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?q=80&w=800" 
+                     src="/assets/projects/marco-boni/print/1.jpg" 
                      alt="Marco Boni Catalog" 
                      className="w-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
                    />

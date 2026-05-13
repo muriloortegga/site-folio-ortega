@@ -101,7 +101,7 @@ function ProjetoTalk2Buy() {
           <WebsiteScrollShowcase 
             title="A Plataforma"
             description="Desenvolvimento de plataforma focada em conversão, traduzindo a complexidade de vendas autônomas em uma experiência fluida e moderna."
-            mediaSrc="/assets/projects/talk2buy/website-scroll.mp4"
+            mediaSrc="/assets/projects/talk2buy/website-scroll.gif"
           />
         </div>
       )}

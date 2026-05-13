@@ -141,7 +141,7 @@ function ProjetoNaTrave() {
           <WebsiteScrollShowcase 
             title="A Plataforma"
             description="Desenvolvimento de plataforma focada em performance e comunidade para o futebol amador. Interfaces limpas e foco total na experiência do atleta."
-            mediaSrc="/assets/projects/natrave/website-scroll.mp4"
+            mediaSrc="/natrave-preview.gif"
           />
         </div>
       )}

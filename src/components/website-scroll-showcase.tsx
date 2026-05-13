@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import { useScroll, useMotionValueEvent, motion } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
 interface WebsiteScrollShowcaseProps {
   title: string;
@@ -9,32 +9,6 @@ interface WebsiteScrollShowcaseProps {
 
 export function WebsiteScrollShowcase({ title, description, mediaSrc }: WebsiteScrollShowcaseProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // The container will be very tall (300vh), allowing the user to scroll for a long time
-  // while the sticky section stays on screen.
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  // Scrub the video based on scroll
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (videoRef.current && videoRef.current.duration) {
-      requestAnimationFrame(() => {
-        if (videoRef.current) {
-          videoRef.current.currentTime = latest * videoRef.current.duration;
-        }
-      });
-    }
-  });
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.load();
-    }
-  }, [mediaSrc]);
 
   return (
     <div ref={containerRef} className="relative h-[300vh] w-full bg-background mt-16 mb-16">
@@ -52,13 +26,10 @@ export function WebsiteScrollShowcase({ title, description, mediaSrc }: WebsiteS
         </motion.div>
         
         <div className="relative w-full max-w-[1200px] mx-auto z-10 px-4 md:px-0 flex items-center justify-center mt-32 md:mt-24">
-          <video 
-            ref={videoRef}
+          <img 
             src={mediaSrc}
+            alt="Website Showcase"
             className="w-full h-auto object-contain drop-shadow-2xl"
-            muted
-            playsInline
-            preload="auto"
           />
         </div>
 

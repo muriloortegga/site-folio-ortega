@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState } from "react";
-import { ChevronDown, Plus, ArrowUpRight, Cpu, Layout, PenTool, ClipboardList } from "lucide-react";
+import { ChevronDown, Plus, ArrowUpRight, Cpu, ClipboardList } from "lucide-react";
 import portrait from "@/assets/murilo-portrait.png";
 
 export const Route = createFileRoute("/sobre")({
@@ -92,7 +92,7 @@ function BrandBoard() {
           onMouseLeave={() => typeof window !== 'undefined' && window.innerWidth > 768 && setActiveBrand(null)}
         >
           <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[220px] md:min-h-[300px] transition-all duration-700">
-            <h3 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter transition-all duration-500 group-hover:scale-90 group-hover:opacity-20 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter transition-all duration-500 group-hover:scale-90 group-hover:opacity-20 text-center">
               {brand.name}
             </h3>
             <div className="flex flex-col items-center gap-2 mt-4 transition-all duration-500 group-hover:opacity-0">
@@ -140,8 +140,7 @@ function SobrePage() {
 
         <div className="site-container relative z-10 w-full pt-32 pb-24">
           <div className="max-w-5xl">
-            <span className="site-label mb-8 md:mb-12">Murilo Ortega — Creative Director</span>
-            <h1 className="text-7xl md:text-[10vw] font-bold uppercase tracking-tighter leading-[0.85] mb-12">
+            <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">
               Marcas que não<br />
               pedem <span className="italic font-medium">licença</span><br />
               para liderar.
@@ -182,16 +181,13 @@ function SobrePage() {
       <section className="site-section bg-off-white">
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-4">
-              <span className="site-label">Trajetória</span>
-            </div>
-            <div className="lg:col-span-8 space-y-12">
-              <p className="text-3xl lg:text-4xl font-bold uppercase tracking-tighter leading-[0.95] text-foreground">
+            <div className="lg:col-span-12 space-y-12">
+              <p className="text-2xl lg:text-3xl font-bold uppercase tracking-tighter leading-[0.95] text-foreground">
                 Tenho 10 anos de experiência no mercado de Marketing e, ao longo dessa jornada, adquiri conhecimentos e liderei projetos nas áreas de Publicidade, Branding, Design Gráfico, Audiovisual e Mídias Sociais.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-border/20">
                 <p className="site-body">
-                  Nesse portifólio você encontra os meus melhores projetos, e mergulha um pouco mais fundo nesse universo que também mergulhei anos atrás e encontrei na combinação entre dados, criatividade, estratégia e boa experiência do usuário uma forma de performar ainda melhor no mercado atual de Agências e Hubs Criativos.
+                   Nesse portifólio você encontra os meus melhores projetos, e mergulha um pouco mais fundo nesse universo que também mergulhei anos atrás e encontrei na combinação entre dados, criatividade, estratégia e boa experiência do usuário uma forma de performar ainda melhor no mercado atual de Agências e Hubs Criativos.
                 </p>
                 <div className="flex flex-col gap-8">
                    <div className="flex items-center gap-4 group">
@@ -216,8 +212,7 @@ function SobrePage() {
       {/* Design Tools Marquee */}
       <section className="py-16 md:py-24 border-t border-border overflow-hidden bg-background">
         <div className="site-container mb-16 md:mb-24">
-          <span className="site-label mb-6 md:mb-8">Especialidades</span>
-          <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.85] md:leading-[0.8]">Meus Principais <br /><span className="text-secondary">Skills</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.85] md:leading-[0.8]">Meus Principais <br /><span className="text-secondary">Skills</span></h2>
         </div>
         
         <div className="flex flex-col gap-8 md:gap-12">
@@ -227,7 +222,7 @@ function SobrePage() {
           <div className="animate-marquee flex gap-8 md:gap-12 whitespace-nowrap">
              {[...tools, ...tools, ...tools, ...tools, ...tools, ...tools].map((tool, i) => (
                <div key={i} className="flex items-center gap-4 md:gap-6 group px-4">
-                  <div className="w-20 h-20 md:w-32 md:h-32 border border-border flex items-center justify-center text-3xl md:text-5xl font-bold font-mono group-hover:bg-foreground group-hover:text-background transition-all duration-700 ease-out-expo">
+                  <div className="w-20 h-20 md:w-32 md:h-32 border border-border flex items-center justify-center text-3xl md:text-5xl font-bold font-mono group-hover:bg-foreground group-hover:text-background transition-all duration-700 ease-out-expo rounded-xl">
                     {tool.logo}
                   </div>
                   <span className="text-xl md:text-3xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
@@ -252,12 +247,12 @@ function SobrePage() {
             <div className="bg-background p-8 md:p-16 space-y-8 md:space-y-12">
                <div className="flex items-center gap-4">
                  <Cpu size={20} className="md:w-6 md:h-6" />
-                 <h4 className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Inteligência Artificial</h4>
+                 <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Inteligência Artificial</h4>
                </div>
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                  {aiTools.map((tool) => (
                    <div key={tool.name} className="space-y-2">
-                     <span className="tag-mono">{tool.name}</span>
+                     <span className="tag-mono rounded-full px-4">{tool.name}</span>
                      <p className="text-[10px] md:text-[11px] text-secondary font-mono leading-tight uppercase">{tool.desc}</p>
                    </div>
                  ))}
@@ -271,12 +266,12 @@ function SobrePage() {
             <div className="bg-off-white p-8 md:p-16 space-y-8 md:space-y-12 border-t md:border-t-0 border-border">
                <div className="flex items-center gap-4">
                  <ClipboardList size={20} className="md:w-6 md:h-6" />
-                 <h4 className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Gestão & Planejamento</h4>
+                 <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Gestão & Planejamento</h4>
                </div>
                <div className="space-y-8 md:space-y-12">
                  {["Asana", "Trello", "Notion"].map((tool) => (
                    <div key={tool} className="flex items-end justify-between border-b border-border pb-3 md:pb-4 group">
-                      <span className="text-2xl md:text-3xl font-bold uppercase tracking-tighter group-hover:translate-x-4 transition-transform duration-500">{tool}</span>
+                      <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter group-hover:translate-x-4 transition-transform duration-500">{tool}</span>
                       <span className="text-[9px] md:text-[10px] font-mono uppercase opacity-40">Gestão de Fluxo</span>
                    </div>
                  ))}
@@ -294,8 +289,7 @@ function SobrePage() {
         <div className="site-container">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
             <div className="max-w-xl">
-              <span className="site-label mb-6 md:mb-8">Marcas & Experiência</span>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.95] md:leading-[0.9]">Um ecossistema de marcas que confiam no meu olhar.</h2>
+              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[0.95] md:leading-[0.9]">Um ecossistema de marcas que confiam no meu olhar.</h2>
             </div>
             <p className="text-[9px] md:text-[10px] font-mono uppercase tracking-widest text-secondary mb-2">Toque para explorar os detalhes</p>
           </div>
@@ -304,15 +298,15 @@ function SobrePage() {
       </section>
 
       {/* Final Call to Action */}
-      <section className="py-24 md:py-48 bg-foreground text-background">
+      <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center space-y-8 md:space-y-12">
-          <h2 className="text-[15vw] md:text-[10vw] font-bold uppercase tracking-tighter leading-[0.8] anim-fade-in">Vamos elevar o seu projeto?</h2>
+          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] anim-fade-in">Vamos elevar o seu projeto?</h2>
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center anim-fade-in delay-250">
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn-primary bg-background text-foreground px-10 md:px-12 py-4 md:py-6 text-base md:text-lg hover:scale-105 transition-all w-full md:w-auto text-center">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn-primary bg-background text-foreground px-10 md:px-12 py-4 md:py-6 text-base md:text-lg hover:bg-background/90 rounded-full w-full md:w-auto text-center">
               Iniciar conversa <Plus size={18} className="ml-2" />
             </a>
             <Link to="/trabalho" className="text-background border-b border-background/30 pb-2 uppercase font-mono text-xs md:text-sm tracking-widest hover:opacity-60 transition-opacity">
-              Explorar Portifolio
+              Explorar Portifólio
             </Link>
           </div>
         </div>

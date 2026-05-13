@@ -70,38 +70,38 @@ const projects: Project[] = [
 const serviceInsights: Record<Category, Insight> = {
   "Social Media": {
     title: "Social Media",
-    copy: "Criamos destinos digitais que convertem atenção em desejo.",
-    preview: "Não fazemos apenas posts. Construímos ecossistemas de marca que lideram mercados e dominam o imaginário do público.",
+    copy: "Destinos digitais que convertem atenção em desejo.",
+    preview: "Não fazemos apenas posts. Construímos ecossistemas de marca que lideram mercados.",
     to: "/servicos/sistema-de-conteudo"
   },
   "Id Visual": {
     title: "Id Visual",
-    copy: "Design que carrega a alma e a ambição do seu negócio.",
-    preview: "Identidades visuais que não apenas decoram, mas posicionam sua marca como a escolha premium em qualquer categoria.",
+    copy: "Design que carrega a alma do seu negócio.",
+    preview: "Identidades visuais que não apenas decoram, mas posicionam sua marca como premium.",
     to: "/servicos/estruturacao-de-marca"
   },
   "Mídia Impressa": {
     title: "Mídia Impressa",
     copy: "A tangibilidade do luxo e da precisão técnica.",
-    preview: "Materiais físicos que comunicam autoridade através de acabamentos impecáveis e design editorial de alto nível.",
+    preview: "Materiais físicos que comunicam autoridade através de design editorial de alto nível.",
     to: "/servicos/midia-impressa"
   },
   "Mídia OOH": {
     title: "Mídia OOH",
     copy: "Sua marca dominando o cenário urbano.",
-    preview: "Campanhas de Out-of-Home projetadas para impacto máximo e memorabilidade imediata em pontos estratégicos.",
+    preview: "Campanhas de Out-of-Home projetadas para impacto máximo e memorabilidade imediata.",
     to: "/servicos/midia-ooh"
   },
   "Websites": {
     title: "Websites",
-    copy: "Plataformas digitais que funcionam como sua sede global.",
-    preview: "Experiências web imersivas, rápidas e focadas em conversão, desenhadas para refletir a excelência da sua marca.",
+    copy: "Plataformas que funcionam como sua sede global.",
+    preview: "Experiências web imersivas e focadas em conversão, desenhadas para refletir excelência.",
     to: "/servicos/presenca-digital"
   },
   "Marketing de Influência": {
     title: "Marketing de Influência",
     copy: "Vozes reais gerando impacto real.",
-    preview: "Conectamos sua marca com vozes que geram confiança e expandem seu alcance de forma autêntica e estratégica.",
+    preview: "Conectando sua marca com creators que geram confiança e expandem seu alcance.",
     to: "/evidive",
     search: { service: "influencia" }
   }
@@ -129,13 +129,13 @@ function PortifólioPage() {
       <section className="site-section">
         <div className="site-container">
           <div className="mb-20">
-            <h1 className="uppercase tracking-tighter anim-fade-in leading-[0.85] flex flex-col">
-              <span className="text-4xl md:text-6xl lg:text-8xl mb-2">Conheça meu</span>
-              <span className="text-secondary font-medium text-[18vw] md:text-[12vw]">Trabalho</span>
+            <h1 className="uppercase tracking-tighter anim-fade-in leading-[0.95] flex flex-col">
+              <span className="text-3xl md:text-5xl lg:text-6xl mb-2">Conheça meu</span>
+              <span className="text-secondary font-medium text-[12vw] md:text-[8vw]">Trabalho</span>
             </h1>
           </div>
 
-          {/* Conceptual Hero (Visible only when no category is selected) */}
+          {/* Conceptual Hero */}
           <AnimatePresence mode="wait">
             {!activeCategory && (
               <motion.div 
@@ -143,10 +143,9 @@ function PortifólioPage() {
                 animate={{ opacity: 1, filter: "blur(0px)" }}
                 exit={{ opacity: 0, filter: "blur(20px)", y: -50 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="py-20 md:py-40 border-y border-border/50 mb-20 flex flex-col items-center text-center"
+                className="py-12 md:py-24 border-y border-border/50 mb-20 flex flex-col items-center text-center"
               >
-                <span className="text-xs font-mono uppercase tracking-[0.4em] text-secondary mb-12">Explorar Categorias</span>
-                <div className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-none max-w-4xl">
+                <div className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-4xl">
                   8 anos de experiência com: <br className="hidden md:block" />
                   <div className="h-[1.2em] relative overflow-hidden inline-block align-bottom md:block mt-4">
                     <AnimatePresence mode="wait">
@@ -163,20 +162,20 @@ function PortifólioPage() {
                     </AnimatePresence>
                   </div>
                 </div>
-                <p className="mt-12 text-sm text-secondary uppercase tracking-widest max-w-lg mx-auto leading-relaxed">
-                  Selecione uma área abaixo para ver como transformamos estratégia em impacto visual real.
+                <p className="mt-8 text-sm text-secondary uppercase tracking-widest max-w-lg mx-auto leading-relaxed">
+                  Selecione abaixo a especialidade que deseja explorar.
                 </p>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Category Filters - Refined Design */}
+          {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-20 anim-fade-in delay-250 sticky top-24 z-30 bg-background/80 backdrop-blur py-4">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                className={`px-6 py-3 text-[10px] font-mono uppercase tracking-[0.2em] transition-all border ${
+                className={`px-6 py-3 text-[10px] font-mono uppercase tracking-[0.2em] transition-all border rounded-full ${
                   activeCategory === cat 
                     ? "bg-foreground text-background border-foreground shadow-lg scale-105" 
                     : "bg-transparent text-secondary border-border hover:border-foreground/40"
@@ -198,7 +197,7 @@ function PortifólioPage() {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="mb-32"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                   {projects
                     .filter((p) => p.category === activeCategory)
                     .map((project, i) => (
@@ -208,7 +207,7 @@ function PortifólioPage() {
                         search={project.search}
                         className="group"
                       >
-                        <figure className="relative aspect-[4/5] bg-off-white overflow-hidden border border-border/10">
+                        <figure className="relative aspect-[3/2] bg-off-white overflow-hidden border border-border/10 rounded-lg">
                           <img
                             src={project.image}
                             alt={project.name}
@@ -219,7 +218,7 @@ function PortifólioPage() {
                         <div className="mt-6 flex justify-between items-end">
                            <div>
                               <span className="text-[10px] font-mono uppercase text-secondary mb-1 block">{project.year}</span>
-                              <h4 className="text-xl font-bold uppercase tracking-tight">{project.name}</h4>
+                              <h4 className="text-lg font-bold uppercase tracking-tight">{project.name}</h4>
                            </div>
                            <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
                         </div>
@@ -229,7 +228,7 @@ function PortifólioPage() {
               </motion.div>
             )}
           </AnimatePresence>
-
+ 
           {/* Dynamic Service Insight Section */}
           <div className="pt-24 border-t border-border">
             <AnimatePresence mode="wait">
@@ -242,15 +241,12 @@ function PortifólioPage() {
                 className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
               >
                 <div className="lg:col-span-5">
-                  <span className="site-label mb-8">
-                    {activeCategory ? `Insight: ${activeCategory}` : "Expertise & Entrega"}
-                  </span>
-                  <h2 className="text-5xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.9] mb-8">
+                  <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.9] mb-8">
                     {currentInsight ? currentInsight.copy : "Sua marca pronta para o próximo nível."}
                   </h2>
                 </div>
                 <div className="lg:col-span-7 flex flex-col md:flex-row gap-12 items-start md:items-center">
-                  <p className="text-xl text-secondary uppercase font-medium leading-tight max-w-md">
+                  <p className="text-lg text-secondary uppercase font-medium leading-tight max-w-md">
                     {currentInsight ? currentInsight.preview : "Combinamos estratégia, design e tecnologia para criar ecossistemas de marca que lideram mercados."}
                   </p>
                   {currentInsight && (

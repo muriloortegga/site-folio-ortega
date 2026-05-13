@@ -59,7 +59,7 @@ function ProjetoEviDive() {
 
       {activeService === "social" && (
         <EditorialSocialCase 
-          mainImg="/hero-brandding.jpg"
+          mainImg="/assets/projects/evidive/thumbs/social.jpg"
           designTitle="Estética Subaquática & Autoridade"
           designText="Transformamos a identidade visual da Evidive em um destino digital premium. O design foca na clareza técnica e na imersão emocional, quebrando a percepção de complexidade do mergulho."
           copyTitle="Narrativas que Libertam a Mente"
@@ -112,7 +112,10 @@ function AnimCounter({ value, suffix = "", prefix = "" }: { value: number; suffi
 function InfluenciaHero() {
   return (
     <section className="min-h-[80vh] flex flex-col justify-end pb-24 pt-32 site-section border-none bg-foreground text-background overflow-hidden relative">
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 60% 40%, #ffffff 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
+      <div className="absolute inset-0 z-0">
+        <img src="/assets/projects/evidive/backgrounds/hero.jpg" alt="Background" className="w-full h-full object-cover opacity-20 grayscale" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
       <div className="site-container relative z-10">
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-[0.85] mb-8 max-w-5xl">
           Como transformamos creators em motor de crescimento para a Evidive
@@ -175,8 +178,11 @@ function OProblema() {
     { label: "Complexo", desc: "Processo de aprendizado visto como intimidador." },
   ];
   return (
-    <section ref={ref} className="site-section py-24 md:py-32 bg-foreground text-background">
-      <div className="site-container">
+    <section ref={ref} className="site-section py-24 md:py-32 bg-foreground text-background relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img src="/assets/projects/evidive/backgrounds/problema.jpg" alt="Background" className="w-full h-full object-cover opacity-10 grayscale" />
+      </div>
+      <div className="site-container relative z-10">
         <div className="mb-16">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.85] max-w-4xl">
             O desafio era quebrar o imaginário

@@ -40,7 +40,7 @@ const projects: Project[] = [
   // Social Media
   { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
   { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy", search: { service: "social" } },
-  { name: "Evidive", category: "Social Media", year: "2024", image: "/hero-brandding.jpg", to: "/evidive", search: { service: "social" } },
+  { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/evidive/thumbs/main.jpg", to: "/evidive", search: { service: "social" } },
   { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi", search: { service: "social" } },
   { name: "Milgrows", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/milgrows", search: { service: "social" } },
   { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi", search: { service: "social" } },
@@ -64,7 +64,7 @@ const projects: Project[] = [
   { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion" },
 
   // Marketing de Influência
-  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/hero-brandding.jpg", to: "/evidive", search: { service: "influencia" } },
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
 ];
 
 const serviceInsights: Record<Category, Insight> = {

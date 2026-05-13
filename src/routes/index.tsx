@@ -72,7 +72,7 @@ const services = [
     num: "05",
     title: "Marketing de Influência",
     body: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica.",
-    image: "/hero-brandding.jpg",
+    image: "/assets/projects/evidive/thumbs/influencia.jpg",
   },
   {
     id: "ooh",
@@ -84,12 +84,12 @@ const services = [
 ];
 
 const galleryImages = [
-  "/hero-brandding.jpg",
+  "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",
   "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
-  "/hero-brandding.jpg",
+  "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",

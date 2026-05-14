@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useEffect } from "react";
 import { DraggableMarquee } from "@/components/draggable-marquee";
-import { ArrowRight, ChevronRight, Plus } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { ProjectMedia } from "@/components/project-media";
-import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +21,7 @@ const projects = [
   {
     name: "NaTrave App — O Ecossistema do Futebol Amador",
     category: "Social Media · 2024",
-    image: "/assets/projects/thumbnails/natrave.jpg",
+    image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
     gif: "/natrave-preview.gif",
     to: "/natrave",
   },
@@ -67,7 +66,7 @@ const services = [
     num: "04",
     title: "Mídia Impressa",
     body: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real.",
-    image: "/assets/projects/marco-boni/print/1.jpg",
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "influencia",
@@ -81,9 +80,41 @@ const services = [
     num: "06",
     title: "Mídia OOH",
     body: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.",
-    image: "/assets/projects/maxi/ooh/1.jpg",
+    image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=800&auto=format&fit=crop",
   },
 ];
+
+const galleryImages = [
+  "/assets/projects/evidive/thumbs/social.jpg",
+  "/solid-full.png",
+  "/assets/projects/kmillion/kmillion-marca.png",
+  "/natrave-preview.gif",
+  "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
+  "/assets/projects/evidive/thumbs/social.jpg",
+  "/solid-full.png",
+  "/assets/projects/kmillion/kmillion-marca.png",
+  "/natrave-preview.gif",
+];
+
+function HeroGallery() {
+  return (
+    <div className="hero-gallery">
+      <div className="hero-gallery-track">
+        {galleryImages.map((img, i) => (
+          <div key={i} className="hero-gallery-item">
+            <img src={img} alt={`Gallery ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {galleryImages.map((img, i) => (
+          <div key={`dup-${i}`} className="hero-gallery-item">
+            <img src={img} alt={`Gallery Dup ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const logoFiles = import.meta.glob("/src/assets/logos/*.{png,jpg,jpeg,svg,webp}", { eager: true, as: "url" });
 const dynamicLogos = Object.entries(logoFiles).map(([path, url]) => {
@@ -158,79 +189,48 @@ function HomePage() {
 
   return (
     <div ref={revealRef}>
-      {/* Premium Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <ProjectMedia 
-            src="/assets/about/photos/hero-bg.jpg" 
-            alt="Murilo Ortega Hero" 
-            className="w-full h-full object-cover opacity-40" 
-            style={{ 
-              objectPosition: "50% 25%",
-              filter: `brightness(${Math.max(0.4 - scrollY * 0.0005, 0.2)}) blur(${Math.min(scrollY * 0.005, 10)}px)`
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        </div>
-
-        <div className="site-container relative z-10 w-full pt-32 pb-24">
-          <div className="max-w-5xl">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ opacity: Math.max(1 - scrollY * 0.002, 0) }}
-              className="text-4xl md:text-7xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.8] mb-12"
-            >
-              Transformo marcas<br />
-              com <span className="text-secondary font-medium italic">impacto real</span>
-            </motion.h1>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ opacity: Math.max(1 - scrollY * 0.0025, 0) }}
-                className="space-y-8"
+      {/* Hero */}
+      <section className="min-h-screen flex items-center pt-24 pb-0 lg:pb-0 overflow-hidden relative">
+        <div className="site-container w-full h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center min-h-[80vh]">
+            {/* Left side: Copy */}
+            <div className="lg:pr-20 py-12 lg:py-0 relative z-10">
+              <div
+                style={{ 
+                  transform: `translateY(${scrollY * 0.1}px)`,
+                  opacity: Math.max(1 - scrollY * 0.003, 0),
+                  filter: `blur(${scrollY > 20 ? Math.min((scrollY - 20) * 0.04, 12) : 0}px)`,
+                  transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease-out'
+                }}
               >
-                <div className="flex flex-col gap-1">
-                   <span className="text-[10px] font-mono uppercase text-secondary/40 tracking-widest">Foco Digital</span>
-                   <span className="text-sm md:text-base uppercase font-bold tracking-tighter">Design Estratégico</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                   <span className="text-[10px] font-mono uppercase text-secondary/40 tracking-widest">Versão</span>
-                   <span className="text-sm md:text-base uppercase font-bold tracking-tighter">2024 PORTIFÓLIO</span>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ opacity: Math.max(1 - scrollY * 0.003, 0) }}
-                className="md:col-span-2 flex flex-col md:flex-row gap-8 items-start md:items-end md:justify-end"
-              >
-                 <p className="text-base md:text-xl text-secondary uppercase font-medium leading-tight max-w-sm">
-                   Design que confronta o comum e eleva o digital. Branding e presença conectada em alto nível.
-                 </p>
-              </motion.div>
+                <h1 className="anim-fade-in text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter uppercase">
+                  TRANSFORMO MARCAS COMUNS EM MARCAS COM <br />
+                  <span className="text-secondary font-medium italic">IMPACTO REAL</span>
+                </h1>
+                <p className="mt-8 text-base md:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250 uppercase font-medium">
+                  Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um sistema de alto nível.
+                </p>
+              </div>
+              <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+                <Link to="/trabalho" className="btn btn-hero-primary">
+                  Meu Portifólio
+                </Link>
+                <Link to="/sobre" className="btn btn-hero-secondary">
+                  Sobre Mim
+                </Link>
+              </div>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              style={{ opacity: Math.max(1 - scrollY * 0.0035, 0) }}
-              className="mt-16 flex flex-wrap gap-4"
+            {/* Right side: Gallery */}
+            <div 
+              className="relative h-[60vh] lg:h-screen w-full lg:w-[120%] lg:-ml-[10%] overflow-hidden anim-fade-in delay-250 border-l border-border/10"
+              style={{ 
+                transform: `translateY(${scrollY * -0.05}px)`,
+                transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
             >
-              <Link to="/trabalho" className="btn btn-hero-primary">
-                Meu Portifólio
-              </Link>
-              <Link to="/sobre" className="btn btn-hero-secondary">
-                Sobre Mim
-              </Link>
-            </motion.div>
+              <HeroGallery />
+            </div>
           </div>
         </div>
       </section>
@@ -316,38 +316,6 @@ function HomePage() {
                 </p>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final Call to Action - Adapted from Sobre.tsx */}
-      <section className="relative py-32 md:py-48 bg-foreground text-background overflow-hidden border-t border-border/10">
-        <div className="absolute inset-0 z-0">
-          <ProjectMedia 
-            src="/assets/about/photos/footer-bg.jpg" 
-            alt="Murilo Ortega Contact" 
-            className="w-full h-full object-cover opacity-20" 
-            style={{ filter: "brightness(0.3) blur(2px)" }}
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-        
-        <div className="site-container relative z-10 text-center space-y-12">
-          <motion.h2 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.8]"
-          >
-            Vamos elevar o<br />seu projeto?
-          </motion.h2>
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full w-full md:w-auto text-center border-none shadow-2xl">
-              Iniciar conversa <Plus size={18} className="ml-2" />
-            </a>
-            <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity border-b border-background/20 pb-1">
-              Explorar Portifólio
-            </Link>
           </div>
         </div>
       </section>

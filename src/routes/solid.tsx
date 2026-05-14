@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { CaseContext } from "@/components/case-context";
 
 export const Route = createFileRoute("/solid")({
   head: () => ({
@@ -42,6 +43,13 @@ function ProjetoSolid() {
         options={services} 
         activeId={activeService} 
         onChange={setActiveService} 
+      />
+
+      <CaseContext 
+        briefing="Criar uma identidade visual para uma nova fintech focada em grandes corporações e gestão de ativos digitais."
+        problem="O setor financeiro digital é saturado de marcas genéricas. A Solid+ precisava transmitir segurança institucional sem parecer antiquada."
+        solution="Desenvolvi um sistema visual baseado em grids rígidos e tipografia robusta, utilizando uma paleta monocromática que exala autoridade e clareza técnica."
+        results="Marca posicionada com sucesso para o mercado global, com feedback positivo de investidores sobre a solidez visual."
       />
 
       <div className="anim-fade-in site-container pb-32 space-y-8 md:space-y-12">

@@ -18,7 +18,7 @@ export function Footer() {
                 Fale comigo <span className="arrow" />
               </a>
               <Link to="/trabalho" className="btn btn-arrow">
-                Ver portifólio <span className="arrow" />
+                Ver portfólio <span className="arrow" />
               </Link>
             </div>
           </div>
@@ -30,16 +30,19 @@ export function Footer() {
         <span className="text-[10px] font-mono uppercase tracking-tight text-secondary">
           © {new Date().getFullYear()} Murilo Ortega
         </span>
-        <div className="flex items-center gap-12">
-          {["LinkedIn", "Upwork", "Instagram"].map((social) => (
-            <a
-              key={social}
-              href="#"
-              className="text-[10px] font-mono uppercase tracking-tight text-secondary hover:text-foreground transition-colors"
-            >
-              {social}
-            </a>
-          ))}
+        <div className="flex flex-wrap items-center gap-8 md:gap-12">
+          <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono uppercase tracking-tight text-secondary hover:text-foreground transition-colors">
+            Download CV
+          </a>
+          <a href="https://linkedin.com/in/muriloortega" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono uppercase tracking-tight text-secondary hover:text-foreground transition-colors">
+            LinkedIn
+          </a>
+          <a href="https://instagram.com/muriloortega" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono uppercase tracking-tight text-secondary hover:text-foreground transition-colors">
+            Instagram
+          </a>
+          <a href="https://www.upwork.com/freelancers/~018e6922851a0298d0" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono uppercase tracking-tight text-secondary hover:text-foreground transition-colors">
+            Upwork
+          </a>
         </div>
       </div>
     </footer>

@@ -86,15 +86,26 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { motion, AnimatePresence } from "framer-motion";
+
 function RootComponent() {
   return (
     <>
       <Cursor />
       <Header />
       <ContextNav />
-      <main className="animate-fade-in">
-        <Outlet />
-      </main>
+      <AnimatePresence mode="wait">
+        <motion.main 
+          key={window.location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="min-h-screen"
+        >
+          <Outlet />
+        </motion.main>
+      </AnimatePresence>
       <Footer />
     </>
   );

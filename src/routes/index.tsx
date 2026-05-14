@@ -21,7 +21,7 @@ const projects = [
   {
     name: "NaTrave App — O Ecossistema do Futebol Amador",
     category: "Social Media · 2024",
-    image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
+    image: "/assets/projects/thumbnails/natrave.jpg",
     gif: "/natrave-preview.gif",
     to: "/natrave",
   },
@@ -66,7 +66,7 @@ const services = [
     num: "04",
     title: "Mídia Impressa",
     body: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real.",
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop",
+    image: "/assets/projects/marco-boni/print/1.jpg",
   },
   {
     id: "influencia",
@@ -80,7 +80,7 @@ const services = [
     num: "06",
     title: "Mídia OOH",
     body: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.",
-    image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=800&auto=format&fit=crop",
+    image: "/assets/projects/maxi/ooh/1.jpg",
   },
 ];
 
@@ -89,7 +89,7 @@ const galleryImages = [
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",
-  "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
+  "/assets/projects/thumbnails/natrave.jpg",
   "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
@@ -213,10 +213,10 @@ function HomePage() {
               </div>
               <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
                 <Link to="/trabalho" className="btn btn-hero-primary">
-                  Meu Portifólio
+                  Meu Portfólio
                 </Link>
-                <Link to="/sobre" className="btn btn-hero-secondary">
-                  Sobre Mim
+                <Link to="/trabalho" search={{ service: "marca" }} className="btn btn-hero-secondary">
+                  Projetos de Branding
                 </Link>
               </div>
             </div>
@@ -246,6 +246,32 @@ function HomePage() {
           items={dynamicLogos.length > 0 ? dynamicLogos : brands.map(b => ({ name: b.name, url: "" }))} 
           baseVelocity={-0.5}
         />
+      </section>
+
+      {/* Impact/Proof Section */}
+      <section className="site-section border-t border-border bg-foreground text-background">
+        <div className="site-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
+            <div className="space-y-4 scroll-reveal">
+               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">+40%</span>
+               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
+                 Aumento em engajamento orgânico para NaTrave App no primeiro trimestre.
+               </p>
+            </div>
+            <div className="space-y-4 scroll-reveal delay-100">
+               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">100%</span>
+               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
+                 Identidade visual reconstruída para Solid+, posicionando a marca no mercado global.
+               </p>
+            </div>
+            <div className="space-y-4 scroll-reveal delay-200">
+               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">85k+</span>
+               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
+                 Usuários impactados por campanhas de Mídia OOH e Presença Digital em 2024.
+               </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Positioning */}

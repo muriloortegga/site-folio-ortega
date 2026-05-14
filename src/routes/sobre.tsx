@@ -146,9 +146,9 @@ function SobrePage() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-5xl md:text-7xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.8] mb-12"
             >
-              Marcas que não<br />
-              pedem <span className="text-secondary font-medium italic">licença</span><br />
-              para liderar.
+              Designer Estratégico <br />
+              com <span className="text-secondary font-medium italic">10 anos</span> de <br />
+              experiência global.
             </motion.h1>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
@@ -175,8 +175,16 @@ function SobrePage() {
                 className="md:col-span-2 flex flex-col md:flex-row gap-8 items-start md:items-end md:justify-end"
               >
                  <p className="text-base md:text-xl text-secondary uppercase font-medium leading-tight max-w-sm">
-                   Transformando marcas através de dados, criatividade e estratégia de alto impacto.
+                   Especialista em Branding, UX/UI e Design System. Transformando visão criativa em resultados mensuráveis para startups e grandes corporações.
                  </p>
+                 <div className="flex flex-col gap-4">
+                    <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-foreground text-background px-8 py-4 text-xs hover:bg-foreground/90 transition-all">
+                      Download CV (PDF) <Plus size={14} className="ml-2" />
+                    </a>
+                    <a href="mailto:contato@muriloortega.com" className="text-[10px] font-mono uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity border-b border-foreground/20 pb-1 w-fit">
+                      contato@muriloortega.com
+                    </a>
+                 </div>
               </motion.div>
             </div>
           </div>
@@ -202,9 +210,17 @@ function SobrePage() {
               Dez anos liderando o diálogo entre estética e resultado real.
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-16 border-t border-border/10">
-              <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight">
-                 Minha abordagem une dados e criatividade para performance real. No mercado de Hubs Criativos, meu foco é a combinação entre estratégia e experiência do usuário para performar melhor no mercado atual.
-              </p>
+              <div className="space-y-8">
+                <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight">
+                   Minha abordagem une dados e criatividade para performance real. No mercado de Hubs Criativos, meu foco é a combinação entre estratégia e experiência do usuário para performar melhor no mercado atual.
+                </p>
+                <div className="pt-8 border-t border-border/5">
+                   <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-secondary/40 mb-4 block">O que busco hoje</span>
+                   <p className="text-sm md:text-base text-foreground uppercase font-bold tracking-tight leading-tight">
+                     Busco projetos globais e posições de liderança em agências de branding ou startups tech que valorizem a intersecção entre Design e IA.
+                   </p>
+                </div>
+              </div>
               <div className="flex flex-col gap-6">
                  {["Foco em Performance", "Estratégia de Dados", "Liderança Criativa"].map((text, i) => (
                    <div key={i} className="flex items-center gap-4 group">
@@ -337,7 +353,7 @@ function SobrePage() {
               Iniciar conversa <Plus size={18} className="ml-2" />
             </a>
             <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity border-b border-background/20 pb-1">
-              Explorar Portifólio
+              Explorar Portfólio
             </Link>
           </div>
         </div>

@@ -13,6 +13,7 @@ import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { CaseContext } from "@/components/case-context";
 
 import { z } from "zod";
 
@@ -74,6 +75,13 @@ function ProjetoNaTrave() {
         activeId={activeService} 
         onChange={setActiveService} 
         accentColor="#FF6B00"
+      />
+
+      <CaseContext 
+        briefing="Estruturar a presença digital e marca do NaTrave, o primeiro ecossistema completo para o futebol amador no Brasil."
+        problem="O futebol amador era visto como algo desorganizado. A marca precisava de uma linguagem que unisse a paixão do campo com a precisão da tecnologia."
+        solution="Implementei uma identidade visual vibrante e um sistema de conteúdo focado em jornalismo esportivo de alta performance, elevando a percepção de valor da plataforma."
+        results="+40% de engajamento orgânico e consolidação como referência visual no nicho de sportstech."
       />
 
       {activeService === "social" && (

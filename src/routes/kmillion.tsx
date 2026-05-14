@@ -4,6 +4,7 @@ import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { CaseContext } from "@/components/case-context";
 
 import { z } from "zod";
 
@@ -62,6 +63,13 @@ function ProjetoKmillion() {
         options={services} 
         activeId={activeService} 
         onChange={setActiveService} 
+      />
+
+      <CaseContext 
+        briefing="Rebranding e criação de presença digital para a Kmillion, uma Promotech focada em inteligência promocional para o varejo."
+        problem="A marca anterior não refletia a agilidade e inteligência do sistema. Era necessário uma identidade que transmitisse adaptabilidade e inovação tecnológica."
+        solution="Inspirado na anatomia do camaleão, criei um sistema visual dinâmico que se adapta a diferentes contextos de PDV e canais digitais, reforçando a ideia de 'inteligência adaptável'."
+        results="Consolidação da marca como líder em tecnologia promocional, com expansão da base de clientes após o lançamento da nova identidade."
       />
 
       {activeService === "marca" && (

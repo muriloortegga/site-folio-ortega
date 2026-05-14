@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre — Murilo Ortega — Design Estratégico & Identidade de Marca" },
-      { name: "description", content: "10 anos de experiência transformando marcas através de dados, criatividade e estratégia." },
+      { name: "description", content: "8 anos de experiência transformando marcas através de dados, criatividade e estratégia." },
     ],
   }),
   component: SobrePage,
@@ -147,8 +147,8 @@ function SobrePage() {
               className="text-5xl md:text-7xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.8] mb-12"
             >
               Designer Estratégico <br />
-              com <span className="text-secondary font-medium italic">10 anos</span> de <br />
-              experiência global.
+              com <span className="text-secondary font-medium italic">8 anos</span> de <br />
+              experiência.
             </motion.h1>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
@@ -174,17 +174,17 @@ function SobrePage() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="md:col-span-2 flex flex-col md:flex-row gap-8 items-start md:items-end md:justify-end"
               >
-                 <p className="text-base md:text-xl text-secondary uppercase font-medium leading-tight max-w-sm">
-                   Especialista em Branding, UX/UI e Design System. Transformando visão criativa em resultados mensuráveis para startups e grandes corporações.
-                 </p>
-                 <div className="flex flex-col gap-4">
-                    <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-foreground text-background px-8 py-4 text-xs hover:bg-foreground/90 transition-all">
-                      Download CV (PDF) <Plus size={14} className="ml-2" />
-                    </a>
-                    <a href="mailto:contato@muriloortega.com" className="text-[10px] font-mono uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity border-b border-foreground/20 pb-1 w-fit">
-                      contato@muriloortega.com
-                    </a>
-                 </div>
+                  <p className="text-base md:text-xl text-secondary uppercase font-medium leading-tight max-w-sm">
+                    Designer Estratégico com 8 anos de experiência, especializado em Identidade de Marca e Sistemas Visuais. Atualmente focado em projetos que demandam sofisticação técnica e posicionamento premium.
+                  </p>
+                  <div className="flex flex-col gap-4">
+                     <a href="/assets/cv-murilo-ortega.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline border border-foreground/20 hover:bg-foreground hover:text-background px-8 py-4 text-xs transition-all flex items-center justify-center w-fit">
+                       Download CV [PDF] <Plus size={14} className="ml-2" />
+                     </a>
+                     <a href="mailto:contato.muriloortega1@gmail.com" className="text-[10px] font-mono uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity border-b border-foreground/20 pb-1 w-fit">
+                       contato.muriloortega1@gmail.com
+                     </a>
+                  </div>
               </motion.div>
             </div>
           </div>
@@ -207,7 +207,7 @@ function SobrePage() {
         <div className="site-container relative z-10">
           <div className="max-w-5xl space-y-12">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.9] text-foreground">
-              Dez anos liderando o diálogo entre estética e resultado real.
+              8 anos liderando o diálogo entre estética e resultado real.
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-16 border-t border-border/10">
               <div className="space-y-8">

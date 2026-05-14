@@ -138,7 +138,7 @@ function PortfólioPage() {
                 className="py-12 md:py-20 border-y border-border/50 mb-16 md:mb-20 flex flex-col items-center text-center"
               >
                 <div className="text-2xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-4xl">
-                  10 anos de experiência com: <br className="hidden md:block" />
+                  8 anos de experiência com: <br className="hidden md:block" />
                   <div className="h-[1.2em] relative overflow-hidden inline-block align-bottom md:block mt-2 md:mt-4">
                     <AnimatePresence mode="wait">
                       <motion.span

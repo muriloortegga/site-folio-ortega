@@ -43,19 +43,23 @@ function ContatoPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-12">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-12">
                   <div className="space-y-4">
                     <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary/40">E-mail</span>
-                    <p className="text-base md:text-lg font-bold uppercase tracking-tighter hover:text-secondary transition-colors cursor-pointer">contato@muriloortega.com</p>
+                    <a href="mailto:contato.muriloortega1@gmail.com" className="text-base md:text-lg font-bold uppercase tracking-tighter hover:text-secondary transition-colors block">contato.muriloortega1@gmail.com</a>
                   </div>
                   <div className="space-y-4">
                     <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary/40">Social</span>
                     <div className="flex flex-col gap-3">
-                       {["LinkedIn", "Instagram", "Upwork"].map(social => (
-                         <a key={social} href="#" className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group hover:text-secondary transition-all">
-                           {social} <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                         </a>
-                       ))}
+                       <a href="https://www.linkedin.com/in/murilo-ortega" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group hover:text-secondary transition-all">
+                         LinkedIn <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                       </a>
+                       <a href="https://instagram.com/muriloortegga" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group hover:text-secondary transition-all">
+                         Instagram <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                       </a>
+                       <a href="https://www.upwork.com/freelancers/~014ef210a71767ea1d?mp_source=share" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group hover:text-secondary transition-all">
+                         Upwork <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                       </a>
                     </div>
                   </div>
                 </div>

@@ -133,6 +133,7 @@ function SobrePage() {
             src="/assets/about/photos/hero-bg.jpg" 
             alt="Murilo Ortega Portrait" 
             className="w-full h-full object-cover grayscale opacity-30 md:opacity-40" 
+            style={{ objectPosition: "50% 25%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
@@ -224,14 +225,11 @@ function SobrePage() {
         </div>
         <div className="overflow-hidden mb-12">
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap">
-              {[...designTools, ...designTools, ...designTools].map((tool, i) => (
+              {[...designTools, ...designTools, ...designTools, ...designTools, ...designTools].map((tool, i) => (
                 <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 rounded-2xl transition-all duration-500 hover:scale-105">
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
                    </div>
-                   <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
-                     {tool.name}
-                   </span>
                 </div>
               ))}
            </div>
@@ -250,16 +248,10 @@ function SobrePage() {
         </div>
         <div className="overflow-hidden mb-12">
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap direction-reverse">
-              {[...aiTools, ...aiTools, ...aiTools].map((tool, i) => (
+              {[...aiTools, ...aiTools, ...aiTools, ...aiTools, ...aiTools].map((tool, i) => (
                 <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
-                   </div>
-                   <div className="flex flex-col">
-                      <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
-                        {tool.name}
-                      </span>
-                      <span className="text-[9px] font-mono uppercase text-secondary opacity-0 group-hover:opacity-60 transition-all delay-100">{tool.desc}</span>
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 rounded-2xl transition-all duration-500 hover:scale-105">
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
                    </div>
                 </div>
               ))}
@@ -286,7 +278,7 @@ function SobrePage() {
                       <div key={tool.name} className="flex items-center justify-between border-b border-border pb-6 group">
                          <div className="flex items-center gap-6">
                             <div className="w-12 h-12 flex items-center justify-center">
-                               <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+                               <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain transition-all" />
                             </div>
                             <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter">{tool.name}</span>
                          </div>
@@ -299,9 +291,9 @@ function SobrePage() {
                  <ProjectMedia 
                    src="/assets/about/photos/middle-bg.jpg" 
                    alt="Murilo Ortega Workflow" 
-                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+                   className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" 
                  />
-                 <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-all" />
+                 <div className="absolute inset-0 bg-background/5" />
               </div>
            </div>
         </div>

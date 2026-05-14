@@ -61,9 +61,9 @@ const projects: Project[] = [
   { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/maxi/ooh/1.jpg", to: "/maxi", search: { service: "ooh" } },
 
   // Websites
-  { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave", search: { service: "websites" } },
-  { name: "Talk2Buy", category: "Websites", year: "2024", image: "/assets/projects/talk2buy/website-scroll.gif", to: "/talk2buy", search: { service: "websites" } },
-  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion", search: { service: "websites" } },
+  { name: "NaTrave", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/websites/natrave.gif", to: "/natrave", search: { service: "websites" } },
+  { name: "Talk2Buy", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/websites/talk2buy.gif", to: "/talk2buy", search: { service: "websites" } },
+  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/websites/kmillion.gif", to: "/kmillion", search: { service: "websites" } },
 
   // Marketing de Influência
   { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },

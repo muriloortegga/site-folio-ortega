@@ -4,6 +4,13 @@ export function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Hide cursor on mobile/touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      if (cursorRef.current) cursorRef.current.style.display = 'none';
+      return;
+    }
+
     const el = cursorRef.current;
     if (!el) return;
 

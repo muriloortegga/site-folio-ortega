@@ -29,7 +29,7 @@ function MidiaImpressaPage() {
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10 md:mb-12 max-w-2xl">
               Catálogos físicos e digitais, diagramação, linha editorial e materiais institucionais. Entregamos qualidade gráfica que tangibiliza a autoridade da sua marca no mundo físico.
             </p>
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
               Iniciar projeto gráfico <Plus size={18} className="ml-2" />
             </a>
           </div>
@@ -39,7 +39,7 @@ function MidiaImpressaPage() {
       {/* Services List */}
       <section className="site-section py-24 md:py-32 bg-off-white">
         <div className="site-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border  overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
              {[
                { title: "Catálogos Físicos & Digitais", icon: <Book size={20} /> },
                { title: "Diagramação Editorial", icon: <Layers size={20} /> },
@@ -49,7 +49,7 @@ function MidiaImpressaPage() {
                { title: "Arquivo Técnico", icon: <Layers size={20} /> }
              ].map((item, i) => (
                <div key={i} className="bg-background p-10 md:p-12 space-y-6 group hover:bg-foreground hover:text-background transition-all duration-500">
-                  <div className="w-10 h-10 border border-border flex items-center justify-center mb-4 group-hover:border-background/20 transition-colors ">
+                  <div className="w-10 h-10 border border-border flex items-center justify-center mb-4 group-hover:border-background/20 transition-colors rounded-lg">
                      {item.icon}
                   </div>
                   <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter leading-tight">{item.title}</h4>
@@ -65,7 +65,7 @@ function MidiaImpressaPage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
              <div className="lg:col-span-6">
-                <Link to="/marco-boni" className="block shadow-2xl overflow-hidden group  border border-border/5">
+                <Link to="/marco-boni" className="block shadow-2xl overflow-hidden group rounded-2xl border border-border/5">
                    <img 
                      src="/assets/projects/marco-boni/print/1.jpg" 
                      alt="Marco Boni Catalog" 
@@ -86,7 +86,7 @@ function MidiaImpressaPage() {
                      </div>
                    ))}
                 </div>
-                <Link to="/marco-boni" className="btn btn-primary px-8 py-4 ">
+                <Link to="/marco-boni" className="btn btn-primary px-8 py-4 rounded-full">
                   Ver detalhes <ArrowRight size={18} className="ml-2" />
                 </Link>
              </div>
@@ -98,7 +98,7 @@ function MidiaImpressaPage() {
       <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center">
           <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">O material que sua marca merece.</h2>
-          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 ">
+          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full">
             Solicitar orçamento <Plus size={20} className="ml-2" />
           </a>
         </div>

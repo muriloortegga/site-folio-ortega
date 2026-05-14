@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence, useMotionValue, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence, useMotionValue } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { ProjectMedia } from "./project-media";
 
@@ -65,7 +65,7 @@ export function PerformanceHero({
             viewport={{ once: true }}
             className="w-full md:w-[110%] relative lg:-right-[5%]"
           >
-             <ProjectMedia src={mockupImg} alt="Performance Mockup" className="w-full h-auto drop-shadow-xl " />
+             <ProjectMedia src={mockupImg} alt="Performance Mockup" className="w-full h-auto drop-shadow-xl rounded-xl" />
           </motion.div>
         </div>
       </div>
@@ -125,13 +125,13 @@ export function CopyFeature({
             style={{ y }}
             className="w-full md:w-[65%] relative"
           >
-            <ProjectMedia src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl " />
+            <ProjectMedia src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl rounded-2xl" />
           </motion.div>
 
           {contentCount !== undefined && (
             <div className="flex-shrink-0">
-               <div className="p-px  bg-white/10 backdrop-blur-sm border border-white/10">
-                 <div className="bg-black/20 p-8 md:p-12 ">
+               <div className="p-px rounded-3xl bg-white/10 backdrop-blur-sm border border-white/10">
+                 <div className="bg-black/20 p-8 md:p-12 rounded-[22px]">
                    <Counter target={contentCount} label={contentLabel} suffix="+" />
                  </div>
                </div>
@@ -185,7 +185,7 @@ export function FeedTimeline({
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="fixed w-20 h-20  border border-foreground flex items-center justify-center z-50 pointer-events-none mix-blend-difference"
+            className="fixed w-20 h-20 rounded-full border border-foreground flex items-center justify-center z-50 pointer-events-none mix-blend-difference"
             style={{ left: cursorPos.x - 40, top: cursorPos.y - 40 }}
           >
             <span className="text-[10px] font-mono text-white uppercase font-bold">Ver</span>
@@ -227,7 +227,7 @@ export function FeedTimeline({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="relative group  overflow-hidden"
+                className="relative group rounded-xl overflow-hidden"
               >
                 <ProjectMedia src={post} alt="Feed Post" className="w-full h-auto drop-shadow-md" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center bg-background/20 backdrop-blur-sm">
@@ -365,7 +365,7 @@ function InteractiveImage({ src, onClick, index }: { src: string; onClick: () =>
         layoutId={`gallery-img-${index}`}
         src={src} 
         alt="" 
-        className="w-full h-auto shadow-lg border border-border/10  grayscale hover:grayscale-0 transition-all duration-700" 
+        className="w-full h-auto shadow-lg border border-border/10 rounded-xl grayscale hover:grayscale-0 transition-all duration-700" 
       />
     </motion.div>
   );
@@ -481,7 +481,7 @@ function VideoCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className={`relative group  overflow-hidden ${className}`}
+      className={`relative group rounded-xl overflow-hidden ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -496,15 +496,15 @@ function VideoCard({
       />
       
       <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
-        <div className="bg-white/10 backdrop-blur px-3 py-1  flex items-center gap-2">
-          <div className={`w-1.5 h-1.5  bg-[#FF6B00] ${isHovered ? 'animate-pulse' : ''}`} />
+        <div className="bg-white/10 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2">
+          <div className={`w-1.5 h-1.5 rounded-full bg-[#FF6B00] ${isHovered ? 'animate-pulse' : ''}`} />
           <span className="text-[7px] font-mono text-white uppercase tracking-widest">{video.category}</span>
         </div>
       </div>
 
       {!isHovered && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-12 h-12  bg-white/5 backdrop-blur flex items-center justify-center border border-white/10">
+          <div className="w-12 h-12 rounded-full bg-white/5 backdrop-blur flex items-center justify-center border border-white/10">
              <Play size={16} className="text-white fill-white ml-0.5" />
           </div>
         </div>
@@ -524,8 +524,6 @@ export function SingleImageShowcase({ src }: { src: string }) {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
   return (
     <section 
       ref={containerRef}
@@ -536,7 +534,7 @@ export function SingleImageShowcase({ src }: { src: string }) {
         <MotionProjectMedia 
           src={src} 
           alt="Showcase"
-          style={{ y }}
+          style={{ y: useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]) }}
           className="absolute inset-0 w-full h-[120%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
         />
       </div>
@@ -571,19 +569,6 @@ export function SingleImageShowcase({ src }: { src: string }) {
 }
 
 // --- Section 5: Scroll Horizontal Gallery ---
-function GalleryRow({ src, idx, scrollYProgress }: { src: string, idx: number, scrollYProgress: MotionValue<number> }) {
-  const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-20%"] : ["-20%", "0%"]);
-  return (
-    <div className="relative w-[180vw] lg:w-[140vw] h-[35vh] md:h-[65vh] flex">
-      <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-6">
-        {[...Array(4)].map((_, i) => (
-          <img key={i} src={src} className="w-[85vw] md:w-[55vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-xl " alt="Gallery item" />
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
 export function ScrollHorizontalGallery({ images }: { images: string[] }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -593,9 +578,18 @@ export function ScrollHorizontalGallery({ images }: { images: string[] }) {
 
   return (
     <section ref={containerRef} className="site-section bg-background overflow-hidden border-none py-16 md:py-32 flex flex-col gap-8 md:gap-12">
-      {images.map((src, idx) => (
-        <GalleryRow key={idx} src={src} idx={idx} scrollYProgress={scrollYProgress} />
-      ))}
+      {images.map((src, idx) => {
+        const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-20%"] : ["-20%", "0%"]);
+        return (
+          <div key={idx} className="relative w-[180vw] lg:w-[140vw] h-[35vh] md:h-[65vh] flex">
+            <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-6">
+              {[...Array(4)].map((_, i) => (
+                <img key={i} src={src} className="w-[85vw] md:w-[55vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-xl rounded-xl" alt="Gallery item" />
+              ))}
+            </motion.div>
+          </div>
+        );
+      })}
     </section>
   );
 }

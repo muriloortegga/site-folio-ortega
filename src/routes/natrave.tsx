@@ -13,8 +13,6 @@ import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
-import { CaseContext } from "@/components/case-context";
-import { CaseProcess, CaseImpact } from "@/components/case-process";
 
 import { z } from "zod";
 
@@ -78,42 +76,6 @@ function ProjetoNaTrave() {
         accentColor="#FF6B00"
       />
 
-      <CaseContext 
-        briefing="Estruturar a presença digital e marca do NaTrave, o primeiro ecossistema completo para o futebol amador no Brasil."
-        problem="O futebol amador era visto como algo desorganizado. A marca precisava de uma linguagem que unisse a paixão do campo com a precisão da tecnologia."
-        solution="Implementei uma identidade visual vibrante e um sistema de conteúdo focado em jornalismo esportivo de alta performance, elevando a percepção de valor da plataforma."
-        results="+40% de engajamento orgânico e consolidação como referência visual no nicho de sportstech."
-      />
-
-      <CaseProcess 
-        steps={[
-          {
-            title: "Diagnóstico de Campo",
-            description: "Imersão total na cultura do futebol de várzea para entender as dores de quem organiza e quem joga.",
-            tags: ["Pesquisa", "UX Audit"]
-          },
-          {
-            title: "Sinalização de Elite",
-            description: "Desenvolvimento de um sistema visual que foge do óbvio e traz a estética das grandes ligas para o amador.",
-            tags: ["Branding", "UI Design"]
-          },
-          {
-            title: "Tática de Conteúdo",
-            description: "Criação de editorias fixas que transformam dados de jogos em narrativas épicas nas redes sociais.",
-            tags: ["Content", "Copy"]
-          }
-        ]}
-      />
-
-      <CaseImpact 
-        metrics={[
-          { label: "Engajamento", value: "40%", description: "Aumento no engajamento orgânico médio por post." },
-          { label: "Comunidade", value: "+2.2k", description: "Novos seguidores qualificados no primeiro trimestre." },
-          { label: "Alcance", value: "150k", description: "Impacto mensal em perfis únicos do nicho esportivo." },
-          { label: "Retenção", value: "65%", description: "Usuários que retornam semanalmente ao ecossistema." },
-        ]}
-      />
-
       {activeService === "social" && (
         <div className="anim-fade-in">
           <PerformanceHero 
@@ -173,9 +135,9 @@ function ProjetoNaTrave() {
 
       {activeService === "marca" && (
         <div className="anim-fade-in site-container pb-32">
-           <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden border border-border group cursor-ns-resize " onClick={() => setIsFullScreen(true)}>
+           <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden border border-border group cursor-ns-resize rounded-2xl" onClick={() => setIsFullScreen(true)}>
              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center pointer-events-none">
-                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border  opacity-0 group-hover:opacity-100 transition-all">
+                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border rounded-full opacity-0 group-hover:opacity-100 transition-all">
                    <Maximize2 size={16} className="inline-block" />
                    <span className="ml-2 text-[10px] font-mono uppercase tracking-widest">Ver Case Completo</span>
                 </div>

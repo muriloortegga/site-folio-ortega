@@ -1,9 +1,8 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Cursor } from "@/components/Cursor";
 import { ContextNav } from "@/components/ContextNav";
-import { motion, AnimatePresence } from "framer-motion";
 
 import appCss from "../styles.css?url";
 
@@ -88,24 +87,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  const location = useLocation();
   return (
     <>
       <Cursor />
       <Header />
       <ContextNav />
-      <AnimatePresence mode="wait">
-        <motion.main 
-          key={location.pathname}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="min-h-screen"
-        >
-          <Outlet />
-        </motion.main>
-      </AnimatePresence>
+      <main className="animate-fade-in">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

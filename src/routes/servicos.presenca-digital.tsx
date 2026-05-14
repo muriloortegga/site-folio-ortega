@@ -29,7 +29,7 @@ function PresencaDigitalPage() {
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10 md:mb-12 max-w-2xl">
               Sua marca merece uma casa digital que reflita o seu valor. Este site que você navega agora foi feito por mim — e é esse o nível de excelência que sua marca irá receber.
             </p>
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
               Construir minha casa digital <Plus size={18} className="ml-2" />
             </a>
           </div>
@@ -48,7 +48,7 @@ function PresencaDigitalPage() {
                    Não é sobre ter um link na bio. É sobre ter uma plataforma de conversão que trabalha 24/7 para o seu negócio.
                 </p>
              </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10  overflow-hidden border border-background/10">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 rounded-2xl overflow-hidden border border-background/10">
                 {[
                   { title: "Design Disruptivo", desc: "Interfaces que prendem a atenção e elevam a percepção de marca.", icon: <Zap size={18} /> },
                   { title: "Alta Performance", desc: "Velocidade de carregamento otimizada para SEO e conversão.", icon: <Zap size={18} /> },
@@ -56,7 +56,7 @@ function PresencaDigitalPage() {
                   { title: "Exclusividade", desc: "Design único, nada de templates prontos ou genéricos.", icon: <Zap size={18} /> }
                 ].map((item, i) => (
                   <div key={i} className="p-8 md:p-10 border border-background/5 space-y-4 hover:bg-background/5 transition-colors">
-                     <div className="w-10 h-10 border border-background/20 flex items-center justify-center text-secondary ">
+                     <div className="w-10 h-10 border border-background/20 flex items-center justify-center text-secondary rounded-lg">
                         {item.icon}
                      </div>
                      <h4 className="text-lg font-bold uppercase tracking-tighter">{item.title}</h4>
@@ -77,7 +77,7 @@ function PresencaDigitalPage() {
             </div>
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-sm">Plataformas que construímos do zero, focadas em performance e branding.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border  overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-2xl overflow-hidden">
              {[
                { name: "Talk2Buy", tag: "E-commerce & UX", to: "/talk2buy" },
                { name: "Kmillion", tag: "Landing Page High Ticket", to: "/kmillion" },
@@ -100,7 +100,7 @@ function PresencaDigitalPage() {
       <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center">
           <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">O próximo grande site pode ser o seu.</h2>
-          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 ">
+          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full">
             Agendar reunião estratégica <Plus size={20} className="ml-2" />
           </a>
         </div>

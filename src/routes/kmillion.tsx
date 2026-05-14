@@ -4,8 +4,6 @@ import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
-import { CaseContext } from "@/components/case-context";
-import { CaseProcess, CaseImpact } from "@/components/case-process";
 
 import { z } from "zod";
 
@@ -66,47 +64,11 @@ function ProjetoKmillion() {
         onChange={setActiveService} 
       />
 
-      <CaseContext 
-        briefing="Rebranding e criação de presença digital para a Kmillion, uma Promotech focada em inteligência promocional para o varejo."
-        problem="A marca anterior não refletia a agilidade e inteligência do sistema. Era necessário uma identidade que transmitisse adaptabilidade e inovação tecnológica."
-        solution="Inspirado na anatomia do camaleão, criei um sistema visual dinâmico que se adapta a diferentes contextos de PDV e canais digitais, reforçando a ideia de 'inteligência adaptável'."
-        results="Consolidação da marca como líder em tecnologia promocional, com expansão da base de clientes após o lançamento da nova identidade."
-      />
-
-      <CaseProcess 
-        steps={[
-          {
-            title: "Abstração Biológica",
-            description: "Estudo da anatomia e comportamento do camaleão para traduzir 'adaptabilidade' em formas geométricas precisas.",
-            tags: ["Semiótica", "Geometria"]
-          },
-          {
-            title: "Sistemas Dinâmicos",
-            description: "Construção de uma malha visual flexível que se comporta de forma consistente do digital ao PDV físico.",
-            tags: ["Brand System", "UI"]
-          },
-          {
-            title: "Narrativa Técnica",
-            description: "Posicionamento da Kmillion não apenas como software, mas como inteligência estratégica para o marketing.",
-            tags: ["Copywriting", "Estratégia"]
-          }
-        ]}
-      />
-
-      <CaseImpact 
-        metrics={[
-          { label: "Lead Gen", value: "25%", description: "Aumento na conversão de leads qualificados via site." },
-          { label: "Percepção", value: "High", description: "Feedback unânime sobre o aumento do valor percebido." },
-          { label: "Scale", value: "12+", description: "Novos grandes players do varejo integrados no semestre." },
-          { label: "Recall", value: "88%", description: "Taxa de reconhecimento da nova marca no setor tech." },
-        ]}
-      />
-
       {activeService === "marca" && (
         <div className="anim-fade-in site-container pb-32">
-           <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden border border-border group cursor-ns-resize " onClick={() => setIsFullScreen(true)}>
+           <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden border border-border group cursor-ns-resize rounded-2xl" onClick={() => setIsFullScreen(true)}>
              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center pointer-events-none">
-                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border  opacity-0 group-hover:opacity-100 transition-all">
+                <div className="bg-background/80 backdrop-blur px-6 py-3 border border-border rounded-full opacity-0 group-hover:opacity-100 transition-all">
                    <Maximize2 size={16} className="inline-block" />
                    <span className="ml-2 text-[10px] font-mono uppercase tracking-widest">Ver Case Completo</span>
                 </div>

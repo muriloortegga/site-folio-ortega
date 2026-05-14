@@ -9,13 +9,13 @@ import { ProjectMedia } from "@/components/project-media";
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
     meta: [
-      { title: "Portfólio — Murilo Ortega" },
+      { title: "Portifólio — Murilo Ortega" },
       { name: "description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
-      { property: "og:title", content: "Portfólio — Murilo Ortega" },
+      { property: "og:title", content: "Portifólio — Murilo Ortega" },
       { property: "og:description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
     ],
   }),
-  component: PortfólioPage,
+  component: PortifólioPage,
 });
 
 const categories = ["Social Media", "Id Visual", "Mídia Impressa", "Mídia OOH", "Websites", "Marketing de Influência"] as const;
@@ -25,8 +25,6 @@ interface Project {
   name: string;
   category: Category;
   year: string;
-  client: string;
-  context: string;
   image: string;
   to: string;
   search?: Record<string, string>;
@@ -42,23 +40,33 @@ interface Insight {
 
 const projects: Project[] = [
   // Social Media
-  { name: "Performance Social", category: "Social Media", year: "2024", client: "NaTrave", context: "Estratégia & Conteúdo", image: "/assets/projects/thumbnails/social/natrave.jpg", to: "/natrave", search: { service: "social" } },
-  { name: "Growth Marketing", category: "Social Media", year: "2024", client: "Talk2Buy", context: "Social Performance", image: "/assets/projects/thumbnails/social/talk2buy.jpg", to: "/talk2buy", search: { service: "social" } },
-  { name: "Presença Digital", category: "Social Media", year: "2024", client: "Evidive", context: "Content System", image: "/assets/projects/thumbnails/social/evidive.jpg", to: "/evidive", search: { service: "social" } },
-  { name: "Autoridade Acadêmica", category: "Social Media", year: "2024", client: "Colégio Maxi", context: "Inbound & Social", image: "/assets/projects/thumbnails/social/maxi.jpg", to: "/maxi", search: { service: "social" } },
-  { name: "Sabor que Conecta", category: "Social Media", year: "2023", client: "Kapyi", context: "Social & Lifestyle", image: "/assets/projects/thumbnails/social/kapyi.jpg", to: "/kapyi", search: { service: "social" } },
-  { name: "Semeando Conhecimento", category: "Social Media", year: "2023", client: "Milgrows", context: "Educação & Conteúdo", image: "/assets/projects/thumbnails/social/milgrows.jpg", to: "/milgrows", search: { service: "social" } },
+  { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
+  { name: "Talk2Buy", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800", to: "/talk2buy", search: { service: "social" } },
+  { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/evidive/thumbs/social.jpg", to: "/evidive", search: { service: "social" } },
+  { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi", search: { service: "social" } },
+  { name: "Milgrows", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", to: "/milgrows", search: { service: "social" } },
+  { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi", search: { service: "social" } },
   
   // Id Visual
-  { name: "Brand Identity", category: "Id Visual", year: "2024", client: "NaTrave", context: "Naming & ID Visual", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "marca" } },
-  { name: "Tech Branding", category: "Id Visual", year: "2024", client: "Symplice", context: "Visual System", image: "/assets/projects/thumbnails/symplice.jpg", to: "/symplice" },
-  { name: "Promo Identity", category: "Id Visual", year: "2024", client: "Kmillion", context: "Rebranding", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion", search: { service: "marca" } },
-  { name: "Fintech Design", category: "Id Visual", year: "2024", client: "Solid+", context: "Identity & Web", image: "/assets/projects/thumbnails/solid.jpg", to: "/solid" },
+  { name: "NaTrave", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "marca" } },
+  { name: "Symplice", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/symplice.jpg", to: "/symplice" },
+  { name: "Kmillion", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion", search: { service: "marca" } },
+  { name: "Solid+", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/solid.jpg", to: "/solid" },
   
+  // Mídia Impressa
+  { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "/assets/projects/marco-boni/print/1.jpg", to: "/marco-boni" },
+  { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/livin/print/1.jpg", to: "/livin" },
+  
+  // Mídia OOH
+  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200", to: "/maxi", search: { service: "ooh" } },
+
   // Websites
-  { name: "Platform Design", category: "Websites", year: "2024", client: "NaTrave", context: "UX/UI & Dev", image: "/natrave-preview.gif", to: "/natrave", search: { service: "websites" } },
-  { name: "Editorial Web", category: "Websites", year: "2024", client: "Talk2Buy", context: "UX/UI Design", image: "/assets/projects/talk2buy/website-scroll.gif", to: "/talk2buy", search: { service: "websites" } },
-  { name: "Corporate Site", category: "Websites", year: "2024", client: "Kmillion", context: "UX/UI & Dev", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion", search: { service: "websites" } },
+  { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave", search: { service: "websites" } },
+  { name: "Talk2Buy", category: "Websites", year: "2024", image: "/assets/projects/talk2buy/website-scroll.gif", to: "/talk2buy", search: { service: "websites" } },
+  { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion", search: { service: "websites" } },
+
+  // Marketing de Influência
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
 ];
 
 const serviceInsights: Record<Category, Insight> = {
@@ -101,7 +109,7 @@ const serviceInsights: Record<Category, Insight> = {
   }
 };
 
-function PortfólioPage() {
+function PortifólioPage() {
   const revealRef = useScrollReveal<HTMLDivElement>();
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -169,7 +177,7 @@ function PortfólioPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-none ${
+                className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-full ${
                   activeCategory === cat 
                     ? "bg-foreground text-background border-foreground shadow-sm" 
                     : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
@@ -180,65 +188,55 @@ function PortfólioPage() {
             ))}
           </div>
           
-          {/* Gallery Grid */}
-          <div className="mb-24 md:mb-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 md:gap-x-12 md:gap-y-24">
-              {projects
-                .filter((p) => !activeCategory || p.category === activeCategory)
-                .map((project, i) => (
-                  <motion.div
-                    key={project.name + i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i % 3 * 0.1 }}
-                    className="flex flex-col"
-                  >
-                    <Link 
-                      to={project.to}
-                      search={project.search}
-                      className="group"
-                    >
-                      <figure className={cn(
-                        "relative overflow-hidden transition-all duration-700",
-                        project.category === "Websites" 
-                          ? "aspect-square bg-transparent border-none" 
-                          : "aspect-[3/2] bg-off-white border border-border/10"
-                      )}>
-                        <ProjectMedia
-                          src={project.image}
-                          alt={project.name}
-                          className={cn(
-                            "w-full h-full transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
-                            project.category === "Websites" ? "" : "object-cover",
-                          )}
-                        >
-                        </ProjectMedia>
-                      </figure>
-                      <div className="mt-6">
-                         <div className="flex justify-between items-start mb-2">
-                            <div>
-                               <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-secondary/60 mb-1 block">
-                                 {project.client} • {project.year}
-                               </span>
-                               <h4 className="text-lg md:text-xl font-bold uppercase tracking-tight">{project.name}</h4>
-                            </div>
-                            <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
-                         </div>
-                         <div className="flex flex-wrap gap-2">
-                            <span className="px-2 py-1 border border-border text-[8px] font-mono uppercase tracking-widest text-secondary">
-                               {project.category}
-                            </span>
-                            <span className="px-2 py-1 bg-foreground/5 text-[8px] font-mono uppercase tracking-widest text-secondary">
-                               {project.context}
-                            </span>
-                         </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-            </div>
-          </div>
+          {/* Dropdown Gallery */}
+          <AnimatePresence mode="wait">
+            {activeCategory && (
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-24 md:mb-32"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                  {projects
+                    .filter((p) => p.category === activeCategory)
+                    .map((project, i) => (
+                      <Link 
+                        key={project.name + i} 
+                        to={project.to}
+                        search={project.search}
+                        className="group"
+                      >
+                        <figure className={cn(
+                          "relative overflow-hidden transition-all duration-700",
+                          activeCategory === "Websites" 
+                            ? "aspect-square bg-transparent border-none" 
+                            : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
+                        )}>
+                          <ProjectMedia
+                            src={project.image}
+                            alt={project.name}
+                            className={cn(
+                              "w-full h-full transition-all duration-700 group-hover:scale-105",
+                              activeCategory === "Websites" ? "" : "object-cover grayscale group-hover:grayscale-0"
+                            )}
+                          />
+                        </figure>
+                        <div className="mt-5 flex justify-between items-end">
+                           <div>
+                              <span className="text-[10px] font-mono uppercase text-secondary mb-1 block">{project.year}</span>
+                              <h4 className="text-base md:text-lg font-bold uppercase tracking-tight">{project.name}</h4>
+                           </div>
+                           <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
+                        </div>
+                      </Link>
+                    ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
  
           {/* Dynamic Service Insight Section */}
           <div className="pt-20 md:pt-24 border-t border-border">
@@ -280,4 +278,4 @@ function PortfólioPage() {
   );
 }
 
-export default PortfólioPage;
+export default PortifólioPage;

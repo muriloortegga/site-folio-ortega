@@ -1,16 +1,15 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { to: "/trabalho", label: "Portfólio" },
+  { to: "/trabalho", label: "Portifólio" },
   { to: "/servicos", label: "Serviços" },
   { to: "/sobre", label: "Sobre" },
   { to: "https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!", label: "Contato", isExternal: true },
 ];
 
 export function Header() {
-  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,7 +41,7 @@ export function Header() {
                   href={link.to}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-mono uppercase tracking-widest transition-all hover:text-secondary text-foreground"
+                  className="text-sm font-regular uppercase tracking-tight text-foreground/60 transition-opacity duration-250 hover:opacity-100"
                 >
                   {link.label}
                 </a>
@@ -50,20 +49,15 @@ export function Header() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={cn(
-                    "text-[10px] font-mono uppercase tracking-widest transition-all hover:text-secondary",
-                    location.pathname === link.to ? "text-secondary" : "text-foreground"
-                  )}
+                  className="text-sm font-regular uppercase tracking-tight text-foreground/60 transition-opacity duration-250 hover:opacity-100"
+                  activeProps={{
+                    className: "text-foreground opacity-100",
+                  }}
                 >
                   {link.label}
                 </Link>
               )
             ))}
-            <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border/50">
-               <button className="text-[9px] font-mono font-bold border-b border-foreground">PT</button>
-               <span className="text-[9px] opacity-20">/</span>
-               <button className="text-[9px] font-mono opacity-40 hover:opacity-100">EN</button>
-            </div>
           </nav>
 
           {/* Mobile hamburger */}
@@ -104,38 +98,29 @@ export function Header() {
             </button>
           </div>
           <nav className="flex flex-col items-start site-container mt-12 gap-8">
-            <div className="flex flex-col items-start gap-4">
-              {navLinks.map((link) => (
-                link.isExternal ? (
-                  <a
-                    key={link.to}
-                    href={link.to}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMenuOpen(false)}
-                    className="text-4xl font-bold uppercase tracking-tighter transition-all hover:text-secondary text-foreground"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "text-4xl font-bold uppercase tracking-tighter transition-all hover:text-secondary",
-                      location.pathname === link.to ? "text-secondary" : "text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              ))}
-              <div className="flex gap-4 mt-8 pt-8 border-t border-border w-full">
-                 <button className="text-xs font-mono font-bold border-b-2 border-foreground pb-1">PT</button>
-                 <button className="text-xs font-mono opacity-40 hover:opacity-100 transition-opacity pb-1">EN</button>
-              </div>
-            </div>
+            {navLinks.map((link) => (
+              link.isExternal ? (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[40px] text-foreground font-bold uppercase leading-none tracking-tight"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-[40px] text-foreground font-bold uppercase leading-none tracking-tight"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
+            ))}
           </nav>
         </div>
       )}

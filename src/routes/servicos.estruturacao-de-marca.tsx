@@ -29,7 +29,7 @@ function EstruturacaoMarcaPage() {
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10 md:mb-12 max-w-2xl">
               Do diagnóstico ao brandbook completo. Construímos identidades que confrontam o comum e elevam o valor percebido do seu negócio.
             </p>
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
               Iniciar estruturação <Plus size={18} className="ml-2" />
             </a>
           </div>
@@ -39,7 +39,7 @@ function EstruturacaoMarcaPage() {
       {/* Pillars */}
       <section className="site-section py-24 md:py-32 bg-off-white">
         <div className="site-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-border border border-border  overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-border border border-border rounded-2xl overflow-hidden">
             {[
               { 
                 num: "01", 
@@ -68,7 +68,7 @@ function EstruturacaoMarcaPage() {
             ].map((p, i) => (
               <div key={i} className="lg:col-span-6 bg-background p-10 md:p-14 space-y-6 md:space-y-8 group hover:bg-foreground hover:text-background transition-all duration-700">
                 <div className="flex justify-between items-start">
-                  <div className="w-10 h-10 border border-border group-hover:border-background/20 flex items-center justify-center ">
+                  <div className="w-10 h-10 border border-border group-hover:border-background/20 flex items-center justify-center rounded-lg">
                     {p.icon}
                   </div>
                   <span className="text-[10px] font-mono opacity-40 uppercase tracking-widest">{p.num}</span>
@@ -94,12 +94,12 @@ function EstruturacaoMarcaPage() {
                <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10">
                  Construímos uma identidade que equilibra a solidez institucional com a agilidade das startups do Reino Unido. Um sistema completo de marca que permitiu a escala global da operação.
                </p>
-               <Link to="/solid" className="btn btn-primary  px-8 py-4">
+               <Link to="/solid" className="btn btn-primary rounded-full px-8 py-4">
                  Ver case completo <ArrowRight size={18} className="ml-2" />
                </Link>
             </div>
             <div className="lg:col-span-6">
-              <div className="shadow-2xl overflow-hidden  border border-border/5">
+              <div className="shadow-2xl overflow-hidden rounded-2xl border border-border/5">
                 <img src="/solid-full.png" alt="Solid+ Brandbook" className="w-full grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
               </div>
             </div>
@@ -111,7 +111,7 @@ function EstruturacaoMarcaPage() {
       <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center">
           <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">Sua marca pronta para o topo.</h2>
-          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 ">
+          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full">
             Solicitar orçamento <Plus size={20} className="ml-2" />
           </a>
         </div>

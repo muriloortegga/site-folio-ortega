@@ -124,7 +124,7 @@ function InfluenciaHero() {
         <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-base md:text-lg text-background/60 uppercase font-medium leading-tight max-w-3xl mb-16">
           Uma estratégia de influência focada em descoberta, confiança e expansão de audiência que gerou crescimento exponencial de alcance, autoridade e presença digital.
         </motion.p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10 border border-background/10  overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10 border border-background/10 rounded-xl overflow-hidden">
           {[
             { value: 500, suffix: "%", prefix: "+", label: "em seguidores" },
             { value: 46.9, suffix: "%", prefix: "+", label: "alcance via creators" },
@@ -189,7 +189,7 @@ function OProblema() {
             O desafio era quebrar o imaginário
           </motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/10  overflow-hidden border border-background/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/10 rounded-xl overflow-hidden border border-background/10">
           {barriers.map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-foreground p-8 md:p-10 border border-background/10 hover:bg-background/5 transition-colors duration-300">
               <div className="text-3xl font-bold tracking-tighter text-background/20 mb-4">{String(i + 1).padStart(2, "0")}</div>
@@ -223,8 +223,8 @@ function AEstrategia() {
             <motion.p initial={{ opacity: 0, y: 15 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }} className="text-lg text-secondary uppercase font-medium leading-tight">Em vez de publicidade tradicional, usamos experiências reais para gerar identificação imediata. O creator deixa de ser apenas mídia. Ele se torna:</motion.p>
             <div className="grid grid-cols-2 gap-3 mt-6">
               {roles.map((r, i) => (
-                <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.2 + i * 0.08 }} className="flex items-center gap-3 border border-border p-4 ">
-                  <div className="w-1.5 h-1.5  bg-foreground flex-shrink-0" /><span className="text-[10px] font-mono uppercase tracking-widest">{r}</span>
+                <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.2 + i * 0.08 }} className="flex items-center gap-3 border border-border p-4 rounded-lg">
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" /><span className="text-[10px] font-mono uppercase tracking-widest">{r}</span>
                 </motion.div>
               ))}
             </div>
@@ -235,7 +235,7 @@ function AEstrategia() {
             {steps.map((step, i) => (
               <div key={i} className="flex items-center">
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.3 + i * 0.1, type: "spring" }}>
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-foreground text-background flex items-center justify-center text-center p-2 ">
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-foreground text-background flex items-center justify-center text-center p-2 rounded-xl">
                     <span className="text-[10px] font-mono uppercase tracking-wider leading-tight">{step}</span>
                   </div>
                 </motion.div>
@@ -259,7 +259,7 @@ function Metodologia() {
         <div className="mb-16">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.85] max-w-3xl">Uma análise baseada em crescimento real</motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 border border-background/10  overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 border border-background/10 rounded-xl overflow-hidden">
           {[
             { period: "Período 01", tag: "Sem Influência", desc: "Operação padrão, sem ações estruturadas com creators. Crescimento orgânico baseline de 10 meses." },
             { period: "Período 02", tag: "Com Creators", desc: "Estratégia ativa. Mesmos 10 meses, variável analisada: a presença de ações estruturadas de influência." },
@@ -268,7 +268,7 @@ function Metodologia() {
               <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-background/40 mb-4 block">{p.period}</span>
               <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mb-4 text-background">{p.tag}</h3>
               <p className="text-background/60 uppercase text-xs leading-relaxed max-w-sm">{p.desc}</p>
-              {i === 1 && <div className="mt-8 inline-block px-4 py-2 border border-background/30 text-[9px] font-mono uppercase tracking-widest text-background/60 ">Variável ativa</div>}
+              {i === 1 && <div className="mt-8 inline-block px-4 py-2 border border-background/30 text-[9px] font-mono uppercase tracking-widest text-background/60 rounded-full">Variável ativa</div>}
             </motion.div>
           ))}
         </div>
@@ -295,7 +295,7 @@ function Resultados() {
         <div className="mb-16">
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.85] max-w-4xl">Os resultados da estratégia</motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border  overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-xl overflow-hidden">
           {metrics.map((m, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: i * 0.08 }} className="bg-background p-10 group hover:bg-foreground hover:text-background transition-all duration-500">
               <div className="mb-5 group-hover:text-background/60 transition-colors">{m.icon}</div>
@@ -334,13 +334,13 @@ function CasalDayOff() {
             <motion.p initial={{ opacity: 0, y: 15 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.15 }} className="text-background/60 uppercase text-xs leading-relaxed mb-8">
               Um conteúdo publicado pelo creator Casal Day Off se tornou a materialização da estratégia. Mesmo sem collab direto no perfil da marca, o conteúdo gerou impacto massivo.
             </motion.p>
-            <motion.div initial={{ opacity: 0, y: 15 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.25 }} className="border border-background/20 p-8 ">
+            <motion.div initial={{ opacity: 0, y: 15 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.25 }} className="border border-background/20 p-8 rounded-xl">
               <div className="text-3xl md:text-5xl font-bold tracking-tighter text-background mb-1">+4.500</div>
               <p className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.2em] text-background/50">novos seguidores em uma única semana</p>
             </motion.div>
           </div>
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-2 gap-px bg-background/10 mb-10  overflow-hidden border border-background/10">
+            <div className="grid grid-cols-2 gap-px bg-background/10 mb-10 rounded-xl overflow-hidden border border-background/10">
               {stats.map((s, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 15 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 + i * 0.08 }} className="bg-foreground p-8 border border-background/10">
                   <div className="text-2xl md:text-3xl font-bold tracking-tighter text-background mb-1">{s.value}</div>
@@ -390,7 +390,7 @@ function InteligenciaEstrategica() {
             </motion.p>
           </div>
         </div>
-        <div className="space-y-px  overflow-hidden border border-border">
+        <div className="space-y-px rounded-xl overflow-hidden border border-border">
           {layers.map((l, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.1 + i * 0.1 }} className="flex items-center gap-6 md:gap-8 border-b border-border last:border-b-0 p-6 md:p-8 group hover:bg-foreground hover:text-background transition-all duration-500">
               <span className="text-[9px] md:text-[10px] font-mono text-secondary group-hover:text-background/50 w-6 flex-shrink-0">{l.step}</span>
@@ -420,7 +420,7 @@ function Comparacao() {
             O que muda quando creators entram em cena
           </motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10  overflow-hidden border border-background/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 rounded-xl overflow-hidden border border-background/10">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }} className="p-10 md:p-14">
             <h3 className="text-[10px] font-mono uppercase tracking-[0.3em] text-background/40 mb-6">Publicidade Tradicional</h3>
             <ul className="space-y-4">
@@ -473,8 +473,8 @@ function Conclusao() {
               </motion.p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {points.map((p, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.15 + i * 0.07 }} className="flex items-center gap-3 border border-border p-4 ">
-                    <div className="w-1.5 h-1.5  bg-foreground flex-shrink-0" />
+                  <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.15 + i * 0.07 }} className="flex items-center gap-3 border border-border p-4 rounded-lg">
+                    <div className="w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
                     <span className="text-[10px] font-mono uppercase tracking-widest">{p}</span>
                   </motion.div>
                 ))}
@@ -497,7 +497,7 @@ function Conclusao() {
             Estruturamos operações de influência focadas em descoberta, autoridade, comunidade e performance.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-10 py-5 ">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-10 py-5 rounded-full">
               Fale comigo <ArrowRight size={18} className="ml-2" />
             </a>
           </motion.div>

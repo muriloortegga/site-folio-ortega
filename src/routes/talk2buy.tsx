@@ -70,7 +70,7 @@ function ProjetoTalk2Buy() {
             followers={2250}
             followersLabel="Seguidores"
             anchorText="Identidade e base consolidada"
-            mockupImg="/assets/projects/talk2buy/social/mockups/performance.png" 
+            mockupImg="/assets/projects/talk2buy/social/mockups/perofmance.png" 
             accentColor="#2563EB"
           />
 

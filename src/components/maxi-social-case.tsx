@@ -57,7 +57,7 @@ function SectionHero() {
       className="relative site-section border-t-0 pt-0 pb-24 overflow-hidden"
     >
       <Decor>
-        <div className="absolute -top-20 -right-32 w-[520px] h-[520px] border border-border  opacity-40" />
+        <div className="absolute -top-20 -right-32 w-[520px] h-[520px] border border-border rounded-full opacity-40" />
         <div className="absolute top-40 -left-24 w-[260px] h-[260px] border border-border opacity-30 rotate-12" />
       </Decor>
 
@@ -242,7 +242,7 @@ function SectionSolucao() {
   return (
     <section ref={ref} id="solucao" className="site-section relative overflow-hidden">
       <Decor>
-        <div className="absolute -bottom-32 -left-32 w-[480px] h-[480px] border border-border  opacity-30" />
+        <div className="absolute -bottom-32 -left-32 w-[480px] h-[480px] border border-border rounded-full opacity-30" />
       </Decor>
 
       <div className="site-container relative">
@@ -477,8 +477,8 @@ function SectionFechamento() {
       className="site-section relative overflow-hidden bg-foreground text-background"
     >
       <Decor>
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] border border-background/10 " />
-        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] border border-background/10 " />
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] border border-background/10 rounded-full" />
+        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] border border-background/10 rounded-full" />
       </Decor>
 
       <div className="site-container relative">

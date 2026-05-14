@@ -17,19 +17,11 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-interface Project {
-  name: string;
-  category: string;
-  image: string;
-  gif?: string;
-  to: string;
-}
-
-const projects: Project[] = [
+const projects = [
   {
     name: "NaTrave App — O Ecossistema do Futebol Amador",
     category: "Social Media · 2024",
-    image: "/assets/projects/thumbnails/natrave.jpg",
+    image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
     gif: "/natrave-preview.gif",
     to: "/natrave",
   },
@@ -74,7 +66,7 @@ const services = [
     num: "04",
     title: "Mídia Impressa",
     body: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real.",
-    image: "/assets/projects/marco-boni/print/1.jpg",
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "influencia",
@@ -88,7 +80,7 @@ const services = [
     num: "06",
     title: "Mídia OOH",
     body: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual.",
-    image: "/assets/projects/maxi/ooh/1.jpg",
+    image: "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -97,7 +89,7 @@ const galleryImages = [
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
   "/natrave-preview.gif",
-  "/assets/projects/thumbnails/natrave.jpg",
+  "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800&auto=format&fit=crop",
   "/assets/projects/evidive/thumbs/social.jpg",
   "/solid-full.png",
   "/assets/projects/kmillion/kmillion-marca.png",
@@ -110,13 +102,13 @@ function HeroGallery() {
       <div className="hero-gallery-track">
         {galleryImages.map((img, i) => (
           <div key={i} className="hero-gallery-item">
-            <img src={img} alt={`Gallery ${i}`} className="grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src={img} alt={`Gallery ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
         {/* Duplicate for seamless loop */}
         {galleryImages.map((img, i) => (
           <div key={`dup-${i}`} className="hero-gallery-item">
-            <img src={img} alt={`Gallery Dup ${i}`} className="grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src={img} alt={`Gallery Dup ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
       </div>
@@ -139,9 +131,9 @@ const brands = [
   { name: "Tech Flow", id: "tech" },
 ];
 
-function ProjectCard({ project, index }: { project: Project, index: number }) {
+function ProjectCard({ project, index }: { project: any, index: number }) {
   const [isVisible, setIsVisible] = useState(false);
-  const cardRef = (node: HTMLElement | null) => {
+  const cardRef = (node: any) => {
     if (node) {
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -163,7 +155,7 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
         className="scroll-reveal project-card relative" 
         style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <div className="media-wrap aspect-[4/3] overflow-hidden border border-border/5">
+        <div className="media-wrap aspect-[4/3] rounded-2xl overflow-hidden border border-border/5">
           <ProjectMedia 
             src={isVisible && project.gif ? project.gif : project.image} 
             alt={project.name} 
@@ -221,10 +213,10 @@ function HomePage() {
               </div>
               <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
                 <Link to="/trabalho" className="btn btn-hero-primary">
-                  Meu Portfólio
+                  Meu Portifólio
                 </Link>
-                <Link to="/trabalho" search={{ service: "marca" }} className="btn btn-hero-secondary">
-                  Projetos de Branding
+                <Link to="/sobre" className="btn btn-hero-secondary">
+                  Sobre Mim
                 </Link>
               </div>
             </div>
@@ -254,32 +246,6 @@ function HomePage() {
           items={dynamicLogos.length > 0 ? dynamicLogos : brands.map(b => ({ name: b.name, url: "" }))} 
           baseVelocity={-0.5}
         />
-      </section>
-
-      {/* Impact/Proof Section */}
-      <section className="site-section border-t border-border bg-foreground text-background">
-        <div className="site-container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
-            <div className="space-y-4 scroll-reveal">
-               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">+40%</span>
-               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
-                 Aumento em engajamento orgânico para NaTrave App no primeiro trimestre.
-               </p>
-            </div>
-            <div className="space-y-4 scroll-reveal delay-100">
-               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">100%</span>
-               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
-                 Identidade visual reconstruída para Solid+, posicionando a marca no mercado global.
-               </p>
-            </div>
-            <div className="space-y-4 scroll-reveal delay-200">
-               <span className="text-5xl md:text-7xl font-bold tracking-tighter text-secondary italic">85k+</span>
-               <p className="text-xs md:text-sm font-mono uppercase tracking-widest opacity-60 leading-tight">
-                 Usuários impactados por campanhas de Mídia OOH e Presença Digital em 2024.
-               </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Positioning */}
@@ -333,7 +299,7 @@ function HomePage() {
                 className="scroll-reveal group block"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500">
+                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500 rounded-2xl">
                   <img 
                     src={s.image} 
                     alt={s.title} 

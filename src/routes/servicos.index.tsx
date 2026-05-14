@@ -92,7 +92,7 @@ function ServicosPage() {
             className="scroll-reveal block group border-t border-border first:border-t-0" 
             style={{ transitionDelay: `${i * 100}ms` }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-12 pb-12 md:pt-16 md:pb-16 group-hover:bg-off-white/50 transition-colors duration-500  px-4 md:px-8 -mx-4 md:-mx-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-12 pb-12 md:pt-16 md:pb-16 group-hover:bg-off-white/50 transition-colors duration-500 rounded-xl px-4 md:px-8 -mx-4 md:-mx-8">
               <div className="lg:col-span-4">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary">{p.num}</span>
                 <h2 className="text-2xl md:text-4xl font-bold uppercase tracking-tighter mt-4 flex items-center gap-4">

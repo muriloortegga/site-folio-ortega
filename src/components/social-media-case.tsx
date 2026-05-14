@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence, useMotionValue, MotionValue } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { ProjectMedia } from "./project-media";
 
@@ -524,6 +524,8 @@ export function SingleImageShowcase({ src }: { src: string }) {
     offset: ["start end", "end start"]
   });
 
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
   return (
     <section 
       ref={containerRef}
@@ -534,7 +536,7 @@ export function SingleImageShowcase({ src }: { src: string }) {
         <MotionProjectMedia 
           src={src} 
           alt="Showcase"
-          style={{ y: useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]) }}
+          style={{ y }}
           className="absolute inset-0 w-full h-[120%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
         />
       </div>
@@ -569,6 +571,19 @@ export function SingleImageShowcase({ src }: { src: string }) {
 }
 
 // --- Section 5: Scroll Horizontal Gallery ---
+function GalleryRow({ src, idx, scrollYProgress }: { src: string, idx: number, scrollYProgress: MotionValue<number> }) {
+  const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-20%"] : ["-20%", "0%"]);
+  return (
+    <div className="relative w-[180vw] lg:w-[140vw] h-[35vh] md:h-[65vh] flex">
+      <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-6">
+        {[...Array(4)].map((_, i) => (
+          <img key={i} src={src} className="w-[85vw] md:w-[55vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-xl " alt="Gallery item" />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 export function ScrollHorizontalGallery({ images }: { images: string[] }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -578,18 +593,9 @@ export function ScrollHorizontalGallery({ images }: { images: string[] }) {
 
   return (
     <section ref={containerRef} className="site-section bg-background overflow-hidden border-none py-16 md:py-32 flex flex-col gap-8 md:gap-12">
-      {images.map((src, idx) => {
-        const x = useTransform(scrollYProgress, [0, 1], idx % 2 === 0 ? ["0%", "-20%"] : ["-20%", "0%"]);
-        return (
-          <div key={idx} className="relative w-[180vw] lg:w-[140vw] h-[35vh] md:h-[65vh] flex">
-            <motion.div style={{ x }} className="flex w-full h-full px-4 gap-4 md:gap-6">
-              {[...Array(4)].map((_, i) => (
-                <img key={i} src={src} className="w-[85vw] md:w-[55vw] h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-xl " alt="Gallery item" />
-              ))}
-            </motion.div>
-          </div>
-        );
-      })}
+      {images.map((src, idx) => (
+        <GalleryRow key={idx} src={src} idx={idx} scrollYProgress={scrollYProgress} />
+      ))}
     </section>
   );
 }

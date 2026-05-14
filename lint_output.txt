@@ -1,0 +1,37 @@
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/draggable-marquee.tsx
+  36:9  error  'moveBy' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/project-media.tsx
+  9:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/social-media-case.tsx
+  582:19  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/badge.tsx
+  36:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/button.tsx
+  57:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/form.tsx
+  168:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/navigation-menu.tsx
+  119:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/sidebar.tsx
+  770:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/components/ui/toggle.tsx
+  43:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/router.tsx
+  4:10  warning  Fast refresh only works when a file only exports components. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/muriloortega/Desktop/SITES/teste/portifolio-murilo-ortega/src/routes/trabalho.tsx
+  281:16  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+✖ 11 problems (3 errors, 8 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

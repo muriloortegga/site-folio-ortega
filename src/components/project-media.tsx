@@ -6,7 +6,7 @@ interface ProjectMediaProps {
   alt: string;
   className?: string;
   isVisible?: boolean;
-  style?: any; // Using any for Framer Motion compatibility or React.CSSProperties
+  style?: React.CSSProperties;
 }
 
 export function ProjectMedia({ src, alt, className, isVisible = true, style }: ProjectMediaProps) {

@@ -17,7 +17,15 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const projects = [
+interface Project {
+  name: string;
+  category: string;
+  image: string;
+  gif?: string;
+  to: string;
+}
+
+const projects: Project[] = [
   {
     name: "NaTrave App — O Ecossistema do Futebol Amador",
     category: "Social Media · 2024",
@@ -131,9 +139,9 @@ const brands = [
   { name: "Tech Flow", id: "tech" },
 ];
 
-function ProjectCard({ project, index }: { project: any, index: number }) {
+function ProjectCard({ project, index }: { project: Project, index: number }) {
   const [isVisible, setIsVisible] = useState(false);
-  const cardRef = (node: any) => {
+  const cardRef = (node: HTMLElement | null) => {
     if (node) {
       const observer = new IntersectionObserver(
         ([entry]) => {

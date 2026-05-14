@@ -33,7 +33,7 @@ export function DraggableMarquee({ items, baseVelocity = -1.8 }: DraggableMarque
   }, [items]);
 
   useAnimationFrame((t, delta) => {
-    let moveBy = baseVelocity * (delta / 20);
+    const moveBy = baseVelocity * (delta / 20);
     baseX.set(baseX.get() + moveBy);
   });
 

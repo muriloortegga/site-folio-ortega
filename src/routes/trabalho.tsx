@@ -224,6 +224,7 @@ function PortifólioPage() {
                             <ProjectMedia
                               src={project.image}
                               alt={project.name}
+                              playGifOnHover={activeCategory === "Websites"}
                               className={cn(
                                 "w-full h-full transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
                                 activeCategory === "Websites" ? "" : "object-cover",

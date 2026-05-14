@@ -42,10 +42,12 @@ interface Insight {
 
 const projects: Project[] = [
   // Social Media
-  { name: "Performance Social", category: "Social Media", year: "2024", client: "NaTrave", context: "Estratégia & Conteúdo", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
-  { name: "Growth Marketing", category: "Social Media", year: "2024", client: "Talk2Buy", context: "Social Performance", image: "/assets/projects/talk2buy/social/mockups/performance.png", to: "/talk2buy", search: { service: "social" } },
-  { name: "Presença Digital", category: "Social Media", year: "2024", client: "Evidive", context: "Content System", image: "/assets/projects/evidive/thumbs/social.jpg", to: "/evidive", search: { service: "social" } },
-  { name: "Autoridade Acadêmica", category: "Social Media", year: "2024", client: "Colégio Maxi", context: "Inbound & Social", image: "/assets/projects/maxi/ooh/1.jpg", to: "/maxi", search: { service: "social" } },
+  { name: "Performance Social", category: "Social Media", year: "2024", client: "NaTrave", context: "Estratégia & Conteúdo", image: "/assets/projects/thumbnails/social/natrave.jpg", to: "/natrave", search: { service: "social" } },
+  { name: "Growth Marketing", category: "Social Media", year: "2024", client: "Talk2Buy", context: "Social Performance", image: "/assets/projects/thumbnails/social/talk2buy.jpg", to: "/talk2buy", search: { service: "social" } },
+  { name: "Presença Digital", category: "Social Media", year: "2024", client: "Evidive", context: "Content System", image: "/assets/projects/thumbnails/social/evidive.jpg", to: "/evidive", search: { service: "social" } },
+  { name: "Autoridade Acadêmica", category: "Social Media", year: "2024", client: "Colégio Maxi", context: "Inbound & Social", image: "/assets/projects/thumbnails/social/maxi.jpg", to: "/maxi", search: { service: "social" } },
+  { name: "Sabor que Conecta", category: "Social Media", year: "2023", client: "Kapyi", context: "Social & Lifestyle", image: "/assets/projects/thumbnails/social/kapyi.jpg", to: "/kapyi", search: { service: "social" } },
+  { name: "Semeando Conhecimento", category: "Social Media", year: "2023", client: "Milgrows", context: "Educação & Conteúdo", image: "/assets/projects/thumbnails/social/milgrows.jpg", to: "/milgrows", search: { service: "social" } },
   
   // Id Visual
   { name: "Brand Identity", category: "Id Visual", year: "2024", client: "NaTrave", context: "Naming & ID Visual", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "marca" } },

@@ -32,12 +32,18 @@
   --font-sans: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'DM Mono', 'Courier New', monospace;
 
-  /* BASIC/DEPT Animations */
   --animate-fade-in: fade-in 650ms cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
   --animate-translate-y: translate-y 650ms cubic-bezier(0.0, 0.0, 0.2, 1) both;
   --animate-scale-in: scale-in 650ms cubic-bezier(0.0, 0.0, 0.2, 1) both;
   --animate-trace-in: trace-in 650ms cubic-bezier(0.0, 0.0, 0.2, 1) both;
+  /* Marquee Animations */
+  --animate-marquee-fast: marquee-fast 15s linear infinite;
   --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
+}
+
+@keyframes marquee-fast {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @keyframes pulse-subtle {

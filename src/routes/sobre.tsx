@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ChevronDown, Plus, ArrowUpRight, Cpu, ClipboardList, Zap, Info } from "lucide-react";
+import { ChevronDown, Plus, ArrowUpRight, Cpu, ClipboardList, Zap } from "lucide-react";
 import { ProjectMedia } from "@/components/project-media";
 
 export const Route = createFileRoute("/sobre")({
@@ -16,13 +16,13 @@ export const Route = createFileRoute("/sobre")({
 });
 
 const designTools = [
-  { name: "Photoshop", logo: "/assets/about/logos/ps.png", desc: "Manipulação de imagem e composição visual avançada" },
-  { name: "Illustrator", logo: "/assets/about/logos/ai.png", desc: "Criação de identidades vetoriais e sistemas escaláveis" },
-  { name: "After Effects", logo: "/assets/about/logos/ae.png", desc: "Motion design e narrativa visual dinâmica" },
-  { name: "Figma", logo: "/assets/about/logos/fi.png", desc: "Prototipagem UI/UX e design de interfaces colaborativas" },
-  { name: "Canva", logo: "/assets/about/logos/cv.png", desc: "Agilidade na criação de assets para social media" },
-  { name: "Capcut", logo: "/assets/about/logos/cc.png", desc: "Edição rápida de vídeos curtos para engajamento" },
-  { name: "Premiere", logo: "/assets/about/logos/pr.png", desc: "Montagem de cases e conteúdos em vídeo de alta qualidade" },
+  { name: "Photoshop", logo: "/assets/about/logos/ps.png" },
+  { name: "Illustrator", logo: "/assets/about/logos/ai.png" },
+  { name: "After Effects", logo: "/assets/about/logos/ae.png" },
+  { name: "Figma", logo: "/assets/about/logos/fi.png" },
+  { name: "Canva", logo: "/assets/about/logos/cv.png" },
+  { name: "Capcut", logo: "/assets/about/logos/cc.png" },
+  { name: "Premiere", logo: "/assets/about/logos/pr.png" },
 ];
 
 const aiTools = [
@@ -35,9 +35,9 @@ const aiTools = [
 ];
 
 const managementTools = [
-  { name: "Asana", logo: "/assets/about/logos/asana.png", desc: "Gestão de projetos complexos e prazos" },
-  { name: "Trello", logo: "/assets/about/logos/trello.png", desc: "Organização ágil de fluxos e tarefas" },
-  { name: "Notion", logo: "/assets/about/logos/notion.png", desc: "Documentação e base de conhecimento estratégica" },
+  { name: "Asana", logo: "/assets/about/logos/asana.png", desc: "Gestão de projetos e prazos" },
+  { name: "Trello", logo: "/assets/about/logos/trello.png", desc: "Organização ágil de fluxos" },
+  { name: "Notion", logo: "/assets/about/logos/notion.png", desc: "Base de conhecimento estratégica" },
 ];
 
 const brands = [
@@ -70,69 +70,6 @@ const brands = [
     to: "/maxi"
   }
 ];
-
-interface MarqueeItem {
-  name: string;
-  logo: string;
-  desc: string;
-}
-
-function InfiniteMarquee({ items, speed = 40 }: { items: MarqueeItem[], speed?: number }) {
-  const [hoveredItem, setHoveredItem] = useState<MarqueeItem | null>(null);
-  
-  return (
-    <div className="relative w-full overflow-hidden py-12 md:py-20 border-y border-border/5 bg-off-white/30">
-      {/* Description Overlay */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none site-container">
-         <AnimatePresence mode="wait">
-            {hoveredItem && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="bg-foreground text-background px-6 py-2 rounded-full text-[10px] font-mono uppercase tracking-widest flex items-center gap-3 mx-auto w-fit shadow-2xl"
-              >
-                <span className="font-bold text-secondary">{hoveredItem.name}:</span>
-                <span className="opacity-80">{hoveredItem.desc}</span>
-              </motion.div>
-            )}
-         </AnimatePresence>
-      </div>
-
-      <div className="flex w-full">
-        <motion.div 
-          className="flex gap-8 md:gap-16 whitespace-nowrap px-4 md:px-8"
-          animate={{ x: [0, -1035] }}
-          transition={{ 
-            duration: speed, 
-            repeat: Infinity, 
-            ease: "linear",
-            repeatType: "loop"
-          }}
-        >
-           {[...items, ...items, ...items, ...items].map((item, i) => (
-             <div 
-               key={i} 
-               className="flex items-center gap-6 md:gap-10 group cursor-help py-4"
-               onMouseEnter={() => setHoveredItem(item)}
-               onMouseLeave={() => setHoveredItem(null)}
-             >
-                <div className="w-20 h-20 md:w-28 md:h-28 bg-background border border-border flex items-center justify-center p-5 md:p-7 group-hover:bg-foreground group-hover:border-foreground transition-all duration-500 rounded-2xl grayscale group-hover:grayscale-0 shadow-sm group-hover:shadow-xl group-hover:-translate-y-2">
-                  <img src={item.logo} alt={item.name} className="w-full h-full object-contain group-hover:invert transition-all" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl md:text-4xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-500">
-                    {item.name}
-                  </span>
-                  <div className="h-[1px] w-0 group-hover:w-full bg-secondary transition-all duration-700" />
-                </div>
-             </div>
-           ))}
-        </motion.div>
-      </div>
-    </div>
-  );
-}
 
 function BrandBoard() {
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
@@ -280,54 +217,91 @@ function SobrePage() {
         </div>
       </section>
 
-      {/* Unified Tools Section */}
-      <section className="py-24 md:py-32 bg-background">
+      {/* Design Tools Section */}
+      <section className="py-24 md:py-32 bg-background border-t border-border/5">
         <div className="site-container mb-16 md:mb-24">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-            <div className="max-w-xl">
-              <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-secondary/40 block mb-4">Ecosistema Técnico</span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.8]">Principais <br /><span className="text-secondary font-medium italic">Ferramentas</span></h2>
-            </div>
-            <div className="flex items-center gap-4 text-secondary/60">
-              <Info size={16} />
-              <p className="text-[9px] font-mono uppercase tracking-widest">Passe o mouse para ver a expertise em cada plataforma</p>
-            </div>
-          </div>
+          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.8]">Design & <br /><span className="text-secondary font-medium italic">Direção de Arte</span></h2>
         </div>
-        
-        {/* Infinite Marquees */}
-        <div className="space-y-4">
-           <InfiniteMarquee items={designTools} speed={45} />
-           <InfiniteMarquee items={aiTools} speed={35} />
-        </div>
-
-        <div className="site-container mt-24">
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              <p className="text-sm md:text-base font-mono uppercase text-secondary leading-relaxed max-w-xl opacity-60">
-                A tecnologia é o meio, nunca o fim. Minha stack é selecionada para garantir que a visão criativa seja executada com a máxima precisão técnica e agilidade operacional.
-              </p>
-              
-              <div className="bg-off-white/50 p-8 md:p-12 rounded-2xl border border-border/5">
-                 <div className="flex items-center gap-4 mb-10">
-                   <div className="p-3 bg-foreground/5 rounded-xl">
-                     <ClipboardList size={24} className="text-foreground" />
+        <div className="overflow-hidden mb-12">
+           <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap">
+              {[...designTools, ...designTools, ...designTools].map((tool, i) => (
+                <div key={i} className="flex items-center gap-8 group">
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
                    </div>
-                   <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Gestão & Planejamento</h4>
+                   <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
+                     {tool.name}
+                   </span>
+                </div>
+              ))}
+           </div>
+        </div>
+        <div className="site-container">
+           <p className="text-sm md:text-base font-mono uppercase text-secondary leading-relaxed max-w-xl opacity-60">
+             Domínio técnico das ferramentas que moldam a estética visual moderna. Agilidade e precisão em Photoshop, Illustrator, After Effects e Figma para entregar designs que performam.
+           </p>
+        </div>
+      </section>
+
+      {/* AI Tools Section */}
+      <section className="py-24 md:py-32 bg-off-white/50 border-y border-border/5">
+        <div className="site-container mb-16 md:mb-24">
+           <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.8]">Inteligência <br /><span className="text-secondary font-medium italic">Artificial</span></h2>
+        </div>
+        <div className="overflow-hidden mb-12">
+           <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap direction-reverse">
+              {[...aiTools, ...aiTools, ...aiTools].map((tool, i) => (
+                <div key={i} className="flex items-center gap-8 group">
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
+                   </div>
+                   <div className="flex flex-col">
+                      <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
+                        {tool.name}
+                      </span>
+                      <span className="text-[9px] font-mono uppercase text-secondary opacity-0 group-hover:opacity-60 transition-all delay-100">{tool.desc}</span>
+                   </div>
+                </div>
+              ))}
+           </div>
+        </div>
+        <div className="site-container">
+           <p className="text-sm md:text-base font-mono uppercase text-secondary leading-relaxed max-w-xl opacity-60">
+             As IAs potencializam meus skills de copywriting, redação e UX, elevando a performance e a pontualidade de cada projeto através de ferramentas como Claude, GPT e VEO3.
+           </p>
+        </div>
+      </section>
+
+      {/* Management Section */}
+      <section className="py-24 md:py-32 bg-background">
+        <div className="site-container">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+              <div>
+                 <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.8] mb-12">Gestão & <br /><span className="text-secondary font-medium italic">Planejamento</span></h2>
+                 <p className="text-sm md:text-base font-mono uppercase text-secondary leading-relaxed max-w-md opacity-60 mb-12">
+                   Organização absoluta para garantir que a criatividade tenha espaço para performar. Fluxos de trabalho otimizados em Asana, Trello e Notion.
+                 </p>
+                 <div className="space-y-6">
+                    {managementTools.map((tool) => (
+                      <div key={tool.name} className="flex items-center justify-between border-b border-border pb-6 group">
+                         <div className="flex items-center gap-6">
+                            <div className="w-12 h-12 flex items-center justify-center">
+                               <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+                            </div>
+                            <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter">{tool.name}</span>
+                         </div>
+                         <span className="text-[10px] font-mono uppercase text-secondary opacity-40 group-hover:opacity-100 transition-all">{tool.desc}</span>
+                      </div>
+                    ))}
                  </div>
-                 <div className="space-y-8">
-                   {managementTools.map((tool) => (
-                     <div key={tool.name} className="flex items-center justify-between border-b border-border/10 pb-6 group cursor-help">
-                        <div className="flex items-center gap-6">
-                          <img src={tool.logo} alt={tool.name} className="w-10 h-10 object-contain grayscale group-hover:grayscale-0 transition-all" />
-                          <div>
-                            <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter block">{tool.name}</span>
-                            <span className="text-[9px] font-mono uppercase opacity-30 tracking-widest group-hover:opacity-100 transition-all">{tool.desc}</span>
-                          </div>
-                        </div>
-                        <Zap size={14} className="opacity-10 group-hover:opacity-100 transition-all text-secondary" />
-                     </div>
-                   ))}
-                 </div>
+              </div>
+              <div className="relative aspect-square bg-off-white rounded-2xl overflow-hidden group">
+                 <ProjectMedia 
+                   src="/assets/about/photos/middle-bg.jpg" 
+                   alt="Murilo Ortega Workflow" 
+                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+                 />
+                 <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-all" />
               </div>
            </div>
         </div>

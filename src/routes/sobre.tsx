@@ -191,6 +191,30 @@ function SobrePage() {
         </div>
       </section>
 
+      {/* Recruiter Executive Summary */}
+      <section className="py-24 border-t border-border/10 bg-foreground text-background">
+        <div className="site-container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+            <div className="space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-background/40">Sênioridade</span>
+              <p className="text-xl md:text-2xl font-bold uppercase tracking-tighter italic">8+ Anos</p>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-background/40">Especialidade</span>
+              <p className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Brand Systems</p>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-background/40">Foco Atual</span>
+              <p className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Product Design / IA</p>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-background/40">Disponibilidade</span>
+              <p className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Projetos Globais</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trajectory Summary with Parallax Background */}
       <section ref={trajectoryRef} className="relative py-32 md:py-48 overflow-hidden border-y border-border/5">
         <div className="absolute inset-0 z-0">

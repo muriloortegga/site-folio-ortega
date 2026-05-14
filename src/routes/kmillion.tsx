@@ -5,6 +5,7 @@ import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 import { CaseContext } from "@/components/case-context";
+import { CaseProcess, CaseImpact } from "@/components/case-process";
 
 import { z } from "zod";
 
@@ -70,6 +71,35 @@ function ProjetoKmillion() {
         problem="A marca anterior não refletia a agilidade e inteligência do sistema. Era necessário uma identidade que transmitisse adaptabilidade e inovação tecnológica."
         solution="Inspirado na anatomia do camaleão, criei um sistema visual dinâmico que se adapta a diferentes contextos de PDV e canais digitais, reforçando a ideia de 'inteligência adaptável'."
         results="Consolidação da marca como líder em tecnologia promocional, com expansão da base de clientes após o lançamento da nova identidade."
+      />
+
+      <CaseProcess 
+        steps={[
+          {
+            title: "Abstração Biológica",
+            description: "Estudo da anatomia e comportamento do camaleão para traduzir 'adaptabilidade' em formas geométricas precisas.",
+            tags: ["Semiótica", "Geometria"]
+          },
+          {
+            title: "Sistemas Dinâmicos",
+            description: "Construção de uma malha visual flexível que se comporta de forma consistente do digital ao PDV físico.",
+            tags: ["Brand System", "UI"]
+          },
+          {
+            title: "Narrativa Técnica",
+            description: "Posicionamento da Kmillion não apenas como software, mas como inteligência estratégica para o marketing.",
+            tags: ["Copywriting", "Estratégia"]
+          }
+        ]}
+      />
+
+      <CaseImpact 
+        metrics={[
+          { label: "Lead Gen", value: "25%", description: "Aumento na conversão de leads qualificados via site." },
+          { label: "Percepção", value: "High", description: "Feedback unânime sobre o aumento do valor percebido." },
+          { label: "Scale", value: "12+", description: "Novos grandes players do varejo integrados no semestre." },
+          { label: "Recall", value: "88%", description: "Taxa de reconhecimento da nova marca no setor tech." },
+        ]}
       />
 
       {activeService === "marca" && (

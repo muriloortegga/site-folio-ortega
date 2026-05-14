@@ -4,6 +4,7 @@ import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CaseContext } from "@/components/case-context";
+import { CaseProcess, CaseImpact } from "@/components/case-process";
 
 export const Route = createFileRoute("/solid")({
   head: () => ({
@@ -50,6 +51,35 @@ function ProjetoSolid() {
         problem="O setor financeiro digital é saturado de marcas genéricas. A Solid+ precisava transmitir segurança institucional sem parecer antiquada."
         solution="Desenvolvi um sistema visual baseado em grids rígidos e tipografia robusta, utilizando uma paleta monocromática que exala autoridade e clareza técnica."
         results="Marca posicionada com sucesso para o mercado global, com feedback positivo de investidores sobre a solidez visual."
+      />
+
+      <CaseProcess 
+        steps={[
+          {
+            title: "Grid de Confiança",
+            description: "Desenvolvimento de uma malha matemática para o logotipo que comunica precisão e segurança financeira.",
+            tags: ["Grid", "Proporção Áurea"]
+          },
+          {
+            title: "Paleta Institucional",
+            description: "Seleção de cores e contrastes que transmitem seriedade e estabilidade para investidores de alto nível.",
+            tags: ["Cor", "Psicologia"]
+          },
+          {
+            title: "Sistemas Digitais",
+            description: "Adaptação da marca para dashboards complexos, garantindo legibilidade e clareza de dados.",
+            tags: ["UI Systems", "Fintech"]
+          }
+        ]}
+      />
+
+      <CaseImpact 
+        metrics={[
+          { label: "Confiança", value: "High", description: "Percepção de segurança validada por teste de usuário." },
+          { label: "Mercado", value: "Global", description: "Identidade preparada para expansão internacional imediata." },
+          { label: "Coerência", value: "100%", description: "Unificação de todos os pontos de contato da marca." },
+          { label: "Valor", value: "+30%", description: "Estimativa de aumento no valor percebido da plataforma." },
+        ]}
       />
 
       <div className="anim-fade-in site-container pb-32 space-y-8 md:space-y-12">

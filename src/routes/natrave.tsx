@@ -14,6 +14,7 @@ import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
 import { CaseContext } from "@/components/case-context";
+import { CaseProcess, CaseImpact } from "@/components/case-process";
 
 import { z } from "zod";
 
@@ -82,6 +83,35 @@ function ProjetoNaTrave() {
         problem="O futebol amador era visto como algo desorganizado. A marca precisava de uma linguagem que unisse a paixão do campo com a precisão da tecnologia."
         solution="Implementei uma identidade visual vibrante e um sistema de conteúdo focado em jornalismo esportivo de alta performance, elevando a percepção de valor da plataforma."
         results="+40% de engajamento orgânico e consolidação como referência visual no nicho de sportstech."
+      />
+
+      <CaseProcess 
+        steps={[
+          {
+            title: "Diagnóstico de Campo",
+            description: "Imersão total na cultura do futebol de várzea para entender as dores de quem organiza e quem joga.",
+            tags: ["Pesquisa", "UX Audit"]
+          },
+          {
+            title: "Sinalização de Elite",
+            description: "Desenvolvimento de um sistema visual que foge do óbvio e traz a estética das grandes ligas para o amador.",
+            tags: ["Branding", "UI Design"]
+          },
+          {
+            title: "Tática de Conteúdo",
+            description: "Criação de editorias fixas que transformam dados de jogos em narrativas épicas nas redes sociais.",
+            tags: ["Content", "Copy"]
+          }
+        ]}
+      />
+
+      <CaseImpact 
+        metrics={[
+          { label: "Engajamento", value: "40%", description: "Aumento no engajamento orgânico médio por post." },
+          { label: "Comunidade", value: "+2.2k", description: "Novos seguidores qualificados no primeiro trimestre." },
+          { label: "Alcance", value: "150k", description: "Impacto mensal em perfis únicos do nicho esportivo." },
+          { label: "Retenção", value: "65%", description: "Usuários que retornam semanalmente ao ecossistema." },
+        ]}
       />
 
       {activeService === "social" && (

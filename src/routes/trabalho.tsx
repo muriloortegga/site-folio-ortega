@@ -40,25 +40,25 @@ interface Insight {
 
 const projects: Project[] = [
   // Social Media
-  { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "social" } },
-  { name: "Talk2Buy", category: "Social Media", year: "2024", image: "/assets/projects/talk2buy/social/mockups/performance.png", to: "/talk2buy", search: { service: "social" } },
-  { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/evidive/thumbs/social.jpg", to: "/evidive", search: { service: "social" } },
-  { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=800", to: "/maxi", search: { service: "social" } },
-  { name: "Milgrows", category: "Social Media", year: "2023", image: "/assets/projects/milgrows/social/mockups/performance.png", to: "/milgrows", search: { service: "social" } },
-  { name: "Kapyi", category: "Social Media", year: "2023", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800", to: "/kapyi", search: { service: "social" } },
+  { name: "NaTrave", category: "Social Media", year: "2024", image: "/assets/projects/brand-logos/natrave.svg", to: "/natrave", search: { service: "social" } },
+  { name: "Talk2Buy", category: "Social Media", year: "2024", image: "/assets/projects/brand-logos/talk2buy.svg", to: "/talk2buy", search: { service: "social" } },
+  { name: "Evidive", category: "Social Media", year: "2024", image: "/assets/projects/brand-logos/evidive.svg", to: "/evidive", search: { service: "social" } },
+  { name: "Colégio Maxi", category: "Social Media", year: "2024", image: "/assets/projects/brand-logos/maxi.svg", to: "/maxi", search: { service: "social" } },
+  { name: "Milgrows", category: "Social Media", year: "2023", image: "/assets/projects/brand-logos/milgrows.svg", to: "/milgrows", search: { service: "social" } },
+  { name: "Kapyi", category: "Social Media", year: "2023", image: "/assets/projects/brand-logos/kapyi.svg", to: "/kapyi", search: { service: "social" } },
   
   // Id Visual
-  { name: "NaTrave", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/natrave.jpg", to: "/natrave", search: { service: "marca" } },
-  { name: "Symplice", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/symplice.jpg", to: "/symplice" },
-  { name: "Kmillion", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/kmillion.jpg", to: "/kmillion", search: { service: "marca" } },
-  { name: "Solid+", category: "Id Visual", year: "2024", image: "/assets/projects/thumbnails/solid.jpg", to: "/solid" },
+  { name: "NaTrave", category: "Id Visual", year: "2024", image: "/assets/projects/brand-logos/natrave.svg", to: "/natrave", search: { service: "marca" } },
+  { name: "Symplice", category: "Id Visual", year: "2024", image: "/assets/projects/brand-logos/symplice.svg", to: "/symplice" },
+  { name: "Kmillion", category: "Id Visual", year: "2024", image: "/assets/projects/brand-logos/kmillion.svg", to: "/kmillion", search: { service: "marca" } },
+  { name: "Solid+", category: "Id Visual", year: "2024", image: "/assets/projects/brand-logos/solid.svg", to: "/solid" },
   
   // Mídia Impressa
-  { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "/assets/projects/marco-boni/print/1.jpg", to: "/marco-boni" },
-  { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/livin/print/1.jpg", to: "/livin" },
+  { name: "Marco Boni", category: "Mídia Impressa", year: "2023", image: "/assets/projects/brand-logos/marcoboni.svg", to: "/marco-boni" },
+  { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/brand-logos/livin.svg", to: "/livin" },
   
   // Mídia OOH
-  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/maxi/ooh/1.jpg", to: "/maxi", search: { service: "ooh" } },
+  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/brand-logos/maxi.svg", to: "/maxi", search: { service: "ooh" } },
 
   // Websites
   { name: "NaTrave", category: "Websites", year: "2024", image: "/natrave-preview.gif", to: "/natrave", search: { service: "websites" } },
@@ -66,7 +66,7 @@ const projects: Project[] = [
   { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/kmillion/website-scroll.gif", to: "/kmillion", search: { service: "websites" } },
 
   // Marketing de Influência
-  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/brand-logos/evidive.svg", to: "/evidive", search: { service: "influencia" } },
 ];
 
 const serviceInsights: Record<Category, Insight> = {
@@ -216,18 +216,17 @@ function PortifólioPage() {
                           className="group"
                         >
                           <figure className={cn(
-                            "relative overflow-hidden transition-all duration-700",
+                            "relative overflow-hidden transition-all duration-700 flex items-center justify-center",
                             activeCategory === "Websites" 
                               ? "aspect-square bg-transparent border-none" 
-                              : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
+                              : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl p-12 md:p-16 lg:p-20"
                           )}>
                             <ProjectMedia
                               src={project.image}
                               alt={project.name}
                               className={cn(
-                                "w-full h-full transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
-                                activeCategory === "Websites" ? "" : "object-cover",
-                                // On mobile, we use motion variants to control grayscale
+                                "transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
+                                activeCategory === "Websites" ? "w-full h-full object-cover" : "w-full h-full object-contain",
                               )}
                             />
                             <motion.div 

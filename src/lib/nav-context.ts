@@ -22,7 +22,7 @@ const WEB: ContextLink = { to: "/servicos/presenca-digital", label: "Presença D
 const INFLU: ContextLink = { to: "/servicos/marketing-de-influencia", label: "Marketing de Influência" };
 
 const SERVICOS: ContextLink = { to: "/servicos", label: "Serviços" };
-const TRABALHO: ContextLink = { to: "/trabalho", label: "Portifólio" };
+const TRABALHO: ContextLink = { to: "/trabalho", label: "Portfólio" };
 
 // Project pages: parent defaults to /trabalho, categories enable smart "back to category" links.
 const projectContext = (categories: ContextLink[]): RouteContext => ({

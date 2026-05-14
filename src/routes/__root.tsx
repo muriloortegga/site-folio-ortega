@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Cursor } from "@/components/Cursor";
 import { ContextNav } from "@/components/ContextNav";
+import { motion, AnimatePresence } from "framer-motion";
 
 import appCss from "../styles.css?url";
 
@@ -85,8 +86,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
-import { motion, AnimatePresence } from "framer-motion";
 
 function RootComponent() {
   return (

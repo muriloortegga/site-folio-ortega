@@ -8,7 +8,7 @@ import { getRouteContext, getOrigin, setOrigin, type ContextLink } from "@/lib/n
  * Always surfaces:
  *   ← Voltar (browser back, with sensible fallback)
  *   • [Category overview]  (inferred from origin OR project's primary category)
- *   • [Section overview]   (e.g. Serviços, Portifólio)
+ *   • [Section overview]   (e.g. Serviços, Portfólio)
  */
 export function ContextNav() {
   const location = useLocation();
@@ -28,7 +28,7 @@ export function ContextNav() {
     if (pathname.startsWith("/servicos/") || pathname === "/trabalho") {
       const label =
         pathname === "/trabalho"
-          ? "Portifólio"
+          ? "Portfólio"
           : pathname
               .replace("/servicos/", "")
               .split("-")

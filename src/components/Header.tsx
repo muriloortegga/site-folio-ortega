@@ -38,17 +38,25 @@ export function Header() {
               link.isExternal ? (
                 <a
                   key={link.to}
-              <Link
-                key={link.to}
-                to={link.to}
-                className={cn(
-                  "text-[10px] font-mono uppercase tracking-widest transition-all hover:text-secondary",
-                  window.location.pathname === link.to ? "text-secondary" : "text-foreground"
-                )}
-                {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                {link.label}
-              </Link>
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-mono uppercase tracking-widest transition-all hover:text-secondary text-foreground"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={cn(
+                    "text-[10px] font-mono uppercase tracking-widest transition-all hover:text-secondary",
+                    window.location.pathname === link.to ? "text-secondary" : "text-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border/50">
                <button className="text-[9px] font-mono font-bold border-b border-foreground">PT</button>
@@ -97,18 +105,30 @@ export function Header() {
           <nav className="flex flex-col items-start site-container mt-12 gap-8">
             <div className="flex flex-col items-start gap-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setMenuOpen(false)}
-                  className={cn(
-                    "text-4xl font-bold uppercase tracking-tighter transition-all hover:text-secondary",
-                    window.location.pathname === link.to ? "text-secondary" : "text-foreground"
-                  )}
-                  {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {link.label}
-                </Link>
+                link.isExternal ? (
+                  <a
+                    key={link.to}
+                    href={link.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    className="text-4xl font-bold uppercase tracking-tighter transition-all hover:text-secondary text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMenuOpen(false)}
+                    className={cn(
+                      "text-4xl font-bold uppercase tracking-tighter transition-all hover:text-secondary",
+                      window.location.pathname === link.to ? "text-secondary" : "text-foreground"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
               <div className="flex gap-4 mt-8 pt-8 border-t border-border w-full">
                  <button className="text-xs font-mono font-bold border-b-2 border-foreground pb-1">PT</button>

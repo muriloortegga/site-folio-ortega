@@ -177,7 +177,7 @@ function PortifólioPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-full ${
+                className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-none ${
                   activeCategory === cat 
                     ? "bg-foreground text-background border-foreground shadow-sm" 
                     : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
@@ -219,7 +219,7 @@ function PortifólioPage() {
                             "relative overflow-hidden transition-all duration-700",
                             activeCategory === "Websites" 
                               ? "aspect-square bg-transparent border-none" 
-                              : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
+                              : "aspect-[3/2] bg-off-white border border-border/10"
                           )}>
                             <ProjectMedia
                               src={project.image}

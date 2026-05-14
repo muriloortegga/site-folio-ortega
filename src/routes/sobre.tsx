@@ -75,7 +75,7 @@ function BrandBoard() {
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
       {brands.map((brand) => (
         <div 
           key={brand.id}
@@ -103,7 +103,7 @@ function BrandBoard() {
             </div>
             <Link to={brand.to} className="flex items-center justify-between group/btn border-t border-background/10 pt-6 md:pt-8">
               <span className="text-[10px] font-mono uppercase tracking-widest">Ver Projeto</span>
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-background/20 flex items-center justify-center group-hover/btn:bg-background group-hover/btn:text-foreground transition-all duration-500">
+              <div className="w-8 h-8 md:w-10 md:h-10 border border-background/20 flex items-center justify-center group-hover/btn:bg-background group-hover/btn:text-foreground transition-all duration-500">
                 <ArrowUpRight size={16} />
               </div>
             </Link>
@@ -227,7 +227,7 @@ function SobrePage() {
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap">
               {[...designTools, ...designTools, ...designTools, ...designTools, ...designTools].map((tool, i) => (
                 <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 rounded-2xl transition-all duration-500 hover:scale-105">
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 transition-all duration-500 hover:scale-105">
                       <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
                    </div>
                 </div>
@@ -250,7 +250,7 @@ function SobrePage() {
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap direction-reverse">
               {[...aiTools, ...aiTools, ...aiTools, ...aiTools, ...aiTools].map((tool, i) => (
                 <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 rounded-2xl transition-all duration-500 hover:scale-105">
+                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 transition-all duration-500 hover:scale-105">
                       <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
                    </div>
                 </div>
@@ -287,7 +287,7 @@ function SobrePage() {
                     ))}
                  </div>
               </div>
-              <div className="relative aspect-square bg-off-white rounded-2xl overflow-hidden group">
+              <div className="relative aspect-square bg-off-white overflow-hidden group">
                  <ProjectMedia 
                    src="/assets/about/photos/middle-bg.jpg" 
                    alt="Murilo Ortega Workflow" 
@@ -333,7 +333,7 @@ function SobrePage() {
             Vamos elevar o<br />seu projeto?
           </motion.h2>
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full w-full md:w-auto text-center border-none shadow-2xl">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 w-full md:w-auto text-center border-none shadow-2xl">
               Iniciar conversa <Plus size={18} className="ml-2" />
             </a>
             <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity border-b border-background/20 pb-1">

@@ -45,8 +45,8 @@ function ProjetoSolid() {
       />
 
       <div className="anim-fade-in site-container pb-32 space-y-8 md:space-y-12">
-         <img src="/solid-full.png" alt="Solid+ Branding" className="w-full h-auto border border-border shadow-2xl rounded-2xl" />
-         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Solid+ Office" className="w-full h-auto border border-border grayscale rounded-2xl" />
+         <img src="/solid-full.png" alt="Solid+ Branding" className="w-full h-auto border border-border shadow-2xl " />
+         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Solid+ Office" className="w-full h-auto border border-border grayscale " />
       </div>
 
       <section className="site-section border-t border-border mt-32">

@@ -29,7 +29,7 @@ function MidiaOOHPage() {
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10 md:mb-12 max-w-2xl">
               Do planejamento e orçamento com fornecedores até a administração de budget e entrega final. Criamos campanhas externas que garantem visibilidade massiva e autoridade local.
             </p>
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
               Planejar campanha OOH <Plus size={18} className="ml-2" />
             </a>
           </div>
@@ -45,7 +45,7 @@ function MidiaOOHPage() {
             </div>
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-sm">Cuidamos de cada detalhe para que sua marca ocupe o espaço público com estratégia.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border  overflow-hidden">
              {[
                { title: "Planejamento & Estratégia", icon: <Target size={20} /> },
                { title: "Orçamento & Fornecedores", icon: <Settings size={20} /> },
@@ -53,7 +53,7 @@ function MidiaOOHPage() {
                { title: "Direção Visual & Design", icon: <Maximize size={20} /> }
              ].map((item, i) => (
                <div key={i} className="bg-background p-10 md:p-12 space-y-6 group hover:bg-foreground hover:text-background transition-all duration-700">
-                  <div className="w-10 h-10 border border-border group-hover:border-background/20 flex items-center justify-center rounded-lg">
+                  <div className="w-10 h-10 border border-border group-hover:border-background/20 flex items-center justify-center ">
                      {item.icon}
                   </div>
                   <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter leading-tight">{item.title}</h4>
@@ -69,7 +69,7 @@ function MidiaOOHPage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
              <div className="lg:col-span-6 order-2 lg:order-1">
-                <div className="shadow-2xl overflow-hidden rounded-2xl border border-border/5">
+                <div className="shadow-2xl overflow-hidden  border border-border/5">
                    <img src="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?q=80&w=1200" alt="Maxi Billboard" className="w-full grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
                 </div>
              </div>
@@ -86,7 +86,7 @@ function MidiaOOHPage() {
                      </div>
                    ))}
                 </div>
-                <Link to="/maxi" className="btn btn-primary px-8 py-4 rounded-full">
+                <Link to="/maxi" className="btn btn-primary px-8 py-4 ">
                   Ver projeto Maxi <ArrowRight size={18} className="ml-2" />
                 </Link>
              </div>
@@ -98,7 +98,7 @@ function MidiaOOHPage() {
       <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center">
           <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">Sua marca em todos os lugares.</h2>
-          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full">
+          <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 ">
             Consultar especialistas <Plus size={20} className="ml-2" />
           </a>
         </div>

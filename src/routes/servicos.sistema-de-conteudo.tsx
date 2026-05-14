@@ -30,10 +30,10 @@ function SistemaConteudoPage() {
               Esqueça postagens isoladas. Criamos um ecossistema de conteúdo que sustenta sua marca e converte audiência em clientes reais.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
+              <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
                 Implementar sistema <Plus size={18} className="ml-2" />
               </a>
-              <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary px-10 py-5 rounded-full">
+              <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary px-10 py-5 ">
                 Agendar Diagnóstico <MessageSquare size={18} className="ml-2" />
               </a>
             </div>
@@ -47,7 +47,7 @@ function SistemaConteudoPage() {
           <div className="max-w-2xl mb-16">
             <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.95]">Como funciona o nosso sistema de conteúdo:</h2>
           </div>
-          <div className="space-y-px bg-border border border-border rounded-2xl overflow-hidden">
+          <div className="space-y-px bg-border border border-border  overflow-hidden">
             {[
               { title: "Diagnóstico de Marca", desc: "Sessão estratégica para entender seu momento atual.", icon: <Briefcase size={18} /> },
               { title: "Ajuste de Linha Editorial", desc: "Definição do território de conteúdo e tom de voz.", icon: <Plus size={18} /> },
@@ -79,7 +79,7 @@ function SistemaConteudoPage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1">
-               <div className="shadow-2xl overflow-hidden rounded-2xl border border-border/5">
+               <div className="shadow-2xl overflow-hidden  border border-border/5">
                  <img src="/natrave-preview.gif" alt="NaTrave Content System" className="w-full grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
                </div>
             </div>
@@ -88,7 +88,7 @@ function SistemaConteudoPage() {
                <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight mb-10">
                  Construímos um fluxo de conteúdo que elevou a percepção de uma plataforma amadora ao nível de elite. Copywriting agressivo e design de alta performance garantiram retenção e crescimento orgânico constante.
                </p>
-               <Link to="/natrave" className="btn btn-primary px-8 py-4 rounded-full">
+               <Link to="/natrave" className="btn btn-primary px-8 py-4 ">
                  Ver case de conteúdo <ArrowRight size={18} className="ml-2" />
                </Link>
             </div>
@@ -100,7 +100,7 @@ function SistemaConteudoPage() {
       <section className="py-24 md:py-32 bg-foreground text-background">
         <div className="site-container text-center">
           <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">Sua marca sempre presente.<br /><span className="text-secondary font-medium italic">Sempre no topo.</span></h2>
-          <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full">
+          <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 ">
             Agendar diagnóstico <Plus size={20} className="ml-2" />
           </a>
         </div>

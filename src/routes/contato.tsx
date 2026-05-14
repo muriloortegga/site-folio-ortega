@@ -34,10 +34,10 @@ function ContatoPage() {
                     Se você sente que sua marca está abaixo do nível do seu negócio, é aqui que começa.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full flex items-center justify-center gap-2">
+                    <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5  flex items-center justify-center gap-2">
                       WhatsApp <MessageSquare size={18} />
                     </a>
-                    <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary px-10 py-5 rounded-full flex items-center justify-center gap-2">
+                    <a href="https://calendly.com/contato-muriloortega1/30min" target="_blank" rel="noopener noreferrer" className="btn btn-secondary px-10 py-5  flex items-center justify-center gap-2">
                       Agendar Call <Calendar size={18} />
                     </a>
                   </div>

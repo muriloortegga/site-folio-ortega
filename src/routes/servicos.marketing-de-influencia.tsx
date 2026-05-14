@@ -29,10 +29,10 @@ function MarketingInfluenciaPage() {
               Criamos sistemas de marketing de influência que posicionam marcas como referência e transformam audiência em clientes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 rounded-full">
+              <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-10 py-5 ">
                 Quero aplicar isso <Plus size={18} className="ml-2" />
               </a>
-              <button onClick={() => document.getElementById('metodo')?.scrollIntoView({behavior: 'smooth'})} className="btn btn-secondary px-10 py-5 rounded-full">
+              <button onClick={() => document.getElementById('metodo')?.scrollIntoView({behavior: 'smooth'})} className="btn btn-secondary px-10 py-5 ">
                 Ver como funciona
               </button>
             </div>
@@ -74,7 +74,7 @@ function MarketingInfluenciaPage() {
             </div>
             <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-sm">Desenvolvemos um sistema próprio que integra o posicionamento à narrativa de influência.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border  overflow-hidden">
             {[
               { title: "Posicionamento de marca", icon: <Star size={20} /> },
               { title: "Curadoria estratégica", icon: <Users size={20} /> },
@@ -82,7 +82,7 @@ function MarketingInfluenciaPage() {
               { title: "Distribuição com funil", icon: <ArrowRight size={20} /> }
             ].map((item, i) => (
               <div key={i} className="bg-background p-8 md:p-10 flex flex-col items-start hover:bg-off-white transition-colors">
-                <div className="w-10 h-10 border border-border flex items-center justify-center mb-6 rounded-lg">
+                <div className="w-10 h-10 border border-border flex items-center justify-center mb-6 ">
                   {item.icon}
                 </div>
                 <h3 className="text-lg md:text-xl font-bold uppercase tracking-tighter leading-tight">{item.title}</h3>
@@ -98,7 +98,7 @@ function MarketingInfluenciaPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20">
             <div className="lg:col-span-5">
               <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.95] mb-12">De marca nichada a referência aspiracional.</h2>
-              <div className="w-full max-w-[400px] mb-8 shadow-xl overflow-hidden rounded-2xl border border-border/5">
+              <div className="w-full max-w-[400px] mb-8 shadow-xl overflow-hidden  border border-border/5">
                 <img src="/hero-brandding.jpg" alt="Case EviDive" className="w-full grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
               </div>
               <div className="flex justify-between items-end px-2 font-mono uppercase opacity-30 text-[9px] tracking-widest">
@@ -129,7 +129,7 @@ function MarketingInfluenciaPage() {
                   ))}
                 </div>
               </div>
-              <div className="bg-background p-10 md:p-12 border border-border rounded-2xl">
+              <div className="bg-background p-10 md:p-12 border border-border ">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-secondary mb-8 block">Resultados</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
                    {[
@@ -156,7 +156,7 @@ function MarketingInfluenciaPage() {
           <div className="max-w-3xl mb-16 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.95]">Nosso Processo</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-border border border-border  overflow-hidden">
             {[
               { step: "01", title: "Diagnóstico", desc: "Entendimento profundo da marca e território." },
               { step: "02", title: "Curadoria", desc: "Seleção baseada em fit estético e influência real." },
@@ -186,7 +186,7 @@ function MarketingInfluenciaPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-16 md:mt-20">
             {["Branding + Performance", "Curadoria Obsessiva", "Direção Estratégica", "Integração de Funil"].map((pilar, i) => (
               <div key={i} className="flex flex-col items-center gap-4">
-                <div className="w-1.5 h-1.5 bg-background rounded-full opacity-20" />
+                <div className="w-1.5 h-1.5 bg-background  opacity-20" />
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] opacity-60">{pilar}</span>
               </div>
             ))}
@@ -208,7 +208,7 @@ function MarketingInfluenciaPage() {
                 "Crescimento Sustentável",
                 "Independência de Tráfego"
               ].map((text, i) => (
-                <div key={i} className="flex items-center gap-6 p-6 border border-border group hover:bg-foreground hover:text-background transition-all duration-500 rounded-xl">
+                <div key={i} className="flex items-center gap-6 p-6 border border-border group hover:bg-foreground hover:text-background transition-all duration-500 ">
                   <ArrowRight size={18} className="opacity-10 group-hover:opacity-100 transition-opacity" />
                   <span className="text-xl font-bold uppercase tracking-tighter">{text}</span>
                 </div>
@@ -223,7 +223,7 @@ function MarketingInfluenciaPage() {
         <div className="site-container text-center space-y-12">
           <h2 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter leading-[0.85]">Pare de testar.<br />Comece a <span className="text-secondary font-medium italic">influenciar</span>.</h2>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full text-center">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90  text-center">
               Quero aplicar isso
             </a>
             <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-background border-b border-background/20 pb-1 uppercase font-mono text-[10px] tracking-widest hover:opacity-60 transition-opacity">

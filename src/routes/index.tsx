@@ -102,13 +102,13 @@ function HeroGallery() {
       <div className="hero-gallery-track">
         {galleryImages.map((img, i) => (
           <div key={i} className="hero-gallery-item">
-            <img src={img} alt={`Gallery ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src={img} alt={`Gallery ${i}`} className="grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
         {/* Duplicate for seamless loop */}
         {galleryImages.map((img, i) => (
           <div key={`dup-${i}`} className="hero-gallery-item">
-            <img src={img} alt={`Gallery Dup ${i}`} className="rounded-xl grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src={img} alt={`Gallery Dup ${i}`} className="grayscale hover:grayscale-0 transition-all duration-700" />
           </div>
         ))}
       </div>
@@ -155,7 +155,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         className="scroll-reveal project-card relative" 
         style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <div className="media-wrap aspect-[4/3] rounded-2xl overflow-hidden border border-border/5">
+        <div className="media-wrap aspect-[4/3] overflow-hidden border border-border/5">
           <ProjectMedia 
             src={isVisible && project.gif ? project.gif : project.image} 
             alt={project.name} 
@@ -299,7 +299,7 @@ function HomePage() {
                 className="scroll-reveal group block"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500 rounded-2xl">
+                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500">
                   <img 
                     src={s.image} 
                     alt={s.title} 

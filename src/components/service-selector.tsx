@@ -25,7 +25,7 @@ export function ServiceSelector({
             key={option.id}
             onClick={() => onChange(option.id)}
             className={cn(
-              "px-5 py-2 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-full",
+              "px-5 py-2 text-[10px] font-mono uppercase tracking-widest transition-all border ",
               activeId === option.id 
                 ? "shadow-sm" 
                 : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"

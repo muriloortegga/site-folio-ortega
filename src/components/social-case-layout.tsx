@@ -18,7 +18,7 @@ export function Counter({ target, label }: { target: number, label: string }) {
   }, [isInView, spring, target]);
 
   return (
-    <div ref={ref} className="text-center p-12 border border-border bg-card rounded-xl">
+    <div ref={ref} className="text-center p-12 border border-border bg-card ">
       <motion.span className="text-6xl md:text-[10vw] font-bold tracking-tighter block leading-none">
         {display}
       </motion.span>
@@ -48,7 +48,7 @@ export function SocialHero({
             </h1>
           </div>
           <div className="lg:col-span-5">
-            <div className="aspect-[4/3] overflow-hidden shadow-2xl rounded-2xl">
+            <div className="aspect-[4/3] overflow-hidden shadow-2xl ">
               <img src={image} alt={client} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
             </div>
           </div>
@@ -81,13 +81,13 @@ export function BeforeAfter({
            <div className="lg:col-span-4 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                  <span className="text-[10px] font-mono uppercase opacity-40">Start</span>
-                 <div className="aspect-[9/16] border border-border overflow-hidden bg-background rounded-xl">
+                 <div className="aspect-[9/16] border border-border overflow-hidden bg-background ">
                     <img src={beforeImg} alt="Before" className="w-full h-full object-cover grayscale" />
                  </div>
               </div>
               <div className="space-y-4">
                  <span className="text-[10px] font-mono uppercase text-green-600">Growth</span>
-                 <div className="aspect-[9/16] border border-border overflow-hidden bg-background shadow-xl rounded-xl">
+                 <div className="aspect-[9/16] border border-border overflow-hidden bg-background shadow-xl ">
                     <img src={afterImg} alt="After" className="w-full h-full object-cover" />
                  </div>
               </div>
@@ -109,7 +109,7 @@ export function TopPosts({ posts }: { posts: { img: string, context: string, sta
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {posts.map((post, i) => (
             <div key={i} className="space-y-6 group">
-               <div className="aspect-square overflow-hidden bg-card border border-border rounded-xl">
+               <div className="aspect-square overflow-hidden bg-card border border-border ">
                   <img src={post.img} alt="Post" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                </div>
                <div className="space-y-2">
@@ -139,7 +139,7 @@ export function TopCopies({ copies }: { copies: { text: string, img: string }[] 
              <button 
                key={i} 
                onClick={() => setSelectedCopy(copy)}
-               className="p-8 border border-background/10 bg-background/5 text-left hover:bg-background/10 transition-all group rounded-xl"
+               className="p-8 border border-background/10 bg-background/5 text-left hover:bg-background/10 transition-all group "
              >
                 <MessageCircle size={20} className="mb-6 opacity-20 group-hover:opacity-100 transition-opacity" />
                 <p className="text-lg md:text-xl font-medium leading-snug italic group-hover:not-italic transition-all">"{copy.text}"</p>
@@ -165,7 +165,7 @@ export function TopCopies({ copies }: { copies: { text: string, img: string }[] 
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-lg w-full bg-card shadow-2xl p-2 z-[201] rounded-2xl overflow-hidden"
+              className="relative max-w-lg w-full bg-card shadow-2xl p-2 z-[201]  overflow-hidden"
             >
                <button 
                  onClick={() => setSelectedCopy(null)}
@@ -173,7 +173,7 @@ export function TopCopies({ copies }: { copies: { text: string, img: string }[] 
                >
                  <X size={32} />
                </button>
-               <img src={selectedCopy.img} alt="Post preview" className="w-full h-auto rounded-t-xl" />
+               <img src={selectedCopy.img} alt="Post preview" className="w-full h-auto " />
                <div className="p-6 bg-card">
                   <p className="text-sm text-secondary italic">"{selectedCopy.text}"</p>
                </div>
@@ -197,7 +197,7 @@ export function GridEvolution({ grids }: { grids: { month: string, img: string }
            {grids.map((grid, i) => (
              <div key={i} className="space-y-6">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary">{grid.month}</span>
-                <div className="aspect-square overflow-hidden border border-border shadow-lg rounded-xl">
+                <div className="aspect-square overflow-hidden border border-border shadow-lg ">
                    <img src={grid.img} alt={grid.month} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                 </div>
              </div>
@@ -217,11 +217,11 @@ export function VerticalGallery({ items }: { items: { type: 'Reel' | 'Story', im
       
       <div className="flex gap-6 overflow-x-auto no-scrollbar px-[var(--grid-padding)] md:px-[calc((100vw-var(--grid-width))/2+var(--grid-padding))]">
          {items.map((item, i) => (
-           <div key={i} className="min-w-[240px] md:min-w-[280px] aspect-[9/16] relative group overflow-hidden bg-card border border-border rounded-xl">
+           <div key={i} className="min-w-[240px] md:min-w-[280px] aspect-[9/16] relative group overflow-hidden bg-card border border-border ">
               <img src={item.img} alt={item.type} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center">
+                 <div className="w-8 h-8  bg-background flex items-center justify-center">
                     <Play size={14} className="fill-foreground ml-0.5" />
                  </div>
                  <span className="text-[10px] font-mono uppercase tracking-widest text-background">{item.type}</span>
@@ -254,7 +254,7 @@ export function TestimonialCTA({
               "{testimonial}"
             </blockquote>
             <div className="flex items-center gap-5">
-               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden grayscale bg-background/10">
+               <div className="w-12 h-12 md:w-16 md:h-16  overflow-hidden grayscale bg-background/10">
                   <img src={clientImage} alt={clientName} className="w-full h-full object-cover" />
                </div>
                <div>
@@ -268,7 +268,7 @@ export function TestimonialCTA({
               href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn-primary bg-background text-foreground px-10 py-6 text-lg flex items-center gap-3 hover:scale-105 transition-all rounded-full"
+              className="btn-primary bg-background text-foreground px-10 py-6 text-lg flex items-center gap-3 hover:scale-105 transition-all "
             >
               Fale comigo <ChevronRight size={20} />
             </a>

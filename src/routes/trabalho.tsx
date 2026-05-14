@@ -165,27 +165,19 @@ function PortfólioPage() {
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-16 md:mb-20 anim-fade-in delay-250 sticky top-24 z-30 bg-background/80 backdrop-blur py-4">
-            {categories.map((cat) => {
-              const count = projects.filter(p => p.category === cat).length;
-              if (count === 0) return null;
-              
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                  className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-none flex items-center gap-2 ${
-                    activeCategory === cat 
-                      ? "bg-foreground text-background border-foreground shadow-sm" 
-                      : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
-                  }`}
-                >
-                  {cat}
-                  <span className={`text-[8px] opacity-40 ${activeCategory === cat ? "text-background" : ""}`}>
-                    ({count})
-                  </span>
-                </button>
-              );
-            })}
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+                className={`px-5 py-2 md:px-6 md:py-3 text-[10px] font-mono uppercase tracking-widest transition-all border rounded-none ${
+                  activeCategory === cat 
+                    ? "bg-foreground text-background border-foreground shadow-sm" 
+                    : "bg-transparent text-secondary border-border hover:border-foreground/40 hover:text-foreground"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
           
           {/* Gallery Grid */}

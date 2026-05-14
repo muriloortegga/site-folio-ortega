@@ -113,7 +113,6 @@
 
 @layer base {
   * {
-    cursor: none !important;
     border-color: var(--border);
     box-sizing: border-box;
   }

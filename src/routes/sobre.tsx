@@ -225,14 +225,40 @@ function SobrePage() {
         <div className="overflow-hidden mb-12">
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap">
               {[...designTools, ...designTools, ...designTools].map((tool, i) => (
-                <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-off-white flex items-center justify-center p-6 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
-                   </div>
-                   <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
+                <motion.div 
+                  key={i} 
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: false, margin: "-5% 0px -5% 0px" }}
+                  className="flex items-center gap-8"
+                >
+                   <motion.div 
+                    variants={{
+                      initial: { filter: "grayscale(1)", backgroundColor: "var(--off-white)" },
+                      animate: { filter: "grayscale(0)", backgroundColor: "var(--foreground)" }
+                    }}
+                    className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center p-6 rounded-2xl transition-all duration-1000"
+                   >
+                      <motion.img 
+                        variants={{
+                          initial: { filter: "invert(0)" },
+                          animate: { filter: "invert(1)" }
+                        }}
+                        src={tool.logo} 
+                        alt={tool.name} 
+                        className="w-full h-full object-contain transition-all duration-1000" 
+                      />
+                   </motion.div>
+                   <motion.span 
+                    variants={{
+                      initial: { opacity: 0.1 },
+                      animate: { opacity: 1 }
+                    }}
+                    className="text-2xl md:text-5xl font-bold uppercase tracking-tighter transition-all duration-1000"
+                   >
                      {tool.name}
-                   </span>
-                </div>
+                   </motion.span>
+                </motion.div>
               ))}
            </div>
         </div>
@@ -251,17 +277,51 @@ function SobrePage() {
         <div className="overflow-hidden mb-12">
            <div className="flex animate-marquee-fast gap-8 md:gap-16 whitespace-nowrap direction-reverse">
               {[...aiTools, ...aiTools, ...aiTools].map((tool, i) => (
-                <div key={i} className="flex items-center gap-8 group">
-                   <div className="w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center p-8 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:bg-foreground">
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
-                   </div>
+                <motion.div 
+                  key={i} 
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: false, margin: "-5% 0px -5% 0px" }}
+                  className="flex items-center gap-8"
+                >
+                   <motion.div 
+                    variants={{
+                      initial: { filter: "grayscale(1)", backgroundColor: "var(--background)" },
+                      animate: { filter: "grayscale(0)", backgroundColor: "var(--foreground)" }
+                    }}
+                    className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center p-8 rounded-2xl transition-all duration-1000"
+                   >
+                      <motion.img 
+                        variants={{
+                          initial: { filter: "invert(0)" },
+                          animate: { filter: "invert(1)" }
+                        }}
+                        src={tool.logo} 
+                        alt={tool.name} 
+                        className="w-full h-full object-contain transition-all duration-1000" 
+                      />
+                   </motion.div>
                    <div className="flex flex-col">
-                      <span className="text-2xl md:text-5xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
+                      <motion.span 
+                        variants={{
+                          initial: { opacity: 0.1 },
+                          animate: { opacity: 1 }
+                        }}
+                        className="text-2xl md:text-5xl font-bold uppercase tracking-tighter transition-all duration-1000"
+                      >
                         {tool.name}
-                      </span>
-                      <span className="text-[9px] font-mono uppercase text-secondary opacity-0 group-hover:opacity-60 transition-all delay-100">{tool.desc}</span>
+                      </motion.span>
+                      <motion.span 
+                        variants={{
+                          initial: { opacity: 0 },
+                          animate: { opacity: 0.6 }
+                        }}
+                        className="text-[9px] font-mono uppercase text-secondary transition-all duration-1000"
+                      >
+                        {tool.desc}
+                      </motion.span>
                    </div>
-                </div>
+                </motion.div>
               ))}
            </div>
         </div>
@@ -283,26 +343,65 @@ function SobrePage() {
                  </p>
                  <div className="space-y-6">
                     {managementTools.map((tool) => (
-                      <div key={tool.name} className="flex items-center justify-between border-b border-border pb-6 group">
+                      <motion.div 
+                        key={tool.name} 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: false }}
+                        className="flex items-center justify-between border-b border-border pb-6"
+                      >
                          <div className="flex items-center gap-6">
-                            <div className="w-12 h-12 flex items-center justify-center">
-                               <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
-                            </div>
+                            <motion.div 
+                              variants={{
+                                initial: { filter: "grayscale(1)" },
+                                animate: { filter: "grayscale(0)" }
+                              }}
+                              className="w-12 h-12 flex items-center justify-center transition-all duration-1000"
+                            >
+                               <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
+                            </motion.div>
                             <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter">{tool.name}</span>
                          </div>
-                         <span className="text-[10px] font-mono uppercase text-secondary opacity-40 group-hover:opacity-100 transition-all">{tool.desc}</span>
-                      </div>
+                         <motion.span 
+                          variants={{
+                            initial: { opacity: 0.1 },
+                            animate: { opacity: 1 }
+                          }}
+                          className="text-[10px] font-mono uppercase text-secondary transition-all duration-1000"
+                         >
+                          {tool.desc}
+                         </motion.span>
+                      </motion.div>
                     ))}
                  </div>
               </div>
-              <div className="relative aspect-square bg-off-white rounded-2xl overflow-hidden group">
-                 <ProjectMedia 
-                   src="/assets/about/photos/middle-bg.jpg" 
-                   alt="Murilo Ortega Workflow" 
-                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+              <motion.div 
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: false }}
+                className="relative aspect-square bg-off-white rounded-2xl overflow-hidden"
+              >
+                 <motion.div
+                   variants={{
+                     initial: { filter: "grayscale(1) scale(1.1)" },
+                     animate: { filter: "grayscale(0) scale(1)" }
+                   }}
+                   className="w-full h-full transition-all duration-[2000ms] ease-out-expo"
+                 >
+                   <ProjectMedia 
+                     src="/assets/about/photos/middle-bg.jpg" 
+                     alt="Murilo Ortega Workflow" 
+                     className="w-full h-full object-cover" 
+                   />
+                 </motion.div>
+                 <motion.div 
+                  variants={{
+                    initial: { opacity: 0.4 },
+                    animate: { opacity: 0 }
+                  }}
+                  className="absolute inset-0 bg-background pointer-events-none transition-all duration-1000" 
                  />
-                 <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-all" />
-              </div>
+              </motion.div>
            </div>
         </div>
       </section>

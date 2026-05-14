@@ -221,29 +221,28 @@ function PortifólioPage() {
                               ? "aspect-square bg-transparent border-none" 
                               : "aspect-[3/2] bg-off-white border border-border/10 rounded-xl"
                           )}>
-                            <ProjectMedia
-                              src={project.image}
-                              alt={project.name}
-                              className={cn(
-                                "w-full h-full transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
-                                activeCategory === "Websites" ? "" : "object-cover",
-                                // On mobile, we use motion variants to control grayscale
-                              )}
-                            />
-                            <motion.div 
-                              variants={{
-                                initial: { opacity: 1 },
-                                animate: { opacity: 0 }
-                              }}
-                              className="absolute inset-0 bg-background/20 md:hidden pointer-events-none"
-                            />
-                            {/* Color overlay logic for mobile */}
                             <motion.div
                               variants={{
                                 initial: { filter: "grayscale(1)" },
                                 animate: { filter: "grayscale(0)" }
                               }}
-                              className="absolute inset-0 md:hidden pointer-events-none"
+                              className="w-full h-full"
+                            >
+                              <ProjectMedia
+                                src={project.image}
+                                alt={project.name}
+                                className={cn(
+                                  "w-full h-full transition-all duration-1000 group-hover:scale-105",
+                                  activeCategory === "Websites" ? "" : "object-cover"
+                                )}
+                              />
+                            </motion.div>
+                            <motion.div 
+                              variants={{
+                                initial: { opacity: 0.2 },
+                                animate: { opacity: 0 }
+                              }}
+                              className="absolute inset-0 bg-background pointer-events-none transition-all duration-1000"
                             />
                           </figure>
                           <div className="mt-5 flex justify-between items-end">
@@ -251,7 +250,7 @@ function PortifólioPage() {
                                 <span className="text-[10px] font-mono uppercase text-secondary mb-1 block">{project.year}</span>
                                 <h4 className="text-base md:text-lg font-bold uppercase tracking-tight">{project.name}</h4>
                              </div>
-                             <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 md:-translate-x-4 group-hover:translate-x-0 transition-all" />
+                             <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
                           </div>
                         </Link>
                       </motion.div>

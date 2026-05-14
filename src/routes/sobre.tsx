@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ChevronDown, Plus, ArrowUpRight, Cpu, ClipboardList, Zap } from "lucide-react";
+import { ChevronDown, Plus, ArrowUpRight, Cpu, ClipboardList, Zap, Info } from "lucide-react";
 import { ProjectMedia } from "@/components/project-media";
 
 export const Route = createFileRoute("/sobre")({
@@ -15,28 +15,14 @@ export const Route = createFileRoute("/sobre")({
   component: SobrePage,
 });
 
-/**
- * ASSET DIRECTORIES & NAMING CONVENTION:
- * 
- * PERSONAL PHOTOS (/public/assets/about/photos/):
- * - hero-bg.jpg: Main background for the hero section
- * - middle-bg.jpg: Background for the trajectory/middle section
- * - footer-bg.jpg: Background for the final CTA section
- * 
- * LOGOS (/public/assets/about/logos/):
- * - ps.png, ai.png, ae.png, fi.png, cv.png, cc.png, pr.png (Design Tools)
- * - claude.png, antigravity.png, lovable.png, manus.png, gpt.png, veo3.png (AI Tools)
- * - asana.png, trello.png, notion.png (Management Tools)
- */
-
-const tools = [
-  { name: "Photoshop", logo: "/assets/about/logos/ps.png" },
-  { name: "Illustrator", logo: "/assets/about/logos/ai.png" },
-  { name: "After Effects", logo: "/assets/about/logos/ae.png" },
-  { name: "Figma", logo: "/assets/about/logos/fi.png" },
-  { name: "Canva", logo: "/assets/about/logos/cv.png" },
-  { name: "Capcut", logo: "/assets/about/logos/cc.png" },
-  { name: "Premiere", logo: "/assets/about/logos/pr.png" },
+const designTools = [
+  { name: "Photoshop", logo: "/assets/about/logos/ps.png", desc: "Manipulação de imagem e composição visual avançada" },
+  { name: "Illustrator", logo: "/assets/about/logos/ai.png", desc: "Criação de identidades vetoriais e sistemas escaláveis" },
+  { name: "After Effects", logo: "/assets/about/logos/ae.png", desc: "Motion design e narrativa visual dinâmica" },
+  { name: "Figma", logo: "/assets/about/logos/fi.png", desc: "Prototipagem UI/UX e design de interfaces colaborativas" },
+  { name: "Canva", logo: "/assets/about/logos/cv.png", desc: "Agilidade na criação de assets para social media" },
+  { name: "Capcut", logo: "/assets/about/logos/cc.png", desc: "Edição rápida de vídeos curtos para engajamento" },
+  { name: "Premiere", logo: "/assets/about/logos/pr.png", desc: "Montagem de cases e conteúdos em vídeo de alta qualidade" },
 ];
 
 const aiTools = [
@@ -49,9 +35,9 @@ const aiTools = [
 ];
 
 const managementTools = [
-  { name: "Asana", logo: "/assets/about/logos/asana.png" },
-  { name: "Trello", logo: "/assets/about/logos/trello.png" },
-  { name: "Notion", logo: "/assets/about/logos/notion.png" },
+  { name: "Asana", logo: "/assets/about/logos/asana.png", desc: "Gestão de projetos complexos e prazos" },
+  { name: "Trello", logo: "/assets/about/logos/trello.png", desc: "Organização ágil de fluxos e tarefas" },
+  { name: "Notion", logo: "/assets/about/logos/notion.png", desc: "Documentação e base de conhecimento estratégica" },
 ];
 
 const brands = [
@@ -84,6 +70,69 @@ const brands = [
     to: "/maxi"
   }
 ];
+
+interface MarqueeItem {
+  name: string;
+  logo: string;
+  desc: string;
+}
+
+function InfiniteMarquee({ items, speed = 40 }: { items: MarqueeItem[], speed?: number }) {
+  const [hoveredItem, setHoveredItem] = useState<MarqueeItem | null>(null);
+  
+  return (
+    <div className="relative w-full overflow-hidden py-12 md:py-20 border-y border-border/5 bg-off-white/30">
+      {/* Description Overlay */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none site-container">
+         <AnimatePresence mode="wait">
+            {hoveredItem && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="bg-foreground text-background px-6 py-2 rounded-full text-[10px] font-mono uppercase tracking-widest flex items-center gap-3 mx-auto w-fit shadow-2xl"
+              >
+                <span className="font-bold text-secondary">{hoveredItem.name}:</span>
+                <span className="opacity-80">{hoveredItem.desc}</span>
+              </motion.div>
+            )}
+         </AnimatePresence>
+      </div>
+
+      <div className="flex w-full">
+        <motion.div 
+          className="flex gap-8 md:gap-16 whitespace-nowrap px-4 md:px-8"
+          animate={{ x: [0, -1035] }}
+          transition={{ 
+            duration: speed, 
+            repeat: Infinity, 
+            ease: "linear",
+            repeatType: "loop"
+          }}
+        >
+           {[...items, ...items, ...items, ...items].map((item, i) => (
+             <div 
+               key={i} 
+               className="flex items-center gap-6 md:gap-10 group cursor-help py-4"
+               onMouseEnter={() => setHoveredItem(item)}
+               onMouseLeave={() => setHoveredItem(null)}
+             >
+                <div className="w-20 h-20 md:w-28 md:h-28 bg-background border border-border flex items-center justify-center p-5 md:p-7 group-hover:bg-foreground group-hover:border-foreground transition-all duration-500 rounded-2xl grayscale group-hover:grayscale-0 shadow-sm group-hover:shadow-xl group-hover:-translate-y-2">
+                  <img src={item.logo} alt={item.name} className="w-full h-full object-contain group-hover:invert transition-all" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl md:text-4xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-500">
+                    {item.name}
+                  </span>
+                  <div className="h-[1px] w-0 group-hover:w-full bg-secondary transition-all duration-700" />
+                </div>
+             </div>
+           ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 
 function BrandBoard() {
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
@@ -231,84 +280,61 @@ function SobrePage() {
         </div>
       </section>
 
-      {/* Design Tools Marquee */}
-      <section className="py-24 overflow-hidden bg-background">
+      {/* Unified Tools Section */}
+      <section className="py-24 md:py-32 bg-background">
         <div className="site-container mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.8]">Principais <br /><span className="text-secondary font-medium italic">Ferramentas</span></h2>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+            <div className="max-w-xl">
+              <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-secondary/40 block mb-4">Ecosistema Técnico</span>
+              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.8]">Principais <br /><span className="text-secondary font-medium italic">Ferramentas</span></h2>
+            </div>
+            <div className="flex items-center gap-4 text-secondary/60">
+              <Info size={16} />
+              <p className="text-[9px] font-mono uppercase tracking-widest">Passe o mouse para ver a expertise em cada plataforma</p>
+            </div>
+          </div>
         </div>
         
-        <div className="flex flex-col gap-12">
-          <div className="site-container">
-            <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-secondary/30">Design & Direção de Arte</span>
-          </div>
-          <div className="animate-marquee flex gap-8 md:gap-12 whitespace-nowrap">
-             {[...tools, ...tools, ...tools].map((tool, i) => (
-               <div key={i} className="flex items-center gap-6 group px-4">
-                  <div className="w-24 h-24 md:w-32 md:h-32 border border-border flex items-center justify-center p-6 group-hover:bg-foreground group-hover:border-foreground transition-all duration-700 ease-out-expo rounded-2xl grayscale group-hover:grayscale-0">
-                    <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain group-hover:invert transition-all" />
-                  </div>
-                  <span className="text-xl md:text-3xl font-bold uppercase tracking-tighter opacity-10 group-hover:opacity-100 transition-all duration-700">
-                    {tool.name}
-                  </span>
-               </div>
-             ))}
-          </div>
+        {/* Infinite Marquees */}
+        <div className="space-y-4">
+           <InfiniteMarquee items={designTools} speed={45} />
+           <InfiniteMarquee items={aiTools} speed={35} />
         </div>
-      </section>
 
-      {/* AI & Management Grid */}
-      <section className="site-section border-t border-border/5 pt-0">
-        <div className="site-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
-            {/* AI Tools */}
-            <div className="bg-background p-10 md:p-16 space-y-12">
-               <div className="flex items-center gap-4">
-                 <div className="p-3 bg-secondary/5 rounded-xl">
-                   <Cpu size={24} className="text-foreground" />
-                 </div>
-                 <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Inteligência Artificial</h4>
-               </div>
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                 {aiTools.map((tool) => (
-                   <div key={tool.name} className="space-y-4 group">
-                      <div className="w-12 h-12 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
-                        <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
-                      </div>
-                      <div>
-                        <h5 className="text-[10px] font-mono uppercase tracking-widest mb-1">{tool.name}</h5>
-                        <p className="text-[10px] text-secondary font-mono leading-tight uppercase opacity-60">{tool.desc}</p>
-                      </div>
+        <div className="site-container mt-24">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <p className="text-sm md:text-base font-mono uppercase text-secondary leading-relaxed max-w-xl opacity-60">
+                A tecnologia é o meio, nunca o fim. Minha stack é selecionada para garantir que a visão criativa seja executada com a máxima precisão técnica e agilidade operacional.
+              </p>
+              
+              <div className="bg-off-white/50 p-8 md:p-12 rounded-2xl border border-border/5">
+                 <div className="flex items-center gap-4 mb-10">
+                   <div className="p-3 bg-foreground/5 rounded-xl">
+                     <ClipboardList size={24} className="text-foreground" />
                    </div>
-                 ))}
-               </div>
-            </div>
-
-            {/* Project Management */}
-            <div className="bg-off-white p-10 md:p-16 space-y-12">
-               <div className="flex items-center gap-4">
-                 <div className="p-3 bg-foreground/5 rounded-xl">
-                   <ClipboardList size={24} className="text-foreground" />
+                   <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Gestão & Planejamento</h4>
                  </div>
-                 <h4 className="text-lg md:text-xl font-bold uppercase tracking-tighter">Gestão & Planejamento</h4>
-               </div>
-               <div className="space-y-8">
-                 {managementTools.map((tool) => (
-                   <div key={tool.name} className="flex items-center justify-between border-b border-border/10 pb-6 group">
-                      <div className="flex items-center gap-6">
-                        <img src={tool.logo} alt={tool.name} className="w-10 h-10 object-contain grayscale group-hover:grayscale-0 transition-all" />
-                        <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter group-hover:translate-x-2 transition-transform duration-500">{tool.name}</span>
-                      </div>
-                      <Zap size={14} className="opacity-10 group-hover:opacity-100 transition-all" />
-                   </div>
-                 ))}
-               </div>
-            </div>
-          </div>
+                 <div className="space-y-8">
+                   {managementTools.map((tool) => (
+                     <div key={tool.name} className="flex items-center justify-between border-b border-border/10 pb-6 group cursor-help">
+                        <div className="flex items-center gap-6">
+                          <img src={tool.logo} alt={tool.name} className="w-10 h-10 object-contain grayscale group-hover:grayscale-0 transition-all" />
+                          <div>
+                            <span className="text-xl md:text-2xl font-bold uppercase tracking-tighter block">{tool.name}</span>
+                            <span className="text-[9px] font-mono uppercase opacity-30 tracking-widest group-hover:opacity-100 transition-all">{tool.desc}</span>
+                          </div>
+                        </div>
+                        <Zap size={14} className="opacity-10 group-hover:opacity-100 transition-all text-secondary" />
+                     </div>
+                   ))}
+                 </div>
+              </div>
+           </div>
         </div>
       </section>
 
       {/* Brand Board */}
-      <section className="site-section py-24 md:py-32">
+      <section className="site-section py-24 md:py-32 border-t border-border/5">
         <div className="site-container">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
             <div className="max-w-xl">
@@ -341,7 +367,7 @@ function SobrePage() {
             Vamos elevar o<br />seu projeto?
           </motion.h2>
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-center">
-            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full w-full md:w-auto text-center border-none">
+            <a href="https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener noreferrer" className="btn btn-primary bg-background text-foreground px-12 py-6 text-lg hover:bg-background/90 rounded-full w-full md:w-auto text-center border-none shadow-2xl">
               Iniciar conversa <Plus size={18} className="ml-2" />
             </a>
             <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity border-b border-background/20 pb-1">

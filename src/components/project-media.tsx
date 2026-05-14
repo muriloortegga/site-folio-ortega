@@ -76,7 +76,7 @@ export function ProjectMedia({ src, alt, className, isVisible = true, style, pla
         <canvas
           ref={canvasRef}
           style={style}
-          className={cn("absolute inset-0 opacity-100 group-hover:opacity-0", className)}
+          className={cn("absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0", className)}
         />
         <img
           ref={imgRef}
@@ -84,7 +84,7 @@ export function ProjectMedia({ src, alt, className, isVisible = true, style, pla
           alt={alt}
           loading="lazy"
           style={style}
-          className={cn("absolute inset-0 opacity-0 group-hover:opacity-100", className)}
+          className={cn("absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100", className)}
         />
       </>
     );

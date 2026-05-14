@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { to: "/trabalho", label: "Trabalho" },
+  { to: "/trabalho", label: "Portifólio" },
   { to: "/servicos", label: "Serviços" },
   { to: "/sobre", label: "Sobre" },
   { to: "https://wa.me/5511941765691?text=gostaria%20de%20fazer%20um%20or%C3%A7amento!", label: "Contato", isExternal: true },
@@ -21,14 +21,19 @@ export function Header() {
 
   return (
     <>
-      <header className="site-header fixed top-0 left-0 right-0 z-50">
-        <div className="site-container flex items-center justify-between w-full">
-          <Link to="/" className="text-foreground text-lg font-display tracking-tight flex items-center gap-1 group">
-            MURILO <span className="text-accent transition-transform duration-500 group-hover:rotate-180">·</span> ORTEGA
+      <header
+        className={cn(
+          "site-header fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          scrolled ? "bg-background/40 backdrop-blur-3xl border-b border-border/10 shadow-sm" : "bg-transparent"
+        )}
+      >
+        <div className="site-container flex items-center justify-between h-24">
+          <Link to="/" className="text-foreground text-lg font-bold tracking-tight uppercase">
+            Murilo Ortega
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-0">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               link.isExternal ? (
                 <a
@@ -36,7 +41,7 @@ export function Header() {
                   href={link.to}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="site-nav-link"
+                  className="text-sm font-regular uppercase tracking-tight text-foreground/60 transition-opacity duration-250 hover:opacity-100"
                 >
                   {link.label}
                 </a>
@@ -44,9 +49,9 @@ export function Header() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="site-nav-link"
+                  className="text-sm font-regular uppercase tracking-tight text-foreground/60 transition-opacity duration-250 hover:opacity-100"
                   activeProps={{
-                    className: "active",
+                    className: "text-foreground opacity-100",
                   }}
                 >
                   {link.label}
@@ -54,12 +59,6 @@ export function Header() {
               )
             ))}
           </nav>
-
-          <div className="hidden md:block">
-             <a href="https://wa.me/5511941765691" target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-xs">
-                Contato →
-             </a>
-          </div>
 
           {/* Mobile hamburger */}
           <button
@@ -79,16 +78,16 @@ export function Header() {
       {/* Mobile overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-[60] bg-background flex flex-col">
-          <div className="site-header border-b-0 px-8">
+          <div className="site-container flex items-center justify-between h-24">
             <Link
               to="/"
-              className="text-foreground text-lg font-display tracking-tight"
+              className="text-foreground text-lg font-bold tracking-tight uppercase"
               onClick={() => setMenuOpen(false)}
             >
-              MURILO <span className="text-accent">·</span> ORTEGA
+              Murilo Ortega
             </Link>
             <button
-              className="ml-auto text-foreground p-2"
+              className="text-foreground p-2"
               onClick={() => setMenuOpen(false)}
               aria-label="Fechar menu"
             >
@@ -106,7 +105,7 @@ export function Header() {
                   href={link.to}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[40px] text-foreground font-display leading-none tracking-tight"
+                  className="text-[40px] text-foreground font-bold uppercase leading-none tracking-tight"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -115,7 +114,7 @@ export function Header() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="text-[40px] text-foreground font-display leading-none tracking-tight"
+                  className="text-[40px] text-foreground font-bold uppercase leading-none tracking-tight"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}

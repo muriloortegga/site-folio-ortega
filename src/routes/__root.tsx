@@ -86,12 +86,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-import { Loader } from "@/components/Loader";
-
 function RootComponent() {
   return (
     <>
-      <Loader />
       <Cursor />
       <Header />
       <ContextNav />

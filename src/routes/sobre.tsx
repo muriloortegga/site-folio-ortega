@@ -8,8 +8,8 @@ import { ProjectMedia } from "@/components/project-media";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre — Murilo Ortega — Design Estratégico & Identidade de Marca" },
-      { name: "description", content: "10 anos de experiência transformando marcas através de dados, criatividade e estratégia." },
+      { title: "Sobre Mim — Murilo Ortega — Design Estratégico & Identidade de Marca" },
+      { name: "description", content: "8 anos de experiência transformando marcas através de dados, criatividade e estratégia." },
     ],
   }),
   component: SobrePage,
@@ -175,7 +175,7 @@ function SobrePage() {
                 className="md:col-span-2 flex flex-col md:flex-row gap-8 items-start md:items-end md:justify-end"
               >
                  <p className="text-base md:text-xl text-secondary uppercase font-medium leading-tight max-w-sm">
-                   Transformando marcas através de dados, criatividade e estratégia de alto impacto.
+                   8 anos transformando negócios através de behavioral design, estética premium e estratégias de alta tração.
                  </p>
               </motion.div>
             </div>
@@ -199,11 +199,11 @@ function SobrePage() {
         <div className="site-container relative z-10">
           <div className="max-w-5xl space-y-12">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.9] text-foreground">
-              Dez anos liderando o diálogo entre estética e resultado real.
+              Oito anos liderando o diálogo entre estética e resultado real.
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-16 border-t border-border/10">
               <p className="text-base md:text-lg text-secondary uppercase font-medium leading-tight">
-                 Minha abordagem une dados e criatividade para performance real. No mercado de Hubs Criativos, meu foco é a combinação entre estratégia e experiência do usuário para performar melhor no mercado atual.
+                 Como especialista em marcas, desenvolvi ao longo de 8 anos um método próprio que funde design estratégico e dados. Meu foco é projetar experiências e identidades que não são apenas bonitas, mas desenhadas estruturalmente para converter e dominar o mercado.
               </p>
               <div className="flex flex-col gap-6">
                  {["Foco em Performance", "Estratégia de Dados", "Liderança Criativa"].map((text, i) => (
@@ -304,7 +304,7 @@ function SobrePage() {
         <div className="site-container">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
             <div className="max-w-xl">
-              <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.9]">Um ecossistema de marcas que confiam no meu olhar.</h2>
+              <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter leading-[0.9]">Projetos e marcas que confiam na minha expertise.</h2>
             </div>
             <p className="text-[9px] font-mono uppercase tracking-widest text-secondary/40 mb-2">Explore os detalhes</p>
           </div>

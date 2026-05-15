@@ -5,7 +5,7 @@ import { Plus, ArrowRight, CheckCircle2, Star, Users, Zap, MessageSquare } from 
 export const Route = createFileRoute("/metodos/marketing-de-influencia")({
   head: () => ({
     meta: [
-      { title: "Marketing de Influência — Murilo Ortega" },
+      { title: "Expansão de Marca — Murilo Ortega" },
       { name: "description", content: "Construindo sistemas de influência que transformam audiência em clientes." },
     ],
   }),

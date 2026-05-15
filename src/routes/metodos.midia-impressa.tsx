@@ -5,7 +5,7 @@ import { Plus, Book, Layers, FileText, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/metodos/midia-impressa")({
   head: () => ({
     meta: [
-      { title: "Mídia Impressa — Murilo Ortega" },
+      { title: "Autoridade de marca — Murilo Ortega" },
       { name: "description", content: "Catálogos, diagramação e materiais institucionais com alta performance gráfica." },
     ],
   }),

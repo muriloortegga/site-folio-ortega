@@ -5,7 +5,7 @@ import { Plus, BookOpen, PenTool, Search, Layout, ArrowRight } from "lucide-reac
 export const Route = createFileRoute("/metodos/estruturacao-de-marca")({
   head: () => ({
     meta: [
-      { title: "Estruturação de Marca — Murilo Ortega" },
+      { title: "Estrutura de Marca — Murilo Ortega" },
       { name: "description", content: "Construindo a base sólida que sua marca precisa para liderar." },
     ],
   }),

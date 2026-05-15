@@ -5,7 +5,7 @@ import { Plus, ArrowRight, Zap } from "lucide-react";
 export const Route = createFileRoute("/metodos/presenca-digital")({
   head: () => ({
     meta: [
-      { title: "Presença Digital — Murilo Ortega" },
+      { title: "Conversão de Marca — Murilo Ortega" },
       { name: "description", content: "Sites e Landing Pages premium de alta performance. O diferencial que sua marca merece." },
     ],
   }),

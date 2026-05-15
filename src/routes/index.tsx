@@ -204,20 +204,24 @@ function HomePage() {
                 }}
               >
                 <h1 className="anim-fade-in text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter uppercase">
-                  TRANSFORMO MARCAS COMUNS EM MARCAS COM <br />
-                  <span className="text-secondary font-medium italic">IMPACTO REAL</span>
+                  Trabalho para transformar <br />
+                  marcas comuns em marcas <br />
+                  com <span className="text-secondary font-medium italic">impacto real</span>
                 </h1>
                 <p className="mt-8 text-base md:text-xl text-secondary leading-relaxed max-w-[600px] anim-fade-in delay-250 uppercase font-medium">
-                  Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um sistema de alto nível.
+                  Design que confronta o comum e eleva o digital. Branding, conteúdo e presença digital conectados em um método infalível.
                 </p>
               </div>
               <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
                 <Link to="/trabalho" className="btn btn-hero-primary">
-                  Meu Portfolio
+                  Ver Portfolio
                 </Link>
                 <Link to="/sobre" className="btn btn-hero-secondary">
-                  Sobre Mim
+                  Ver mais sobre mim
                 </Link>
+                <a href="/curriculo.pdf" target="_blank" className="btn btn-hero-secondary">
+                  Baixar CV
+                </a>
               </div>
             </div>
 
@@ -238,13 +242,12 @@ function HomePage() {
       {/* Brand Marquee */}
       <section className="py-24 overflow-hidden border-t border-border/5">
         <div className="site-container mb-12">
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-secondary/40 mb-4 block">Parcerias</span>
           <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tighter scroll-reveal">Marcas que já trabalhei</h3>
         </div>
         
         <DraggableMarquee 
           items={dynamicLogos.length > 0 ? dynamicLogos : brands.map(b => ({ name: b.name, url: "" }))} 
-          baseVelocity={-0.5}
+          baseVelocity={-1.5}
         />
       </section>
 
@@ -254,71 +257,75 @@ function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-10">
               <p className="scroll-reveal text-2xl md:text-3xl lg:text-4xl font-bold line-height-tight tracking-tighter uppercase leading-[0.95]">
-                O problema não é falta de ação. <span className="text-background/40">É falta de estrutura.</span> Empresas que cresceram pela qualidade do serviço, mas cuja marca ainda não sustenta o nível que entregam.
+                O problema não é falta de ação. É falta de estrutura em Marketing. <br/><br/>
+                <span className="text-background/50">Atuo com empresas que cresceram pela qualidade do serviço, mas cuja marca não sustenta mais o nível que entregam.</span>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Work Preview */}
-      <section className="site-section border-t border-border">
-        <div className="site-container">
-          <div className="flex items-center justify-between mb-16">
-            <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tighter">Projetos Selecionados</h3>
-            <Link to="/trabalho" className="text-[10px] font-mono uppercase tracking-widest flex items-center gap-2 hover:text-secondary transition-colors">
-              Ver todos <ChevronRight size={14} />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-            {projects.map((project, i) => (
-              <ProjectCard key={i} project={project} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
+      {/* Methods */}
       <section className="site-section border-t border-border relative z-10 bg-background">
         <div className="site-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-            <div className="lg:col-span-12">
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter">Métodos Estratégicos</h2>
-            </div>
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.95] max-w-4xl scroll-reveal">
+              Processos e abordagens testadas e validadas, com mais de 8 anos de atuação
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((s, i) => (
-              <Link
-                key={s.id}
-                to={s.id === "branding" ? "/metodos/estruturacao-de-marca" : 
-                    s.id === "conteudo" ? "/metodos/sistema-de-conteudo" : 
-                    s.id === "digital" ? "/metodos/presenca-digital" :
-                    s.id === "impressa" ? "/metodos/midia-impressa" :
-                    s.id === "ooh" ? "/metodos/midia-ooh" :
-                    s.id === "influencia" ? "/metodos/marketing-de-influencia" : "/metodos"}
-                className="scroll-reveal group block"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-card border border-border group-hover:border-foreground/20 transition-colors duration-500 rounded-2xl">
-                  <img 
-                    src={s.image} 
-                    alt={s.title} 
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <span className="text-[10px] font-mono uppercase tracking-tight text-secondary mb-2 block">{s.num}</span>
-                    <h4 className="text-xl md:text-2xl font-bold uppercase leading-tight tracking-tighter">{s.title}</h4>
-                  </div>
-                </div>
-                <p className="text-[11px] font-mono uppercase tracking-tight text-secondary leading-tight opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 max-w-[240px]">
-                  {s.body}
-                </p>
-              </Link>
-            ))}
-          </div>
+          
+          <MethodsSection />
         </div>
       </section>
+    </div>
+  );
+}
+
+function MethodsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const methods = [
+    { slug: "estruturacao-de-marca", title: "Estrutura de Marca", preview: "Construção de identidades visuais e estratégias que elevam o valor percebido do seu negócio." },
+    { slug: "marketing-de-influencia", title: "Expansão de Marca", preview: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica." },
+    { slug: "presenca-digital", title: "Conversão de Marca", preview: "Sites e interfaces que organizam a comunicação e facilitam a conversão, elevando o digital." },
+    { slug: "midia-ooh", title: "Percepção de Marca", preview: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual." },
+    { slug: "sistema-de-conteudo", title: "Comunicação de Marca", preview: "Linha editorial e narrativa que transforma sua presença digital em autoridade contínua." },
+    { slug: "midia-impressa", title: "Autoridade de marca", preview: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real." }
+  ];
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-16 scroll-reveal">
+      <div className="lg:col-span-7 flex flex-wrap gap-4 items-start content-start">
+        {methods.map((m, i) => (
+          <button 
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            className={`px-6 py-4 border border-foreground rounded-full font-bold uppercase tracking-tighter text-sm transition-all ${activeIndex === i ? 'bg-foreground text-background' : 'hover:bg-foreground/5'}`}
+          >
+            {m.title}
+          </button>
+        ))}
+      </div>
+      <div className="lg:col-span-5 relative min-h-[250px]">
+        {methods.map((m, i) => (
+          <div 
+            key={i}
+            className={`absolute inset-0 transition-all duration-500 ${activeIndex === i ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none translate-y-4'}`}
+          >
+            <div className="bg-card border border-border p-8 rounded-2xl h-full flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold uppercase tracking-tighter mb-4">{m.title}</h3>
+                <p className="text-secondary font-medium uppercase tracking-tight mb-8 leading-relaxed text-sm md:text-base">{m.preview}</p>
+              </div>
+              <div>
+                <Link to={`/metodos/${m.slug}`} className="btn btn-hero-primary w-full md:w-auto">
+                  Ver Mais
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -18,7 +18,7 @@ const products = [
   {
     slug: "estruturacao-de-marca",
     num: "01",
-    name: "Brand Design Thinking",
+    name: "Estrutura de Marca",
     resolve: "Marcas estagnadas por falta de clareza estrutural. Identidades que não conversam com o público ou não se sustentam no digital.",
     envolve: "Imersão no negócio, aplicação de metodologias de Design Thinking para posicionamento, construção de identidade visual e verbal guiada por comportamento do consumidor.",
     recebe: "Um posicionamento sólido documentado e uma identidade arquitetada para elevar sua percepção de valor.",
@@ -26,7 +26,7 @@ const products = [
   {
     slug: "sistema-de-conteudo",
     num: "02",
-    name: "Growth Content",
+    name: "Comunicação de Marca",
     resolve: "Produção de conteúdo sem tração. O esforço criativo existe, mas não escala ou não retém a atenção do público de forma estratégica.",
     envolve: "Implementação de mentalidade de Growth no conteúdo. Criação de linhas editoriais baseadas em testes, métricas de retenção e táticas de copywriting avançado para funis de alta performance.",
     recebe: "Um playbook de conteúdo ágil com foco em métricas reais, e não apenas métricas de vaidade.",
@@ -34,7 +34,7 @@ const products = [
   {
     slug: "presenca-digital",
     num: "03",
-    name: "Engenharia de Conversão (UX/UI)",
+    name: "Conversão de Marca",
     resolve: "Tráfego que não converte. Sites e landing pages que são bonitos, mas que possuem jornadas de usuário quebradas e baixo desempenho.",
     envolve: "Auditoria de experiência (UX), prototipagem de alta fidelidade (UI) com foco em Behavioral Design, redação orientada a persuasão e refinamento visual extremo.",
     recebe: "Uma plataforma digital imersiva, desenhada sistematicamente para capturar e converter atenção.",
@@ -42,7 +42,7 @@ const products = [
   {
     slug: "midia-impressa",
     num: "04",
-    name: "Design Editorial Físico",
+    name: "Autoridade de marca",
     resolve: "Necessidade de transmitir autoridade instantânea no ambiente físico. Momentos em que o digital não é suficiente para materializar confiança.",
     envolve: "Direção de arte rigorosa e projeto gráfico de elite para papelaria, catálogos e materiais institucionais, utilizando princípios de design minimalista e grids estruturados.",
     recebe: "Peças táteis que elevam a percepção de valor da marca em negociações e pontos de contato físicos.",
@@ -50,7 +50,7 @@ const products = [
   {
     slug: "midia-ooh",
     num: "05",
-    name: "Comunicação Out-of-Home",
+    name: "Percepção de Marca",
     resolve: "Marcas que precisam expandir awareness em ecossistemas urbanos sem perder a sofisticação da mensagem.",
     envolve: "Estratégia de ocupação visual. Direção criativa aplicada a formatos de grande escala, onde cada milissegundo de atenção do público em movimento conta.",
     recebe: "Campanhas de rua com máxima legibilidade, foco em mensagem clara e altíssimo impacto estético.",
@@ -58,7 +58,7 @@ const products = [
   {
     slug: "marketing-de-influencia",
     num: "06",
-    name: "Authority Hacking & Conexões",
+    name: "Expansão de Marca",
     resolve: "Marcas tentando forçar autoridade ao invés de pedi-la emprestada de quem já a possui. Ruído na comunicação com creators.",
     envolve: "Curadoria cirúrgica de porta-vozes, alinhamento de valores, roteirização estratégica de campanhas e integração da influência diretamente nas suas etapas do funil.",
     recebe: "Endosso de autoridade real que traciona alcance, transferindo a confiança do creator para a sua marca.",

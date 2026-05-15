@@ -5,7 +5,7 @@ import { Plus, Calendar, Users, CheckSquare, MessageSquare, Briefcase, ArrowRigh
 export const Route = createFileRoute("/metodos/sistema-de-conteudo")({
   head: () => ({
     meta: [
-      { title: "Sistema de Conteúdo — Murilo Ortega" },
+      { title: "Comunicação de Marca — Murilo Ortega" },
       { name: "description", content: "Um sistema integrado de social media que transforma sua presença digital em autoridade." },
     ],
   }),

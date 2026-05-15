@@ -11,7 +11,7 @@ import {
 } from "@/components/social-case-layout";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
-import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { WebsiteShowcase } from "@/components/website-scroll-showcase";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const projectSearchSchema = z.object({
@@ -102,10 +102,12 @@ function ProjetoTalk2Buy() {
 
       {activeService === "websites" && (
         <div className="anim-fade-in">
-          <WebsiteScrollShowcase 
-            title="O Site"
-            description="Fui responsável pelo copywriting, design de interface e adequação da identidade visual ao projeto web. O objetivo foi traduzir a complexidade de vendas autônomas em uma landing page fluida, limpa e de alta conversão."
+          <WebsiteShowcase 
+            title="A Plataforma"
+            description="Para a Talk2Buy, assumi o desafio de traduzir a complexidade do ecossistema de vendas autônomas em uma página fluida e moderna."
             mediaSrc="/assets/projects/thumbnails/websites/talk2buy.gif"
+            roleTitle="Copywriting & Design"
+            roleDescription="Fui o responsável pela criação do copywriting e de toda a arquitetura de informação e design da interface web. A meta foi criar uma landing page que não apenas explicasse o produto, mas gerasse alto desejo e conversão imediata."
           />
         </div>
       )}

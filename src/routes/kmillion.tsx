@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
-import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { WebsiteShowcase } from "@/components/website-scroll-showcase";
 
 import { z } from "zod";
 
@@ -82,10 +82,12 @@ function ProjetoKmillion() {
 
       {activeService === "websites" && (
         <div className="anim-fade-in">
-          <WebsiteScrollShowcase 
+          <WebsiteShowcase 
             title="O Site"
-            description="Assumi a criação de copywriting e web design da página. Baseado no brandbook, criei uma interface limpa, focada em resultados e autoridade, que direciona a atenção do usuário perfeitamente."
+            description="Assumi a criação de copywriting e web design da página. Baseado no brandbook, criei uma interface limpa, focada em resultados e autoridade."
             mediaSrc="/assets/projects/thumbnails/websites/kmillion.gif"
+            roleTitle="Inteligência Visual"
+            roleDescription="A página funciona como o principal motor de autoridade da marca. Com um design estratégico, direcionamos a atenção do usuário para o ecossistema de inteligência promocional da Kmillion, reduzindo atrito e educando o cliente durante o scroll."
           />
         </div>
       )}

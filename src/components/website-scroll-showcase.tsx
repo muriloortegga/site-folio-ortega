@@ -1,46 +1,84 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
-interface WebsiteScrollShowcaseProps {
+interface WebsiteShowcaseProps {
   title: string;
   description: string;
   mediaSrc: string;
+  roleTitle?: string;
+  roleDescription?: string;
 }
 
-export function WebsiteScrollShowcase({ title, description, mediaSrc }: WebsiteScrollShowcaseProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Um leve flutuar parallax contínuo para manter a sensação de vida
-  // mesmo enquanto a imagem está sticky.
-  const y = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
-
+export function WebsiteShowcase({ title, description, mediaSrc, roleTitle, roleDescription }: WebsiteShowcaseProps) {
   return (
-    <div ref={containerRef} className="relative w-full bg-background mt-32 mb-32">
-      
-      {/* 1. Header Normal (A cópia sobre primeiro no scroll) */}
-      <div className="text-center z-20 max-w-3xl px-4 md:px-6 mx-auto mb-20 md:mb-32">
-        <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 uppercase">{title}</h3>
-        <p className="text-lg md:text-xl text-secondary leading-relaxed">{description}</p>
+    <div className="w-full bg-background mt-24 mb-32">
+      {/* Top Copy */}
+      <div className="site-container max-w-5xl mx-auto mb-20">
+        <motion.h3 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium tracking-tight mb-8 uppercase"
+        >
+          {title}
+        </motion.h3>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-lg md:text-2xl text-secondary leading-relaxed max-w-4xl"
+        >
+          {description}
+        </motion.p>
       </div>
 
-      {/* 2. Área Longa para o Efeito de Tela (Sticky) */}
-      <div className="relative h-[200vh] w-full">
-        {/* 3. A imagem que fica colada na tela perfeitamente centralizada */}
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center px-4 md:px-0">
-          <motion.img 
-            style={{ y }}
-            src={mediaSrc}
-            alt="Website Showcase"
-            className="w-full max-w-[800px] h-auto object-contain drop-shadow-2xl"
-          />
-        </div>
-      </div>
+      {/* Full screen GIF */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-auto mb-20 border-y border-border"
+      >
+        <img 
+          src={mediaSrc}
+          alt="Website Showcase"
+          className="w-full h-auto object-cover"
+        />
+      </motion.div>
       
+      {/* Bottom Copy (if provided) */}
+      {(roleTitle || roleDescription) && (
+        <div className="site-container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="md:col-span-1">
+              {roleTitle && (
+                <motion.h4 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-sm font-mono uppercase tracking-widest text-primary"
+                >
+                  {roleTitle}
+                </motion.h4>
+              )}
+            </div>
+            <div className="md:col-span-3">
+              {roleDescription && (
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-lg md:text-xl text-secondary leading-relaxed"
+                >
+                  {roleDescription}
+                </motion.p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

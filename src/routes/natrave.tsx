@@ -12,7 +12,7 @@ import {
 import { BrandHeader } from "@/components/brand-header";
 import { ServiceSelector } from "@/components/service-selector";
 import { Maximize2, X, ArrowLeft, ArrowRight } from "lucide-react";
-import { WebsiteScrollShowcase } from "@/components/website-scroll-showcase";
+import { WebsiteShowcase } from "@/components/website-scroll-showcase";
 
 import { z } from "zod";
 
@@ -151,10 +151,12 @@ function ProjetoNaTrave() {
 
       {activeService === "websites" && (
         <div className="anim-fade-in">
-          <WebsiteScrollShowcase 
-            title="O Site"
-            description="Para a plataforma do NaTrave, desenvolvi toda a parte de copywriting e design de interface. A identidade visual seguiu rigorosamente o brandbook, garantindo uma experiência coesa, intuitiva e focada na performance da comunidade."
+          <WebsiteShowcase 
+            title="A Plataforma"
+            description="Para o NaTrave, desenvolvi a parte de copywriting e o design completo da interface da plataforma. O foco foi estruturar uma usabilidade limpa para a comunidade."
             mediaSrc="/assets/projects/thumbnails/websites/natrave.gif"
+            roleTitle="Identidade & Conversão"
+            roleDescription="A identidade visual do projeto web seguiu rigorosamente as diretrizes do brandbook estabelecido, garantindo que a transição do aplicativo para a experiência desktop fosse totalmente coesa, intuitiva e voltada para alta performance."
           />
         </div>
       )}

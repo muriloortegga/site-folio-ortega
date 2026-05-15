@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, Calendar, Users, CheckSquare, MessageSquare, Briefcase, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/sistema-de-conteudo")({
+export const Route = createFileRoute("/metodos/sistema-de-conteudo")({
   head: () => ({
     meta: [
       { title: "Sistema de Conteúdo — Murilo Ortega" },

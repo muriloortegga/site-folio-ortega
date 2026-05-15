@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, Book, Layers, FileText, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/midia-impressa")({
+export const Route = createFileRoute("/metodos/midia-impressa")({
   head: () => ({
     meta: [
       { title: "Mídia Impressa — Murilo Ortega" },

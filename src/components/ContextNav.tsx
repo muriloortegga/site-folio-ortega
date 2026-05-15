@@ -8,7 +8,7 @@ import { getRouteContext, getOrigin, setOrigin, type ContextLink } from "@/lib/n
  * Always surfaces:
  *   ← Voltar (browser back, with sensible fallback)
  *   • [Category overview]  (inferred from origin OR project's primary category)
- *   • [Section overview]   (e.g. Serviços, Portifólio)
+ *   • [Section overview]   (e.g. Métodos, Portfolio)
  */
 export function ContextNav() {
   const location = useLocation();
@@ -25,12 +25,12 @@ export function ContextNav() {
     if (stored) setOriginState(stored);
 
     // If current page is itself a category origin, persist it.
-    if (pathname.startsWith("/servicos/") || pathname === "/trabalho") {
+    if (pathname.startsWith("/metodos/") || pathname === "/trabalho") {
       const label =
         pathname === "/trabalho"
-          ? "Portifólio"
+          ? "Portfolio"
           : pathname
-              .replace("/servicos/", "")
+              .replace("/metodos/", "")
               .split("-")
               .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
               .join(" ");

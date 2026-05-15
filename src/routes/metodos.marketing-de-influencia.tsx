@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, ArrowRight, CheckCircle2, Star, Users, Zap, MessageSquare } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/marketing-de-influencia")({
+export const Route = createFileRoute("/metodos/marketing-de-influencia")({
   head: () => ({
     meta: [
       { title: "Marketing de Influência — Murilo Ortega" },

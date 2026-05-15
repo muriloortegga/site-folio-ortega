@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, BookOpen, PenTool, Search, Layout, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/estruturacao-de-marca")({
+export const Route = createFileRoute("/metodos/estruturacao-de-marca")({
   head: () => ({
     meta: [
       { title: "Estruturação de Marca — Murilo Ortega" },

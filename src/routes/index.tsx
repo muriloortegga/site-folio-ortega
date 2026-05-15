@@ -213,7 +213,7 @@ function HomePage() {
               </div>
               <div className="mt-12 flex flex-wrap gap-4 anim-fade-in delay-500" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
                 <Link to="/trabalho" className="btn btn-hero-primary">
-                  Meu Portifólio
+                  Meu Portfolio
                 </Link>
                 <Link to="/sobre" className="btn btn-hero-secondary">
                   Sobre Mim
@@ -283,19 +283,19 @@ function HomePage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-12">
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter">Serviços Estratégicos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter">Métodos Estratégicos</h2>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((s, i) => (
               <Link
                 key={s.id}
-                to={s.id === "branding" ? "/servicos/estruturacao-de-marca" : 
-                    s.id === "conteudo" ? "/servicos/sistema-de-conteudo" : 
-                    s.id === "digital" ? "/servicos/presenca-digital" :
-                    s.id === "impressa" ? "/servicos/midia-impressa" :
-                    s.id === "ooh" ? "/servicos/midia-ooh" :
-                    s.id === "influencia" ? "/servicos/marketing-de-influencia" : "/servicos"}
+                to={s.id === "branding" ? "/metodos/estruturacao-de-marca" : 
+                    s.id === "conteudo" ? "/metodos/sistema-de-conteudo" : 
+                    s.id === "digital" ? "/metodos/presenca-digital" :
+                    s.id === "impressa" ? "/metodos/midia-impressa" :
+                    s.id === "ooh" ? "/metodos/midia-ooh" :
+                    s.id === "influencia" ? "/metodos/marketing-de-influencia" : "/metodos"}
                 className="scroll-reveal group block"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >

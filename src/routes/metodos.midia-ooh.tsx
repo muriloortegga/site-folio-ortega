@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, ArrowRight, MapPin, Maximize, Target, Settings } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/midia-ooh")({
+export const Route = createFileRoute("/metodos/midia-ooh")({
   head: () => ({
     meta: [
       { title: "Mídia OOH — Murilo Ortega" },

@@ -9,13 +9,13 @@ import { ProjectMedia } from "@/components/project-media";
 export const Route = createFileRoute("/trabalho")({
   head: () => ({
     meta: [
-      { title: "Portifólio — Murilo Ortega" },
+      { title: "Portfolio — Murilo Ortega" },
       { name: "description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
-      { property: "og:title", content: "Portifólio — Murilo Ortega" },
+      { property: "og:title", content: "Portfolio — Murilo Ortega" },
       { property: "og:description", content: "Projetos selecionados de branding, conteúdo e presença digital." },
     ],
   }),
-  component: PortifólioPage,
+  component: PortfolioPage,
 });
 
 const categories = ["Social Media", "Id Visual", "Mídia Impressa", "Mídia OOH", "Websites", "Marketing de Influência"] as const;
@@ -74,31 +74,31 @@ const serviceInsights: Record<Category, Insight> = {
     title: "Social Media",
     copy: "Destinos digitais que convertem atenção em desejo.",
     preview: "Não fazemos apenas posts. Construímos ecossistemas de marca que lideram mercados.",
-    to: "/servicos/sistema-de-conteudo"
+    to: "/metodos/sistema-de-conteudo"
   },
   "Id Visual": {
     title: "Id Visual",
     copy: "Design que carrega a alma do seu negócio.",
     preview: "Identidades visuais que não apenas decoram, mas posicionam sua marca como premium.",
-    to: "/servicos/estruturacao-de-marca"
+    to: "/metodos/estruturacao-de-marca"
   },
   "Mídia Impressa": {
     title: "Mídia Impressa",
     copy: "A tangibilidade do luxo e da precisão técnica.",
     preview: "Materiais físicos que comunicam autoridade através de design editorial de alto nível.",
-    to: "/servicos/midia-impressa"
+    to: "/metodos/midia-impressa"
   },
   "Mídia OOH": {
     title: "Mídia OOH",
     copy: "Sua marca dominando o cenário urbano.",
     preview: "Campanhas de Out-of-Home projetadas para impacto máximo e memorabilidade imediata.",
-    to: "/servicos/midia-ooh"
+    to: "/metodos/midia-ooh"
   },
   "Websites": {
     title: "Websites",
     copy: "Plataformas que funcionam como sua sede global.",
     preview: "Experiências web imersivas e focadas em conversão, desenhadas para refletir excelência.",
-    to: "/servicos/presenca-digital"
+    to: "/metodos/presenca-digital"
   },
   "Marketing de Influência": {
     title: "Marketing de Influência",
@@ -109,7 +109,7 @@ const serviceInsights: Record<Category, Insight> = {
   }
 };
 
-function PortifólioPage() {
+function PortfolioPage() {
   const revealRef = useScrollReveal<HTMLDivElement>();
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -288,8 +288,8 @@ function PortifólioPage() {
                     </Link>
                   )}
                   {!currentInsight && (
-                    <Link to="/servicos" className="btn btn-primary">
-                      Conhecer serviços <Plus size={16} className="ml-2" />
+                    <Link to="/metodos" className="btn btn-primary">
+                      Conhecer métodos <Plus size={16} className="ml-2" />
                     </Link>
                   )}
                 </div>
@@ -302,4 +302,4 @@ function PortifólioPage() {
   );
 }
 
-export default PortifólioPage;
+export default PortfolioPage;

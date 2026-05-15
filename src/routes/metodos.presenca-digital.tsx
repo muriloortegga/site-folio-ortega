@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Plus, ArrowRight, Zap } from "lucide-react";
 
-export const Route = createFileRoute("/servicos/presenca-digital")({
+export const Route = createFileRoute("/metodos/presenca-digital")({
   head: () => ({
     meta: [
       { title: "Presença Digital — Murilo Ortega" },

@@ -66,7 +66,7 @@ const projects: Project[] = [
   { name: "Kmillion", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/websites/kmillion.gif", to: "/kmillion", search: { service: "websites" } },
 
   // Marketing de Influência
-  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/evidive/thumbs/influencia.jpg", to: "/evidive", search: { service: "influencia" } },
+  { name: "Evidive", category: "Marketing de Influência", year: "2024", image: "/assets/projects/thumbnails/influencia/evidive.gif", to: "/evidive", search: { service: "influencia" } },
 ];
 
 const serviceInsights: Record<Category, Insight> = {
@@ -224,7 +224,7 @@ function PortifólioPage() {
                             <ProjectMedia
                               src={project.image}
                               alt={project.name}
-                              playGifOnHover={activeCategory === "Websites"}
+                              playGifOnHover={activeCategory === "Websites" || activeCategory === "Marketing de Influência"}
                               className={cn(
                                 "w-full h-full transition-all duration-700 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105",
                                 activeCategory === "Websites" ? "" : "object-cover",

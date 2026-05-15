@@ -17,11 +17,11 @@ function Counter({ target, label, suffix = "" }: { target: number; label: string
   }, [isInView, spring, target]);
 
   return (
-    <div ref={ref} className="text-left py-6 md:py-8">
-      <motion.span className="text-[15vw] md:text-[8vw] font-bold tracking-tighter block leading-none text-current">
+    <div ref={ref} className="text-left py-4 md:py-6">
+      <motion.span className="text-[12vw] md:text-[6vw] font-bold tracking-tighter block leading-none text-current">
         <motion.span>{display}</motion.span>{suffix}
       </motion.span>
-      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-secondary mt-1 block">{label}</span>
+      <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-current opacity-70 mt-2 block">{label}</span>
     </div>
   );
 }
@@ -44,26 +44,26 @@ export function PerformanceHero({
   accentColor?: string;
 }) {
   return (
-    <section className="min-h-[80vh] w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-16 md:py-24">
+    <section className="min-h-[70vh] w-full flex flex-col justify-center site-section border-none bg-background overflow-hidden py-12 md:py-20">
       <div className="site-container grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
-        <div className="lg:col-span-4 z-10 order-2 lg:order-1">
+        <div className="lg:col-span-5 z-10 order-2 lg:order-1">
           <div style={accentColor ? { color: accentColor } : {}}>
             <Counter target={followers} label={followersLabel} />
           </div>
           {contentCount !== undefined && (
-            <div className="mt-[-1rem] md:mt-[-2rem]">
+            <div className="mt-[-1rem] md:mt-[-1.5rem]" style={accentColor ? { color: accentColor } : {}}>
               <Counter target={contentCount} label={contentLabel} suffix="+" />
             </div>
           )}
         </div>
         
-        <div className="lg:col-span-8 relative h-auto flex items-center justify-center lg:justify-end order-1 lg:order-2">
+        <div className="lg:col-span-7 relative h-auto flex items-center justify-center lg:justify-end order-1 lg:order-2">
           <motion.div 
             initial={{ x: 30, opacity: 0, scale: 0.95 }}
             whileInView={{ x: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="w-full md:w-[110%] relative lg:-right-[5%]"
+            className="w-full relative"
           >
              <ProjectMedia src={mockupImg} alt="Performance Mockup" className="w-full h-auto drop-shadow-xl rounded-xl" />
           </motion.div>
@@ -95,24 +95,24 @@ export function CopyFeature({
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
     <section 
       ref={containerRef}
-      className="site-section min-h-[90vh] flex flex-col justify-center overflow-hidden relative py-24"
+      className="site-section flex flex-col justify-center overflow-hidden relative py-16 md:py-24"
       style={{ backgroundColor: !bgImage ? accentColor : 'transparent' }}
     >
       {bgImage && (
         <div className="absolute inset-0 z-0">
-          <ProjectMedia src={bgImage} alt="Background Texture" className="opacity-30" />
-          <div className="absolute inset-0 bg-black/50" />
+          <ProjectMedia src={bgImage} alt="Background Texture" className="opacity-30 object-cover w-full h-full" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
       )}
 
       <div className="site-container relative z-10">
         <motion.h2 
-          className="text-white text-4xl md:text-7xl font-bold uppercase leading-[0.95] tracking-tighter mb-16 max-w-4xl"
+          className="text-white text-3xl md:text-5xl font-bold uppercase leading-[1.1] tracking-tighter mb-10 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -120,29 +120,21 @@ export function CopyFeature({
           {headline}
         </motion.h2>
 
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <motion.div 
             style={{ y }}
-            className="w-full md:w-[65%] relative"
+            className="w-full md:w-[60%] relative"
           >
-            <ProjectMedia src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl rounded-2xl" />
+            <ProjectMedia src={mockupImg} alt="Copy Showcase" className="w-full h-auto drop-shadow-2xl rounded-xl" />
           </motion.div>
 
           {contentCount !== undefined && (
-            <div className="flex-shrink-0">
-               <div className="p-px rounded-3xl bg-white/10 backdrop-blur-sm border border-white/10">
-                 <div className="bg-black/20 p-8 md:p-12 rounded-[22px]">
-                   <Counter target={contentCount} label={contentLabel} suffix="+" />
-                 </div>
+            <div className="flex-shrink-0 text-white w-full md:w-auto">
+               <div className="py-6 border-t border-b border-white/20 md:border-none md:py-0">
+                 <Counter target={contentCount} label={contentLabel} suffix="+" />
                </div>
             </div>
           )}
-        </div>
-
-        <div className="mt-32 border-t border-white/10 pt-8">
-          <p className="text-white/40 font-mono text-[10px] uppercase tracking-widest">
-            Conteúdo denso, humano e focado em conversão.
-          </p>
         </div>
       </div>
     </section>
@@ -415,14 +407,14 @@ export function ReelsShowcase({
   subheadline: string;
 }) {
   return (
-    <section className="site-section bg-background overflow-hidden border-none pt-24 pb-32">
+    <section className="site-section bg-background overflow-hidden border-none pt-16 pb-24 md:pt-20 md:pb-32">
       <div className="site-container">
-        <div className="max-w-4xl mb-20">
+        <div className="max-w-3xl mb-12 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-[0.95] mb-6"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tighter leading-[0.95] mb-4"
           >
             {headline}
           </motion.h2>
@@ -431,21 +423,20 @@ export function ReelsShowcase({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-base md:text-lg text-secondary uppercase font-medium leading-tight max-w-2xl"
+            className="text-sm md:text-base text-secondary uppercase font-medium leading-relaxed max-w-xl"
           >
             {subheadline}
           </motion.p>
         </div>
 
-        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-4 gap-6 items-start px-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6">
           {videos.map((video, i) => (
-            <div key={i} className="flex-none w-[70vw] md:w-auto snap-center">
-              <VideoCard 
-                video={video} 
-                className="w-full" 
-                delay={i * 0.1}
-              />
-            </div>
+            <VideoCard 
+              key={i} 
+              video={video} 
+              className="w-full" 
+              delay={i * 0.1}
+            />
           ))}
         </div>
       </div>

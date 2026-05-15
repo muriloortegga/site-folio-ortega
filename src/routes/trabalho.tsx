@@ -58,7 +58,7 @@ const projects: Project[] = [
   { name: "Livin Company", category: "Mídia Impressa", year: "2023", image: "/assets/projects/livin/print/1.jpg", to: "/livin" },
   
   // Mídia OOH
-  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/maxi/ooh/1.jpg", to: "/maxi", search: { service: "ooh" } },
+  { name: "Colégio Maxi", category: "Mídia OOH", year: "2023", image: "/assets/projects/maxi/ooh/2.jpg", to: "/maxi", search: { service: "ooh" } },
 
   // Websites
   { name: "NaTrave", category: "Websites", year: "2024", image: "/assets/projects/thumbnails/websites/natrave.gif", to: "/natrave", search: { service: "websites" } },

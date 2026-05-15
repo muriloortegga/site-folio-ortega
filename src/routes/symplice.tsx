@@ -64,7 +64,7 @@ function ProjetoSymplice() {
                 </div>
              </div>
              <div className="w-full h-full overflow-y-auto no-scrollbar scroll-smooth">
-                <img src="/hero-brandding.jpg" alt="Symplice Branding Showcase" className="w-full h-auto" />
+                <img src="/assets/projects/symplice/marca/projeto-completo.jpg" alt="Symplice Branding Showcase" className="w-full h-auto" />
              </div>
            </div>
         </div>
@@ -84,7 +84,7 @@ function ProjetoSymplice() {
           </div>
           <div>
             <img 
-              src="/hero-brandding.jpg" 
+              src="/assets/projects/symplice/marca/projeto-completo.jpg" 
               alt="Symplice Full Presentation" 
               className="w-full h-auto shadow-2xl"
             />

@@ -286,11 +286,11 @@ function MethodsSection() {
 
   const methods = [
     { slug: "estruturacao-de-marca", title: "Estrutura de Marca", preview: "Construção de identidades visuais e estratégias que elevam o valor percebido do seu negócio." },
-    { slug: "marketing-de-influencia", title: "Expansão de Marca", preview: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica." },
-    { slug: "presenca-digital", title: "Conversão de Marca", preview: "Sites e interfaces que organizam a comunicação e facilitam a conversão, elevando o digital." },
-    { slug: "midia-ooh", title: "Percepção de Marca", preview: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual." },
     { slug: "sistema-de-conteudo", title: "Comunicação de Marca", preview: "Linha editorial e narrativa que transforma sua presença digital em autoridade contínua." },
-    { slug: "midia-impressa", title: "Autoridade de marca", preview: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real." }
+    { slug: "presenca-digital", title: "Conversão de Marca", preview: "Sites e interfaces que organizam a comunicação e facilitam a conversão, elevando o digital." },
+    { slug: "midia-impressa", title: "Autoridade de marca", preview: "Papelaria e materiais físicos que tangibilizam a qualidade da sua marca no mundo real." },
+    { slug: "midia-ooh", title: "Percepção de Marca", preview: "Campanhas externas e sinalização que dominam a paisagem urbana com impacto visual." },
+    { slug: "marketing-de-influencia", title: "Expansão de Marca", preview: "Conectando sua marca com creators que geram confiança e expandem seu alcance de forma autêntica." }
   ];
 
   return (

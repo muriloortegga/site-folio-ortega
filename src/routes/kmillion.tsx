@@ -83,9 +83,9 @@ function ProjetoKmillion() {
       {activeService === "websites" && (
         <div className="anim-fade-in">
           <WebsiteScrollShowcase 
-            title="Website Kmillion"
-            description="Landing page de alta conversão focada em resultados e autoridade. Design limpo que direciona a atenção do usuário para o ecossistema de inteligência promocional."
-            mediaSrc="/assets/projects/kmillion/website-scroll.gif"
+            title="O Site"
+            description="Assumi a criação de copywriting e web design da página. Baseado no brandbook, criei uma interface limpa, focada em resultados e autoridade, que direciona a atenção do usuário perfeitamente."
+            mediaSrc="/assets/projects/thumbnails/websites/kmillion.gif"
           />
         </div>
       )}

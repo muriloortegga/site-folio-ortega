@@ -152,9 +152,9 @@ function ProjetoNaTrave() {
       {activeService === "websites" && (
         <div className="anim-fade-in">
           <WebsiteScrollShowcase 
-            title="A Plataforma"
-            description="Desenvolvimento de plataforma focada em performance e comunidade para o futebol amador. Interfaces limpas e foco total na experiência do atleta."
-            mediaSrc="/natrave-preview.gif"
+            title="O Site"
+            description="Para a plataforma do NaTrave, desenvolvi toda a parte de copywriting e design de interface. A identidade visual seguiu rigorosamente o brandbook, garantindo uma experiência coesa, intuitiva e focada na performance da comunidade."
+            mediaSrc="/assets/projects/thumbnails/websites/natrave.gif"
           />
         </div>
       )}

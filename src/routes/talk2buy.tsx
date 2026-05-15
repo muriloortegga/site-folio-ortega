@@ -103,9 +103,9 @@ function ProjetoTalk2Buy() {
       {activeService === "websites" && (
         <div className="anim-fade-in">
           <WebsiteScrollShowcase 
-            title="A Plataforma"
-            description="Desenvolvimento de plataforma focada em conversão, traduzindo a complexidade de vendas autônomas em uma experiência fluida e moderna."
-            mediaSrc="/assets/projects/talk2buy/website-scroll.gif"
+            title="O Site"
+            description="Fui responsável pelo copywriting, design de interface e adequação da identidade visual ao projeto web. O objetivo foi traduzir a complexidade de vendas autônomas em uma landing page fluida, limpa e de alta conversão."
+            mediaSrc="/assets/projects/thumbnails/websites/talk2buy.gif"
           />
         </div>
       )}
